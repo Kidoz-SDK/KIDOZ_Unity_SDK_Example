@@ -1,0 +1,26 @@
+<resources xmlns:tools="http://schemas.android.com/tools"
+           tools:shrinkMode="strict">
+    <string name="app_name">KidozSDK</string>
+
+    <string name="InitPlayerError">There was an error initializing the YouTubePlayer (%1$s)</string>
+    <string name="TopBarTitle">Video Player</string>
+    <string name="VideoPlayerRelatedContentLabel">More?</string>
+
+    <!-- Parental Lock Dialog -->
+    <string name="ParentalLockDialogTitleActivate">Activate\nParental Lock?</string>
+    <string name="ParentalLockDialogTitleDeActivate">Deactivate\nParental Lock?</string>
+    <string name="ParentalLockDialogTitleForGooglePlay">Parental Lock</string>
+    <string name="ParentalLockDialogMessageParentalLockActivation" formatted="false">To block external links tap %s and then %s</string>
+    <string name="ParentalLockDialogMessageParentalLockDeactivation" formatted="false">To enable external links tap %s and then %s</string>
+    <string name="ParentalLockDialogMessageGooglePlayGate" formatted="false">Tap %s and then %s to access content</string>
+    <string name="ParentalLockDialogWrongSelection">Wrong selection&#8230;</string>
+    <string name="ParentalLockDialogWrongSelectionTryAgain">TRY AGAIN</string>
+    <string name="ParentalLockDialogLockStatus">Parental lock is now&#160;</string>
+    <string name="ParentalLockDialogLockStatusOn">ON</string>
+    <string name="ParentalLockDialogLockStatusOff">OFF</string>
+    <string name="ParentalLockDialogLockActivate">ACTIVATE</string>
+    <string name="ParentalLockDialogLockDeactivate">DEACTIVATE</string>
+
+    <!-- Feed View On Boarding -->
+    <string name="FeedViewOnBoardingCloudText">Surprise!\nWe found cool videos \n&amp; games for you</string>
+</resources>

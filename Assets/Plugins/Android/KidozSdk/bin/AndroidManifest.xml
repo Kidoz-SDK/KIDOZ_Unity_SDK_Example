@@ -1,0 +1,42 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.kidoz.sdk.api">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+
+    <application>
+        <activity
+            android:name="com.kidoz.sdk.api.players.video_player.YouTubePlayerActivity"
+            android:configChanges="screenLayout|screenSize|orientation|keyboard"
+            android:excludeFromRecents="true"
+            android:launchMode="singleTop"
+            android:screenOrientation="sensor"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar.Fullscreen">
+
+        </activity>
+
+        <!-- SDK Install receiver -->
+        <receiver android:name="com.kidoz.sdk.api.receivers.SdkReceiver">
+
+            <intent-filter>
+                <action android:name="android.intent.action.PACKAGE_ADDED" />
+                <data android:scheme="package" />
+            </intent-filter>
+        </receiver>
+
+        <!-- SDK event analytics -->
+        <receiver android:name="com.kidoz.events.SyncReciever">
+            <!-- <intent-filter>
+                 <action android:name="android.net.ConnectivityManager.CONNECTIVITY_ACTION" />
+                 <action android:name="android.net.wifi.STATE_CHANGE" />
+             </intent-filter>-->
+        </receiver>
+        <service
+            android:name="com.kidoz.events.SyncEventService"
+            android:enabled="true"
+            android:process=":syncLEV">
+
+        </service>
+    </application>
+
+</manifest>
