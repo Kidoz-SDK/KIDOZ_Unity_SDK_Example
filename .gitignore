@@ -1,8 +1,8 @@
-/Library/
-/Temp/
-/Assembly-CSharp.csproj
-/FirstProject.sln
-/FirstProject.userprefs
-/*.apk
-/sdk.sln
-/sdk.userprefs
+/KIDOZ_Unity_Sample/Library/
+/KIDOZ_Unity_Sample/Temp/
+/KIDOZ_Unity_Sample/Assembly-CSharp.csproj
+/KIDOZ_Unity_Sample/FirstProject.sln
+/KIDOZ_Unity_Sample/FirstProject.userprefs
+/KIDOZ_Unity_Sample/*.apk
+/KIDOZ_Unity_Sample/sdk.sln
+/KIDOZ_Unity_Sample/sdk.userprefs
