@@ -10,7 +10,7 @@ namespace KidozSDK {
 
 	public class Kidoz: MonoBehaviour {
 
-
+		
 		public const int NO_GAME_OBJECT = -1;
 		public const int PLATFORM_NOT_SUPPORTED = -2;
 
