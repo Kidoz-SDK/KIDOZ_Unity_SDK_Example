@@ -30,7 +30,9 @@ KIDOZ SDK - Getting Started
 3. Open your requested Scene. 
 4. Drag the `KidozObject` into the selected scene.
 5. Select the `KidozObject` and fill your `Publisher ID` and `Security Token`
-
+<br>
+<a href="url"><img src="http://d28lrrc51wcjkk.cloudfront.net/sdk/Unity_SDK_Publisher_Security_Token.png" align="center" height="250" width="400" ></a>
+</br>
 ####Using the SDK
 1. Select your relevant script file.
 2. Add ```using KidozSDK;``` in the using section of your code.
