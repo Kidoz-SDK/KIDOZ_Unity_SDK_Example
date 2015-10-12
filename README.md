@@ -25,173 +25,22 @@ The example application contains the following creative tools:
 KIDOZ SDK - Getting Started
 =================================
 
-1. Include the `KIDOZ SDK` library inside your project
-2. Init the SDK
-3. Add `KIDOZ Feed View Button` to your `Main Activity`
+1. Import the `KidozSDK` Unity package. `Assets` --> `Import Package` --> `Custom Package` --> select the extracted KidozSDK package.
+2. In the import window select all components. A new Prefabs object named `KidozObject` will appear in the assets folder. 
+3. Open your requested Scene. 
+4. Drag the `KidozObject` into the selected scene.
+5. Select the `KidozObject` and fill your `Publisher ID` and `Security Token`
 
-Once the above 3 steps are correctly done the `Feed View` will be launched when the `Feed Button` is clicked.
+####Using the SDK
+1. Select your relevant script file.
+2. Add ```using KidozSDK;``` in the using section of your code.
+3. Create two listeners with the following signature </br>```void functionName(String)``` </br>One for Feed open and one for Feed close.
+4. Connect the two listeners function you created to  ```Kidoz.viewOpened``` and to ```Kidoz.viewClosed```
 
-####Include the library
-On android studio you can include the library directly in your Gradle project:
+###Adding Feed View Button
+There are two functions that can be used to add a feed button:
+1. ```Kidoz.addFeedButton(int xPos, int yPos)``` which will place Kidoz top left corner button at the selected coordinates. The button size can be found using the following message. ```Kidoz.getFeedButtonDefaultSize()``` which will return an int number which represent the width and height of the button.
 
- - 	Add the following line to your app's module `build.gradle` `dependencies` section:
-```gradle
-dependencies {
-	// your app's other dependencies
-	compile 'com.kidoz.sdk:KidozSDK:0.1.3'
-}
-``` 
-####Initializing the SDK
-The SDK should be initialized only once. 
-When initializing the SDK, please make sure to use your given `publisherID` and `securityToken`, which can be retrieve by contacting with SDK@kidoz.net.
-If your project extends `Application` you can initialized the SDK inside Application's onCreate otherwise initialized it inside your Main Activity's onCreate.
-
- - 	Inside your `Application` onCreate add the following line:
-
-> YourApplication.java
-
-```java
-public class MyApplication extends Application{
-   	@Override 
-	protected void onCreate(Bundle savedInstanceState)
-	{
-		super.onCreate();
-		KidozSDK.initialize(this, "publisherID", "securityToken");
-		//the rest of your application onCreate
-	}
-    ...
-}
-```
- - Inside your `Main Activity` onCreate add the following line:
-
-> MainActivity.java
-
-```java
-@Override 
-protected void onCreate(Bundle savedInstanceState)
-{
-	super.onCreate(savedInstanceState);
-	KidozSDK.initialize(getApplicationContext(), "publisherID", "securityToken");
-	//the rest of your main activity onCreate
-	...
-}
-```
-
-####Adding the KIDOZ Feed Button
-You can add the `Feed Button` to your layout xml file or create a new instance programmatically.
-
- - 	Add `FeedButton` directly inside xml:
- 
-> main_activity_layout.xml
-
-```xml
-	<com.kidoz.sdk.api.FeedButton
-		android:id="@+id/kidozBtn_view"
-		android:layout_width="wrap_content"
-		android:layout_height="wrap_content">
-	</com.kidoz.sdk.api.KidozButtonView>
-```
-
- - 	Add `FeedButton` programmatically:
-  	
- 
-> MainActivity.java
-
-```java
-FeedButton mFeedButton = new FeedButton(MainActivity.this);
-yourViewGroup.addView(mFeedButton);
-```
-
-- You can change Feed button size on runtime by using:
-```java
- mFeedButton.setFeedButtonSize(200);
-```
-
-For advanced use of the `Feed View` you can get a reference to `FeedView` by calling this method on the `FeedButton` reference:
-
-```java
-FeedView mFeedView = mFeedButton.getFeedView();
-```
-Refer to the next section for a better look on `FeedView` and how you can call it without using a button from within your own code.
-
-#Calling the Feed View Programmatically
-####Creating an instance of the `Feed View`
- - 	Inside your `Activity` or `Fragment` create an instance of `FeedView` by adding the following lines:
-
-```java
-FeedView mFeed = new FeedView.Builder(MainActivity.this).build();
-```
-
-You can implement `IOnFeedViewEventListener` interface if you want to be informed when the `FeedView` is dismissed and/or about to be open by adding the following lines:
-
-```java
-mFeedView.setOnFeedViewEventListener(new IOnFeedViewEventListener()
-{
-	@Override public void onDismissView()
-	{
-		// Will be called when the FeedView is closed
-		// This is a good time to resume your game
-	}
-	
-	@Override public void onReadyToShow()
-	{
-		// Will be called when the FeedView is about to open
-		// This is a good time to pause your game
-	}
-});
-```
-
- - 	Your `Main Activity` should be now look similar to this:
-
-> MainActivity.java
-
-```java
-public class MainActivity extends FragmentActivity
-{
-	//Feed View reference
-	private FeedView mFeedView;
-	
-	@Override 
-	protected void onCreate(Bundle savedInstanceState)
-	{
-		super.onCreate(savedInstanceState);
-		KidozSDK.initialize(getApplicationContext(), "publisherID", "securityToken");
-		// For a cleaner code init the FeedView in a saperated method
-		initFeedView();
-		//the rest of your main activity onCreate
-		...
-	}
-	
-	private void initFeedView()
-	{
-		mFeedView = new FeedView.Builder(MainActivity.this).build();
-		mFeedView.setOnFeedViewEventListener(new IOnFeedViewEventListener()
-		{
-			@Override public void onDismissView()
-			{
-				// Will be called when the FeedView is closed
-				// This is a good time to resume your game
-			}
-		
-			@Override public void onReadyToShow()
-			{
-				// Will be called when the FeedView is about to open
-				// This is a good time to pause your game
-			}
-		});
-	}
-}
-```
-
-####Launching the Feed View
-The `Feed View` can be launched by calling the method `showView` on the `FeedView` instance:
-```java
-mFeedView.showView();
-```
-
-You can call the `showView` method from anywhere inside your `Main Activity` depends on your app's flow, For example: when a game is stopped or when a user clicks a button.
-
-It's recommended to use KIDOZ's default button - the `Feed Button` which is a custom animatable button.
 
 For any question or assistance, please contact us at SDK@kidoz.net.
 </br>
