@@ -25,6 +25,17 @@ The example application contains the following creative tools:
 KIDOZ SDK - Getting Started
 =================================
 
+####IMPORTANT
+This demo application uses `buildToolsVersion "22.0.1"`. if your `Android Studio` is not updated with this version you can follow one of this steps (or both):
+
+ - 	Update `buildToolsVersion`
+
+1. Inside `Android Studio` click the `SDK Manager` icon
+2. In the left side menu, navigate to `Appearance & Behavior` --> `System Settings` --> `Android SDK`
+3. Click the `SDK Tools` tab
+4. Check the `Android SDK Build Tools` and click `OK` 
+
+
 1. Import the `KidozSDK` Unity package. `Assets` --> `Import Package` --> `Custom Package` --> select the extracted KidozSDK package.
 2. In the import window select all components. A new Prefabs object named `KidozObject` will appear in the assets folder. 
 3. Open your requested Scene. 
