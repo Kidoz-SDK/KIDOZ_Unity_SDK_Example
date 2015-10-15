@@ -54,7 +54,9 @@ This demo application uses `buildToolsVersion "22.0.1"`. if your `Android Studio
 There are two basic functions that can be used to add a feed button:<br>
 1. ```Kidoz.addFeedButton(int xPos, int yPos)``` which will place Kidoz top left corner button at the selected coordinates. The button size can be found using the following message. ```Kidoz.getFeedButtonDefaultSize()``` which will return an int number which represent the width and height of the button.
 </br>
-2. ```Kidoz.addFeedButton(int xPos, int yPos, int size)``` which will place Kidoz top left corner button at the selected coordinates with the requested size. The same size applays for both the width and height of the button.
+2. ```Kidoz.addFeedButton(int xPos, int yPos, int size)``` which will place Kidoz top left corner button at the selected coordinates with the requested size. The same size apply for both the width and height of the button.
+
+The visibilty of the button can be controlled by the following function: ```Kidoz.changeFeedButtonVisibility(visible)```
 
 ###Manual showing Feed View
 Incase the feed view should be displayed programmatically or using custom button the function that should be called is:
