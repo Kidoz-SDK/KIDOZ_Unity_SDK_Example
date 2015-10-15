@@ -51,8 +51,8 @@ This demo application uses `buildToolsVersion "22.0.1"`. if your `Android Studio
 4. Connect the two listeners function you created to  ```Kidoz.viewOpened``` and to ```Kidoz.viewClosed```
 
 ###Adding Feed View Button
-There are two basic functions that can be used to add a feed button:
-1. ```Kidoz.addFeedButton(int xPos, int yPos)``` which will place Kidoz top left corner button at the selected coordinates. The button size can be found using the following message. ```Kidoz.getFeedButtonDefaultSize()``` which will return an int number which represent the width and height of the button.</br>
+There are two basic functions that can be used to add a feed button:<br>
+1. ```Kidoz.addFeedButton(int xPos, int yPos)``` which will place Kidoz top left corner button at the selected coordinates. The button size can be found using the following message. ```Kidoz.getFeedButtonDefaultSize()``` which will return an int number which represent the width and height of the button.
 2. ```Kidoz.addFeedButton(int xPos, int yPos, int size)``` which will place Kidoz top left corner button at the selected coordinates with the requested size. The same size applays for both the width and height of the button.
 
 ###Manual showing Feed View
