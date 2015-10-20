@@ -60,7 +60,7 @@ The visibilty of the button can be controlled by the following function: ```Kido
 
 ###Manual showing Feed View
 Incase the feed view should be displayed programmatically or using custom button the function that should be called is:
-```Kidoz.showFeedView()``` to close the feed view call ```Kidoz.didmiddFeedView```
+```Kidoz.showFeedView()``` to close the feed view call ```Kidoz.dismissFeedView```
 
 
 
