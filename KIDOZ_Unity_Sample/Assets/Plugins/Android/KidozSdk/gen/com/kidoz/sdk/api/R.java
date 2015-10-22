@@ -9,11 +9,23 @@ package com.kidoz.sdk.api;
 
 public final class R {
     public static final class attr {
-        /** <p>May be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
-or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
-<p>May be a string value, using '\\;' to escape characters such as '\\n' or '\\uxxxx' for a unicode character.
+        /**  Class name of the Layout Manager to be used.
+        <p/>
+        The class must extend android.support.v7.widget.RecyclerView$LayoutManager
+        and have either a default constructor or constructor with the signature
+        (android.content.Context, android.util.AttributeSet, int, int).
+         <p/>
+         If the name starts with a '.', application package is prefixed.
+         Else, if the name contains a '.', the classname is assumed to be a full class name.
+         Else, the recycler view package name (android.support.v7.widget) is prefixed. 
+         <p>Must be a string value, using '\\;' to escape characters such as '\\n' or '\\uxxxx' for a unicode character.
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
          */
-        public static int gifSource=0x7f010000;
+        public static int layoutManager=0x7f010000;
         /** <p>Must be a boolean value, either "<code>true</code>" or "<code>false</code>".
 <p>This may also be a reference to a resource (in the form
 "<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
@@ -21,62 +33,91 @@ theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
          */
-        public static int isOpaque=0x7f010001;
+        public static int reverseLayout=0x7f010002;
+        /** <p>Must be an integer value, such as "<code>100</code>".
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+         */
+        public static int spanCount=0x7f010001;
+        /** <p>Must be a boolean value, either "<code>true</code>" or "<code>false</code>".
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+         */
+        public static int stackFromEnd=0x7f010003;
     }
-    public static final class string {
-        /**  Feed View On Boarding 
+    public static final class dimen {
+        /**  The max amount of scroll ItemTouchHelper will trigger if dragged view is out of
+    RecyclerView's bounds.
          */
-        public static int FeedViewOnBoardingCloudText=0x7f020011;
-        public static int InitPlayerError=0x7f020001;
-        public static int ParentalLockDialogLockActivate=0x7f02000f;
-        public static int ParentalLockDialogLockDeactivate=0x7f020010;
-        public static int ParentalLockDialogLockStatus=0x7f02000c;
-        public static int ParentalLockDialogLockStatusOff=0x7f02000e;
-        public static int ParentalLockDialogLockStatusOn=0x7f02000d;
-        public static int ParentalLockDialogMessageGooglePlayGate=0x7f020009;
-        public static int ParentalLockDialogMessageParentalLockActivation=0x7f020007;
-        public static int ParentalLockDialogMessageParentalLockDeactivation=0x7f020008;
-        /**  Parental Lock Dialog 
+        public static int item_touch_helper_max_drag_scroll_per_frame=0x7f020000;
+    }
+    public static final class id {
+        /**  ItemTouchHelper uses this id to save a View's original elevation. 
          */
-        public static int ParentalLockDialogTitleActivate=0x7f020004;
-        public static int ParentalLockDialogTitleDeActivate=0x7f020005;
-        public static int ParentalLockDialogTitleForGooglePlay=0x7f020006;
-        public static int ParentalLockDialogWrongSelection=0x7f02000a;
-        public static int ParentalLockDialogWrongSelectionTryAgain=0x7f02000b;
-        public static int TopBarTitle=0x7f020002;
-        public static int VideoPlayerRelatedContentLabel=0x7f020003;
-        public static int app_name=0x7f020000;
+        public static int item_touch_helper_previous_elevation=0x7f030000;
     }
     public static final class styleable {
-        /**  Gif texture view stylable declarations  
+        /** Attributes that can be used with a RecyclerView.
            <p>Includes the following attributes:</p>
            <table>
            <colgroup align="left" />
            <colgroup align="left" />
            <tr><th>Attribute</th><th>Description</th></tr>
-           <tr><td><code>{@link #GifTextureView_gifSource com.kidoz.sdk.api:gifSource}</code></td><td></td></tr>
-           <tr><td><code>{@link #GifTextureView_isOpaque com.kidoz.sdk.api:isOpaque}</code></td><td></td></tr>
+           <tr><td><code>{@link #RecyclerView_android_orientation android:orientation}</code></td><td></td></tr>
+           <tr><td><code>{@link #RecyclerView_layoutManager com.kidoz.sdk.api:layoutManager}</code></td><td> Class name of the Layout Manager to be used.</td></tr>
+           <tr><td><code>{@link #RecyclerView_reverseLayout com.kidoz.sdk.api:reverseLayout}</code></td><td></td></tr>
+           <tr><td><code>{@link #RecyclerView_spanCount com.kidoz.sdk.api:spanCount}</code></td><td></td></tr>
+           <tr><td><code>{@link #RecyclerView_stackFromEnd com.kidoz.sdk.api:stackFromEnd}</code></td><td></td></tr>
            </table>
-           @see #GifTextureView_gifSource
-           @see #GifTextureView_isOpaque
+           @see #RecyclerView_android_orientation
+           @see #RecyclerView_layoutManager
+           @see #RecyclerView_reverseLayout
+           @see #RecyclerView_spanCount
+           @see #RecyclerView_stackFromEnd
          */
-        public static final int[] GifTextureView = {
-            0x7f010000, 0x7f010001
+        public static final int[] RecyclerView = {
+            0x010100c4, 0x7f010000, 0x7f010001, 0x7f010002,
+            0x7f010003
         };
         /**
-          <p>This symbol is the offset where the {@link com.kidoz.sdk.api.R.attr#gifSource}
-          attribute's value can be found in the {@link #GifTextureView} array.
-
-
-          <p>May be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
-or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
-<p>May be a string value, using '\\;' to escape characters such as '\\n' or '\\uxxxx' for a unicode character.
-          @attr name com.kidoz.sdk.api:gifSource
+          <p>This symbol is the offset where the {@link android.R.attr#orientation}
+          attribute's value can be found in the {@link #RecyclerView} array.
+          @attr name android:orientation
         */
-        public static int GifTextureView_gifSource = 0;
+        public static int RecyclerView_android_orientation = 0;
         /**
-          <p>This symbol is the offset where the {@link com.kidoz.sdk.api.R.attr#isOpaque}
-          attribute's value can be found in the {@link #GifTextureView} array.
+          <p>
+          @attr description
+           Class name of the Layout Manager to be used.
+        <p/>
+        The class must extend android.support.v7.widget.RecyclerView$LayoutManager
+        and have either a default constructor or constructor with the signature
+        (android.content.Context, android.util.AttributeSet, int, int).
+         <p/>
+         If the name starts with a '.', application package is prefixed.
+         Else, if the name contains a '.', the classname is assumed to be a full class name.
+         Else, the recycler view package name (android.support.v7.widget) is prefixed. 
+
+
+          <p>Must be a string value, using '\\;' to escape characters such as '\\n' or '\\uxxxx' for a unicode character.
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+          <p>This is a private symbol.
+          @attr name com.kidoz.sdk.api:layoutManager
+        */
+        public static int RecyclerView_layoutManager = 1;
+        /**
+          <p>This symbol is the offset where the {@link com.kidoz.sdk.api.R.attr#reverseLayout}
+          attribute's value can be found in the {@link #RecyclerView} array.
 
 
           <p>Must be a boolean value, either "<code>true</code>" or "<code>false</code>".
@@ -85,8 +126,36 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
 theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
-          @attr name com.kidoz.sdk.api:isOpaque
+          @attr name com.kidoz.sdk.api:reverseLayout
         */
-        public static int GifTextureView_isOpaque = 1;
+        public static int RecyclerView_reverseLayout = 3;
+        /**
+          <p>This symbol is the offset where the {@link com.kidoz.sdk.api.R.attr#spanCount}
+          attribute's value can be found in the {@link #RecyclerView} array.
+
+
+          <p>Must be an integer value, such as "<code>100</code>".
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+          @attr name com.kidoz.sdk.api:spanCount
+        */
+        public static int RecyclerView_spanCount = 2;
+        /**
+          <p>This symbol is the offset where the {@link com.kidoz.sdk.api.R.attr#stackFromEnd}
+          attribute's value can be found in the {@link #RecyclerView} array.
+
+
+          <p>Must be a boolean value, either "<code>true</code>" or "<code>false</code>".
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+          @attr name com.kidoz.sdk.api:stackFromEnd
+        */
+        public static int RecyclerView_stackFromEnd = 4;
     };
 }

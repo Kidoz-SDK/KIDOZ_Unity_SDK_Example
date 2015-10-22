@@ -1,5 +1,7 @@
 ﻿using UnityEngine;
+#if UNITY_4_6 || UNITY_5
 using UnityEngine.EventSystems;
+#endif
 using System;
 using System.Collections;
 
@@ -10,14 +12,14 @@ namespace KidozSDK {
 
 	public class Kidoz: MonoBehaviour {
 
-		
+
 		public const int NO_GAME_OBJECT = -1;
 		public const int PLATFORM_NOT_SUPPORTED = -2;
-
+#if UNITY_4_6 || UNITY_5
 		public static event Action<string> viewOpened;
 
 		public static event Action<string> viewClosed;
-
+#endif
 		public string PublisherID;
 		public string SecurityToken;
 
@@ -25,7 +27,7 @@ namespace KidozSDK {
 
 
 
-#if UNITY_ANDROID
+#if UNITY_ANDROID && !UNITY_EDITOR
 		private static AndroidJavaObject kidozBridgeObject = null;
 		private AndroidJavaObject activityContext = null;
 
@@ -77,20 +79,6 @@ namespace KidozSDK {
 			return 0;
 		}
 
-		// Description: Remove the feedview btton from memory
-		// Parameters: 
-		// 		N/A
-		// return:
-		//		0 	- the function worked correctly
-		//		NO_GAME_OBJECT	- there is no Kidoz gameobject 
-		public static int removeFeedButton()
-		{
-			if (instance == null) {
-				return NO_GAME_OBJECT;
-			}
-			kidozBridgeObject.Call("removeFeedButton");
-			return 0;
-		}
 		// Description: Change the feed button visibility 
 		// Parameters: 
 		// 		bool visible - true the button will appear. false the button will be hidden
@@ -153,15 +141,20 @@ namespace KidozSDK {
 		}
 
 		private  void showCallBack(string message){
+#if UNITY_4_6 || UNITY_5
 			if (viewOpened != null) {
+
 				viewOpened(message);
 			}
+#endif
 		}
 		
 		private void closeCallBack(string message){
+#if UNITY_4_6 || UNITY_5
 			if (viewClosed != null) {
 				viewClosed(message);
 			}
+#endif
 		} 
 
 		public AndroidJavaObject getContext(){
@@ -186,6 +179,7 @@ namespace KidozSDK {
 				//init the Kidoz SDK
 				using (var pluginSDKClass = new AndroidJavaClass("com.kidoz.sdk.api.KidozSDK")) {
 					pluginSDKClass.CallStatic("initialize",new object[] { activityContext, PublisherID, SecurityToken}); 
+
 				}
 
 				//init Kidoz SDK API module
@@ -193,6 +187,7 @@ namespace KidozSDK {
 					kidozBridgeObject = kidozBridgeClass.CallStatic<AndroidJavaObject>("getInstance",activityContext);
 
 					kidozBridgeObject.Call("setFeedViewEventListeners", this.gameObject.name,"showCallBack","closeCallBack");
+
 
 				}
 
