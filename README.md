@@ -1,7 +1,6 @@
-**KIDOZ SDK and the sample App is compatible with Android 4.0 (API level 14) and above.**
-
 KIDOZ Unity SDK Sample App
 =================================
+**KIDOZ SDK and the sample App is compatible with Android 4.0 (API level 14) and above.**
 
 *Updated to KIDOZ SDK version 0.1.5* 
 
@@ -50,18 +49,17 @@ This demo application uses `buildToolsVersion "22.0.1"`. if your `Android Studio
 3. Create two listeners with the following signature </br>```void functionName(String)``` </br>One for Feed open and one for Feed close.
 4. Connect the two listeners function you created to  ```Kidoz.viewOpened``` and to ```Kidoz.viewClosed```
 
-###Adding Feed View Button
+###Calling the Feed View Programmatically
+You can display the feed view programmatically by callig the following method: ```Kidoz.showFeedView()``` 
+to close the feed view call ```Kidoz.dismissFeedView```
+
+###Adding the KIDOZ Feed Button
 There are two basic functions that can be used to add a feed button:<br>
 1. ```Kidoz.addFeedButton(int xPos, int yPos)``` which will place Kidoz top left corner button at the selected coordinates. The button size can be found using the following message. ```Kidoz.getFeedButtonDefaultSize()``` which will return an int number which represent the width and height of the button.
 </br>
 2. ```Kidoz.addFeedButton(int xPos, int yPos, int size)``` which will place Kidoz top left corner button at the selected coordinates with the requested size. The same size apply for both the width and height of the button.
 
 The visibilty of the button can be controlled by the following function: ```Kidoz.changeFeedButtonVisibility(visible)```
-
-###Manual showing Feed View
-Incase the feed view should be displayed programmatically or using custom button the function that should be called is:
-```Kidoz.showFeedView()``` to close the feed view call ```Kidoz.dismissFeedView```
-
 
 
 For any question or assistance, please contact us at SDK@kidoz.net.
