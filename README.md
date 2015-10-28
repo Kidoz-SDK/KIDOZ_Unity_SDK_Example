@@ -54,6 +54,7 @@ You can display the feed view programmatically by callig the following method: `
 to close the feed view call ```Kidoz.dismissFeedView```
 
 ###Adding the KIDOZ Feed Button
+<a href="url"><img src="https://kidoz-cdn.s3.amazonaws.com/sdk/btn_animation.gif" align="right" height="96" width="96" ></a>
 There are two basic functions that can be used to add a feed button:<br>
 1. ```Kidoz.addFeedButton(int xPos, int yPos)``` which will place Kidoz top left corner button at the selected coordinates. The button size can be found using the following message. ```Kidoz.getFeedButtonDefaultSize()``` which will return an int number which represent the width and height of the button.
 </br>
