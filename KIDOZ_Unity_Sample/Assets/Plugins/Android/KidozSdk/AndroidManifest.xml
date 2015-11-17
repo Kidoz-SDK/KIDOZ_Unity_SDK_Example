@@ -1,7 +1,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.kidoz.sdk.api"
-    android:versionCode="16"
-    android:versionName="0.1.6" >
+    android:versionCode="20"
+    android:versionName="0.2.0" >
 
     <uses-sdk
         android:minSdkVersion="14"
@@ -20,16 +20,8 @@
                 <data android:scheme="package" />
             </intent-filter>
         </receiver>
-        <receiver android:name="com.kidoz.events.SyncReciever" >
-        </receiver>
-
-        <service
-            android:name="com.kidoz.events.SyncEventService"
-            android:enabled="true"
-            android:process=":syncLEV" >
-        </service>
         <!-- SDK DEFENITIONS -->
-        
+
     </application>
 
 </manifest>

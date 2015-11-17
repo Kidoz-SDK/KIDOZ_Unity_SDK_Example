@@ -16,7 +16,7 @@ public class SampleCode : MonoBehaviour {
 		int feedButtonSize = Kidoz.getFeedButtonDefaultSize();
 		Kidoz.addFeedButton(0, 0,feedButtonSize);
 
-
+		Kidoz.addPanelToView (Kidoz.PANEL_TYPE.BOTTOM, Kidoz.HANDLE_POSITION.CENTER);
 
 	}
 	

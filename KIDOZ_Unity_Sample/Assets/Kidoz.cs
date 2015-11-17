@@ -12,6 +12,15 @@ namespace KidozSDK {
 
 	public class Kidoz: MonoBehaviour {
 
+		public enum PANEL_TYPE
+		{
+			BOTTOM =0, TOP = 1, LEFT =2 , RIGHT =3
+		};
+		
+		public enum HANDLE_POSITION
+		{
+			START, CENTER, END
+		} ;
 
 		public const int NO_GAME_OBJECT = -1;
 		public const int PLATFORM_NOT_SUPPORTED = -2;
@@ -93,6 +102,43 @@ namespace KidozSDK {
 			kidozBridgeObject.Call("changeFeedButtonVisibility",visible);
 			return 0;
 		}
+
+
+
+		// Description: Add panel to view 
+		// Parameters: 
+		// 		PANEL_TYPE panel_type - The panel type (where the panel will be located)
+		//		HANDLE_POSITION handle_position - the place where to place the handle for the panel
+		// return:
+		//		0 	- the function worked correctly
+		//		NO_GAME_OBJECT	- there is no Kidoz gameobject 
+		public static int addPanelToView(PANEL_TYPE panel_type, HANDLE_POSITION handle_position)
+		{
+			if (instance == null) {
+				return NO_GAME_OBJECT;
+			}
+
+			kidozBridgeObject.Call("addPanelToView",(int)panel_type,(int)handle_position);
+			
+			return 0;
+		}
+
+		// Description: Change the panel button visibility 
+		// Parameters: 
+		// 		bool visible - true the panel will appear. false the button will be hidden
+		// return:
+		//		0 	- the function worked correctly
+		//		NO_GAME_OBJECT	- there is no Kidoz gameobject 
+		public static int changePanelVisibility(bool visible)
+		{
+			if (instance == null) {
+				return NO_GAME_OBJECT;
+			}
+			kidozBridgeObject.Call("changePanelVisibility",visible);
+			return 0;
+		}
+
+
 
 		// Description: returns the default feed button size. 
 		// Parameters: 
@@ -303,8 +349,27 @@ namespace KidozSDK {
 			return PLATFORM_NOT_SUPPORTED;
 		}
 
+		// Description: Add panel to view 
+		// Parameters: 
+		// 		bool visible - true the button will appear. false the button will be hidden
+		// return:
+		//		0 	- the function worked correctly
+		//		NO_GAME_OBJECT	- there is no Kidoz gameobject 
+		public static int addPanelToView(PANEL_TYPE panel_type, HANDLE_POSITION handle_position)
+		{
+			return PLATFORM_NOT_SUPPORTED;
+		}
 
-		
+		// Description: Change the panel button visibility 
+		// Parameters: 
+		// 		bool visible - true the panel will appear. false the button will be hidden
+		// return:
+		//		0 	- the function worked correctly
+		//		NO_GAME_OBJECT	- there is no Kidoz gameobject 
+		public static int changePanelVisibility(bool visible)
+		{
+			return PLATFORM_NOT_SUPPORTED;
+		}
 		private  void showCallBack(string message){
 
 		}
