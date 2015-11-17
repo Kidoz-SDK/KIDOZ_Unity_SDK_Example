@@ -50,7 +50,7 @@ This demo application uses `buildToolsVersion "22.0.1"`. if your `Android Studio
 3. Create two listeners with the following signature </br>```void functionName(String)``` </br>One for Feed open and one for Feed close.
 4. Connect the two listeners function you created to  ```Kidoz.viewOpened``` and to ```Kidoz.viewClosed```
 
-###KIDOZ Panel
+#KIDOZ Panel
 <a href="url"><img src="https://s3.amazonaws.com/kidoz-cdn/sdk/panel_view_sample_image.png" align="right" height="121" width="200" ></a>
 
 `PaneView` is a customized special view that can slide in/out of the screen (both in horizontal and vertical layout) with minimal interference to user experience.
@@ -64,9 +64,10 @@ The `PanelView` can be controled via a special `Handle` button can that can be l
 to activate the panel use the following function:
 ```Kidoz.addPanelToView (Panel_type, Handle_Position);```
 
+#KIDOZ Feed
 ###Calling the Feed View Programmatically
 You can display the feed view programmatically by callig the following method: ```Kidoz.showFeedView()``` 
-to close the feed view call ```Kidoz.dismissFeedView```
+to close the feed view call ```Kidoz.dismissFeedView()```
 
 
 ###Adding the KIDOZ Feed Button
@@ -77,8 +78,6 @@ There are two basic functions that can be used to add a feed button:<br>
 2. ```Kidoz.addFeedButton(int xPos, int yPos, int size)``` which will place Kidoz top left corner button at the selected coordinates with the requested size. The same size apply for both the width and height of the button.
 
 The visibilty of the button can be controlled by the following function: ```Kidoz.changeFeedButtonVisibility(visible)```
-
-
 
 
 For any question or assistance, please contact us at SDK@kidoz.net.
