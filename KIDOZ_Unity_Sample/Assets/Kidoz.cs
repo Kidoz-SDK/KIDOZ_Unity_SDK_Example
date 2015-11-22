@@ -28,6 +28,10 @@ namespace KidozSDK {
 		public static event Action<string> viewOpened;
 
 		public static event Action<string> viewClosed;
+
+		public static event Action<string> panelExpand;
+		
+		public static event Action<string> panelCollapse;
 #endif
 		public string PublisherID;
 		public string SecurityToken;
@@ -138,7 +142,35 @@ namespace KidozSDK {
 			return 0;
 		}
 
+		// Description: Expand the panel view 
+		// Parameters: 
+		// 		N/A
+		// return:
+		//		0 	- the function worked correctly
+		//		NO_GAME_OBJECT	- there is no Kidoz gameobject 
+		public static int expandPanelView()
+		{
+			if (instance == null) {
+				return NO_GAME_OBJECT;
+			}
+			kidozBridgeObject.Call("expandPanelView");
+			return 0;
+		}
 
+		// Description: Collapse the panel view 
+		// Parameters: 
+		// 		N/A
+		// return:
+		//		0 	- the function worked correctly
+		//		NO_GAME_OBJECT	- there is no Kidoz gameobject 
+		public static int collapsePanelView()
+		{
+			if (instance == null) {
+				return NO_GAME_OBJECT;
+			}
+			kidozBridgeObject.Call("expandPanelView");
+			return 0;
+		}
 
 		// Description: returns the default feed button size. 
 		// Parameters: 
@@ -203,6 +235,23 @@ namespace KidozSDK {
 #endif
 		} 
 
+		private  void panelExpandCallBack(string message){
+			#if UNITY_4_6 || UNITY_5
+			if (panelExpand != null) {
+				
+				panelExpand(message);
+			}
+			#endif
+		}
+		
+		private void panelCollapseCallBack(string message){
+			#if UNITY_4_6 || UNITY_5
+			if (panelCollapse != null) {
+				panelCollapse(message);
+			}
+			#endif
+		} 
+
 		public AndroidJavaObject getContext(){
 			return activityContext;
 		}
@@ -233,6 +282,8 @@ namespace KidozSDK {
 					kidozBridgeObject = kidozBridgeClass.CallStatic<AndroidJavaObject>("getInstance",activityContext);
 
 					kidozBridgeObject.Call("setFeedViewEventListeners", this.gameObject.name,"showCallBack","closeCallBack");
+					kidozBridgeObject.Call("setPanelViewEventListeners", this.gameObject.name,"panelExpandCallBack","panelCollapseCallBack");
+
 
 
 				}
@@ -370,6 +421,29 @@ namespace KidozSDK {
 		{
 			return PLATFORM_NOT_SUPPORTED;
 		}
+
+		// Description: Expand the panel view 
+		// Parameters: 
+		// 		N/A
+		// return:
+		//		0 	- the function worked correctly
+		//		NO_GAME_OBJECT	- there is no Kidoz gameobject 
+		public static int expandPanelView()
+		{
+			return PLATFORM_NOT_SUPPORTED;
+		}
+		
+		// Description: Collapse the panel view 
+		// Parameters: 
+		// 		N/A
+		// return:
+		//		0 	- the function worked correctly
+		//		NO_GAME_OBJECT	- there is no Kidoz gameobject 
+		public static int collapsePanelView()
+		{
+			return PLATFORM_NOT_SUPPORTED;
+		}
+
 		private  void showCallBack(string message){
 
 		}
@@ -377,7 +451,15 @@ namespace KidozSDK {
 		private void closeCallBack(string message){
 
 		} 
+
+		private  void panelExpandCallBack(string message){
+
+		}
 		
+		private void panelCollapseCallBack(string message){
+
+		} 
+
 		void Awake() {
 
 			// Limit the number of instances to one
