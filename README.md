@@ -2,7 +2,7 @@ KIDOZ Unity SDK Sample App
 =================================
 **KIDOZ SDK and the sample App is compatible with Android 4.0 (API level 14) and above.**
 
-*Updated to KIDOZ SDK version 0.2.0* 
+*Updated to KIDOZ SDK version 0.2.1* 
 
 This Unity application project provides an example of the [KIDOZ](http://www.kidoz.net) SDK integration.
 
@@ -63,6 +63,11 @@ The `PanelView` can be controled via a special `Handle` button can that can be l
 </br>
 to activate the panel use the following function:
 ```Kidoz.addPanelToView (Panel_type, Handle_Position);```
+<\br>
+You can also expand and collapse the panel programmatically by using the following functions:
+```Kidoz.expandPanelView()``` and to collapse the panel by using the following function <\br>
+``Kidoz.collapsePanelView()``` <\br>
+
 
 #KIDOZ Feed
 ###Calling the Feed View Programmatically
