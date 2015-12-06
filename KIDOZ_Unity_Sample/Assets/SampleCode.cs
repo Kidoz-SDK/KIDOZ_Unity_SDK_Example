@@ -12,6 +12,9 @@ public class SampleCode : MonoBehaviour {
 
 		Kidoz.viewOpened += viewOpened;
 		Kidoz.viewClosed += viewClosed;
+		Kidoz.panelExpand += panelExpand;
+		Kidoz.panelCollapse += panelCollapse;
+		Kidoz.panelReady += panelReady;
 
 		int feedButtonSize = Kidoz.getFeedButtonDefaultSize();
 		Kidoz.addFeedButton(0, 0,feedButtonSize);
@@ -38,5 +41,20 @@ public class SampleCode : MonoBehaviour {
 	private void viewClosed(string value)
 	{
 		print ("Feed view closed");
+	}
+
+	private void panelExpand(string value)
+	{
+		print ("panel view opened");
+	}
+	
+	private void panelCollapse(string value)
+	{
+		print ("panel view closed");
+	}
+	private void panelReady(string value)
+	{
+		print ("panel ready");
+
 	}
 }

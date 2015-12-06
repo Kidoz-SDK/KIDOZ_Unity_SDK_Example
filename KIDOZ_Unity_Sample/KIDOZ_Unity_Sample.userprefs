@@ -1,9 +1,9 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
   <MonoDevelop.Ide.Workbench ActiveDocument="Assets/SampleCode.cs">
     <Files>
       <File FileName="Assets/SampleCode.cs" Line="19" Column="80" />
-      <File FileName="Assets/Kidoz.cs" Line="115" Column="80" />
+      <File FileName="Assets/Kidoz.cs" Line="1" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

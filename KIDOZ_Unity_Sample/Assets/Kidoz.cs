@@ -32,6 +32,8 @@ namespace KidozSDK {
 		public static event Action<string> panelExpand;
 		
 		public static event Action<string> panelCollapse;
+
+		public static event Action<string> panelReady;
 #endif
 		public string PublisherID;
 		public string SecurityToken;
@@ -172,6 +174,22 @@ namespace KidozSDK {
 			return 0;
 		}
 
+		// Description: set panel color
+		// Parameters: 
+		// 		string panelColor - the panel color as hex string with # sign
+		// return:
+		//		0 	- the function worked correctly
+		//		NO_GAME_OBJECT	- there is no Kidoz gameobject 
+		public static int setPanelColor(String panelColor)
+		{
+			if (instance == null) {
+				return NO_GAME_OBJECT;
+			}
+			kidozBridgeObject.Call("setPanelViewColor",panelColor);
+			return 0;
+		}
+
+
 		// Description: returns the default feed button size. 
 		// Parameters: 
 		// 		bool visible - true the button will appear. false the button will be hidden
@@ -252,13 +270,25 @@ namespace KidozSDK {
 			#endif
 		} 
 
+		private void panelReadyCallBack(string message){
+			#if UNITY_4_6 || UNITY_5
+			if (panelReady != null) {
+				panelReady(message);
+			}
+			#endif
+		} 
+
 		public AndroidJavaObject getContext(){
 			return activityContext;
 		}
 		static public Kidoz getInstance(){
 			return instance;
 		}
-
+		public static void printToastMessage(String message)
+		{
+			kidozBridgeObject.Call("printToastLog",message); 
+		}
+		 
 		void Awake() {
 			// Limit the number of instances to one
 			if(instance == null) {
@@ -278,11 +308,11 @@ namespace KidozSDK {
 				}
 
 				//init Kidoz SDK API module
-				using ( var kidozBridgeClass = new AndroidJavaClass("com.kidoz.sdk.api.KidozUnityBridge")) {
+				using ( var kidozBridgeClass = new AndroidJavaClass("com.kidoz.sdk.api.platforms.KidozUnityBridge")) {
 					kidozBridgeObject = kidozBridgeClass.CallStatic<AndroidJavaObject>("getInstance",activityContext);
 
 					kidozBridgeObject.Call("setFeedViewEventListeners", this.gameObject.name,"showCallBack","closeCallBack");
-					kidozBridgeObject.Call("setPanelViewEventListeners", this.gameObject.name,"panelExpandCallBack","panelCollapseCallBack");
+					kidozBridgeObject.Call("setPanelViewEventListeners", this.gameObject.name,"panelExpandCallBack","panelCollapseCallBack","panelReadyCallBack");
 
 
 
@@ -432,7 +462,18 @@ namespace KidozSDK {
 		{
 			return PLATFORM_NOT_SUPPORTED;
 		}
-		
+
+		// Description: set panel color
+		// Parameters: 
+		// 		string panelColor - the panel color as hex string with # sign
+		// return:
+		//		0 	- the function worked correctly
+		//		NO_GAME_OBJECT	- there is no Kidoz gameobject 
+		public static int setPanelColor(String panelColor)
+		{
+			return PLATFORM_NOT_SUPPORTED;
+		}
+
 		// Description: Collapse the panel view 
 		// Parameters: 
 		// 		N/A
@@ -460,6 +501,14 @@ namespace KidozSDK {
 
 		} 
 
+		private void panelReadyCallBack(string message){
+
+		} 
+
+		public static void printToastMessage(String message)
+		{
+			 
+		}
 		void Awake() {
 
 			// Limit the number of instances to one
