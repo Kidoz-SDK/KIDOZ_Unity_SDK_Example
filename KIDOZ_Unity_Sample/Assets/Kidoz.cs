@@ -277,6 +277,10 @@ namespace KidozSDK {
 			}
 			#endif
 		} 
+		public static bool getIsPanelExpanded()
+		{
+			return kidozBridgeObject.Call<bool>("getIsPanelExpanded");
+		}
 
 		public AndroidJavaObject getContext(){
 			return activityContext;
@@ -504,7 +508,10 @@ namespace KidozSDK {
 		private void panelReadyCallBack(string message){
 
 		} 
-
+		public static bool getIsPanelExpanded()
+		{
+			return false;
+		}
 		public static void printToastMessage(String message)
 		{
 			 
