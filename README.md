@@ -2,7 +2,7 @@ KIDOZ Unity SDK Sample App
 =================================
 **KIDOZ SDK and the sample App is compatible with Android 4.0 (API level 14) and above.**
 
-*Updated to KIDOZ SDK version 0.2.1* 
+*Updated to KIDOZ SDK version 0.2.2* 
 
 This Unity application project provides an example of the [KIDOZ](http://www.kidoz.net) SDK integration.
 
