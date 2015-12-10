@@ -4,6 +4,8 @@ KIDOZ Unity SDK Sample App
 
 *Updated to KIDOZ SDK version 0.2.2* 
 
+This release solves thouch  through issue. Please make sure that the activity in the manifest is defined as com.unity3d.player.UnityPlayerActivity
+
 This Unity application project provides an example of the [KIDOZ](http://www.kidoz.net) SDK integration.
 
 The example application contains the following creative tools:
