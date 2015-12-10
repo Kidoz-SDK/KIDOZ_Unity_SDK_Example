@@ -42,6 +42,7 @@ namespace KidozSDK {
 
 
 
+
 #if UNITY_ANDROID && !UNITY_EDITOR
 		private static AndroidJavaObject kidozBridgeObject = null;
 		private AndroidJavaObject activityContext = null;
@@ -54,7 +55,8 @@ namespace KidozSDK {
 				GameObject singleton = new GameObject();
 				singleton.name = "Kidoz";
 				instance = singleton.AddComponent<Kidoz>();
-			
+
+
 
 			}
 
@@ -313,14 +315,18 @@ namespace KidozSDK {
 
 				//init Kidoz SDK API module
 				using ( var kidozBridgeClass = new AndroidJavaClass("com.kidoz.sdk.api.platforms.KidozUnityBridge")) {
+
 					kidozBridgeObject = kidozBridgeClass.CallStatic<AndroidJavaObject>("getInstance",activityContext);
 
 					kidozBridgeObject.Call("setFeedViewEventListeners", this.gameObject.name,"showCallBack","closeCallBack");
+
 					kidozBridgeObject.Call("setPanelViewEventListeners", this.gameObject.name,"panelExpandCallBack","panelCollapseCallBack","panelReadyCallBack");
 
 
 
+
 				}
+
 
 			}
 			else {
