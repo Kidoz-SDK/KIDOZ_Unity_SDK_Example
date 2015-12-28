@@ -730,5 +730,5 @@ namespace KidozSDK {
 #endif
 
 	}
-	
+
 }
