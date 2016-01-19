@@ -195,7 +195,7 @@ namespace KidozSDK {
 			if (instance == null) {
 				return NO_GAME_OBJECT;
 			}
-			kidozBridgeObject.Call("expandPanelView");
+			kidozBridgeObject.Call("collapsePanelView");
 			return 0;
 		}
 
