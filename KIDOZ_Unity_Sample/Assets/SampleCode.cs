@@ -21,13 +21,19 @@ public class SampleCode : MonoBehaviour {
 		Kidoz.bannerContentLoaded += bannerContentLoaded;
 		Kidoz.bannerContentLoadFailed += bannerContentLoadedFailed;
 
-
+		Kidoz.flexiViewReady += flexiReady;
+		
+		Kidoz.flexiViewShow += flexiShow;
+		
+		Kidoz.flexiViewHide += flexiHide;
 
 		Kidoz.addFeedButton(0, 0);
 
 		Kidoz.addPanelToView (Kidoz.PANEL_TYPE.RIGHT, Kidoz.HANDLE_POSITION.CENTER);
 
 		Kidoz.addBannerToView (Kidoz.BANNER_POSITION.BOTTOM);
+
+		Kidoz.addFlexiView (true, Kidoz.FLEXI_VIEW_POSITION.MID_CENTER);
 
 	}
 	
@@ -89,6 +95,23 @@ public class SampleCode : MonoBehaviour {
 	private void bannerContentLoadedFailed(string value)
 	{
 		print ("bannerContentLoadedFailed");
+
+	}
+
+	private void flexiReady(string value)
+	{
+		print ("flexiview ready");
+
+	}
+	
+	private void flexiShow(string value)
+	{
+		print ("flexishow");
+
+	}
+	private void flexiHide(string value)
+	{
+		print ("flexihide");
 
 	}
 }

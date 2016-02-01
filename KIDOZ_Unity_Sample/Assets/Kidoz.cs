@@ -31,6 +31,19 @@ namespace KidozSDK {
 			BOTTON_LEFT = 4,
 			BOTTOM_RIGHT = 5,
 		}
+
+		public enum FLEXI_VIEW_POSITION
+		{
+			TOP_START = 0,
+			TOP_CENTER = 1,
+			TOP_END = 2,
+			MID_START = 3,
+			MID_CENTER = 4,
+			MID_END = 5,
+			BOTTOM_START = 6,
+			BOTTOM_CENTER = 7,
+			BOTTOM_END = 8
+		}
 		public const int NO_GAME_OBJECT = -1;
 		public const int PLATFORM_NOT_SUPPORTED = -2;
 #if UNITY_4_6 || UNITY_5
@@ -56,6 +69,11 @@ namespace KidozSDK {
 
 		public static event Action<string> bannerContentLoadFailed;
 
+		public static event Action<string> flexiViewReady;
+		
+		public static event Action<string> flexiViewShow;
+		
+		public static event Action<string> flexiViewHide;
 
 #endif
 		public string PublisherID;
@@ -228,7 +246,7 @@ namespace KidozSDK {
 			}
 			Kidoz tempObject = getInstance ();
 			AndroidJavaObject con = tempObject.getContext ();
-			int size = kidozBridgeObject.Call<int>("getFeedButtonDefaultSize");
+			int size = kidozBridgeObject.Call<int>("getFeedButtonSize");
 			return size;
 		}
 
@@ -320,6 +338,74 @@ namespace KidozSDK {
 			kidozBridgeObject.Call("changeBannerPosition",(int)position);
 			return 0;
 		}
+
+
+		// Description: add flexiView
+		// Parameters: 
+		// 		boolean - automatic show
+		//		int - initial position
+		// return:
+		//		0 	- the function worked correctly
+		//		NO_GAME_OBJECT	- there is no Kidoz gameobject 
+		public static int addFlexiView(bool isAutoShow, FLEXI_VIEW_POSITION position )
+		{
+			if (instance == null) {
+				return NO_GAME_OBJECT;
+			}
+			kidozBridgeObject.Call("addFlexiView",isAutoShow, (int)position);
+			return 0;
+		}
+
+		// Description: hide flexiView
+		// Parameters: 
+		// 		
+		// return:
+		//		0 	- the function worked correctly
+		//		NO_GAME_OBJECT	- there is no Kidoz gameobject 
+		public static int hideFlexiView()
+		{
+			if (instance == null) {
+				return NO_GAME_OBJECT;
+			}
+			kidozBridgeObject.Call("hideFlexiView");
+			return 0;
+		}
+
+		// Description: show flexiView
+		// Parameters: 
+		// 		boolean - automatic show
+		//		int - initial position
+		// return:
+		//		0 	- the function worked correctly
+		//		NO_GAME_OBJECT	- there is no Kidoz gameobject 
+		public static int showFlexiView( )
+		{
+			if (instance == null) {
+				return NO_GAME_OBJECT;
+			}
+			kidozBridgeObject.Call("showFlexiView");
+			return 0;
+		}
+
+		// Description: get if the flexi view is visible
+		// Parameters: 
+		// 		
+		// return:
+		//		0 	- the function worked correctly
+		//		NO_GAME_OBJECT	- there is no Kidoz gameobject 
+		public static int getIsFlexiViewVisible()
+		{
+			if (instance == null) {
+				return NO_GAME_OBJECT;
+			}
+			kidozBridgeObject.Call("getIsFlexiViewVisible");
+			return 0;
+		}
+
+//		aaa
+
+
+
 
 
 		private  void showCallBack(string message){
@@ -416,7 +502,27 @@ namespace KidozSDK {
 		} 
 
 
-
+		private void flexiViewReadyCallBack(string message){
+			#if UNITY_4_6 || UNITY_5
+			if (flexiViewReady != null) {
+				flexiViewReady(message);
+			}
+			#endif
+		} 
+		private void flexiViewShowCallBack(string message){
+			#if UNITY_4_6 || UNITY_5
+			if (flexiViewShow != null) {
+				flexiViewShow(message);
+			}
+			#endif
+		} 
+		private void flexiViewHideCallBack(string message){
+			#if UNITY_4_6 || UNITY_5
+			if (flexiViewHide != null) {
+				flexiViewHide(message);
+			}
+			#endif
+		} 
 
 
 		public AndroidJavaObject getContext(){
@@ -459,6 +565,7 @@ namespace KidozSDK {
 
 					kidozBridgeObject.Call("setBannerEventListeners", this.gameObject.name,"bannerReadyCallBack","bannerShowCallBack","bannerHideCallBack","bannerContentLoadedCallBack","bannerContentLoadFailedCallBack");
 
+					kidozBridgeObject.Call("setFlexiViewEventListener", this.gameObject.name,"flexiViewReadyCallBack","flexiViewShowCallBack","flexiViewHideCallBack");
 
 
 
@@ -676,6 +783,19 @@ namespace KidozSDK {
 			return PLATFORM_NOT_SUPPORTED;
 		}
 
+
+		// Description: add flexiView
+		// Parameters: 
+		// 		boolean - automatic show
+		//		int - initial position
+		// return:
+		//		0 	- the function worked correctly
+		//		NO_GAME_OBJECT	- there is no Kidoz gameobject 
+		public static int addFlexiView(bool isAutoShow, FLEXI_VIEW_POSITION position )
+		{
+			return PLATFORM_NOT_SUPPORTED;
+		}
+
 		private  void showCallBack(string message){
 
 		}
@@ -699,6 +819,42 @@ namespace KidozSDK {
 		{
 			return false;
 		}
+
+		// Description: hide flexiView
+		// Parameters: 
+		// 		
+		// return:
+		//		0 	- the function worked correctly
+		//		NO_GAME_OBJECT	- there is no Kidoz gameobject 
+		public static int hideFlexiView()
+		{
+			return PLATFORM_NOT_SUPPORTED;
+		}
+		
+		// Description: show flexiView
+		// Parameters: 
+		// 		boolean - automatic show
+		//		int - initial position
+		// return:
+		//		0 	- the function worked correctly
+		//		NO_GAME_OBJECT	- there is no Kidoz gameobject 
+		public static int showFlexiView( )
+		{
+			return PLATFORM_NOT_SUPPORTED;
+		}
+		
+		// Description: get if the flexi view is visible
+		// Parameters: 
+		// 		
+		// return:
+		//		0 	- the function worked correctly
+		//		NO_GAME_OBJECT	- there is no Kidoz gameobject 
+		public static int getIsFlexiViewVisible()
+		{
+			return PLATFORM_NOT_SUPPORTED;
+		}
+
+
 		public static void printToastMessage(String message)
 		{
 			 
