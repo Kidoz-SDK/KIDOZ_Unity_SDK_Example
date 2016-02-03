@@ -4,9 +4,9 @@ KIDOZ Unity SDK Sample App
 
 **When comming from a previous version. Please manualy delete the Plugins/Android/KidozSdk/libs/okhttp-2.5.0.jar file, since we are updated to 2.7.0 version**
 
-**When comming from a previous version. Please manualy delete the Plugins/Android/KidozSdk/libs/okhttp-2.7.0.jar file, since we are updated to 2.7.2 version**
+**When comming from a previous version. Please manualy delete the Plugins/Android/KidozSdk/libs/okhttp-2.7.0.jar file, since we are updated to 3.0.1 version**
 
-*Updated to KIDOZ SDK version 0.4.0* 
+*Updated to KIDOZ SDK version 0.4.1* 
 
 *Please make sure that the activity in the manifest is defined as com.unity3d.player.UnityPlayerActivity*
 
@@ -57,6 +57,8 @@ This demo application uses `buildToolsVersion "22.0.1"`. if your `Android Studio
 2. Add ```using KidozSDK;``` in the using section of your code.
 3. Create two listeners with the following signature </br>```void functionName(String)``` </br>One for Feed open and one for Feed close.
 4. Connect the two listeners function you created to  ```Kidoz.viewOpened``` and to ```Kidoz.viewClosed```
+5. Create two listeners with the following signature </br>```void functionName(string)``` for movie open and movie close
+6. Connect the above listenrs to ```Kidoz.playerOpen``` and ```Kidoz.playerClose```
 
 #KIDOZ Panel
 <a href="url"><img src="https://s3.amazonaws.com/kidoz-cdn/sdk/panel_view_sample_image.png" align="right" height="121" width="200" ></a>
