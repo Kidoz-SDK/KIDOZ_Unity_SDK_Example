@@ -75,6 +75,10 @@ namespace KidozSDK {
 		
 		public static event Action<string> flexiViewHide;
 
+		public static event Action<string> playerOpen;
+
+		public static event Action<string> playerClose;
+
 #endif
 		public string PublisherID;
 		public string SecurityToken;
@@ -524,6 +528,20 @@ namespace KidozSDK {
 			#endif
 		} 
 
+		private void playerOpenCallBack(string message){
+			#if UNITY_4_6 || UNITY_5
+			if (playerOpen != null) {
+				playerOpen(message);
+			}
+			#endif
+		} 
+		private void playerCloseCallBack(string message){
+			#if UNITY_4_6 || UNITY_5
+			if (playerClose != null) {
+				playerClose(message);
+			}
+			#endif
+		} 
 
 		public AndroidJavaObject getContext(){
 			return activityContext;
@@ -567,7 +585,7 @@ namespace KidozSDK {
 
 					kidozBridgeObject.Call("setFlexiViewEventListener", this.gameObject.name,"flexiViewReadyCallBack","flexiViewShowCallBack","flexiViewHideCallBack");
 
-
+					kidozBridgeObject.Call("setPlayersEventListener", this.gameObject.name,"playerOpenCallBack","playerCloseCallBack");
 
 				}
 
