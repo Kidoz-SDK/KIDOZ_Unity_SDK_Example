@@ -172,6 +172,26 @@ namespace KidozSDK {
 			}
 
 			kidozBridgeObject.Call("addPanelToView",(int)panel_type,(int)handle_position);
+
+			return 0;
+		}
+
+		// Description: Add panel to view which will be opened automatically for the requested duration 
+		// Parameters: 
+		// 		PANEL_TYPE panel_type - The panel type (where the panel will be located)
+		//		HANDLE_POSITION handle_position - the place where to place the handle for the panel
+		//		float startDelay				- the selected time in seconds before the panel will be opened. -1 will disable this feature
+		//		float duration					- the selected time in seconds for the panel to stay open. -1 the panel will not be closed.
+		// return:
+		//		0 	- the function worked correctly
+		//		NO_GAME_OBJECT	- there is no Kidoz gameobject 
+		public static int addPanelToView(PANEL_TYPE panel_type, HANDLE_POSITION handle_position, float startDelay, float duration)
+		{
+			if (instance == null) {
+				return NO_GAME_OBJECT;
+			}
+			
+			kidozBridgeObject.Call("addPanelToView",(int)panel_type,(int)handle_position,startDelay,duration);
 			
 			return 0;
 		}
@@ -236,6 +256,8 @@ namespace KidozSDK {
 			return 0;
 		}
 
+
+	
 
 		// Description: returns the default feed button size. 
 		// Parameters: 
@@ -403,6 +425,37 @@ namespace KidozSDK {
 				return NO_GAME_OBJECT;
 			}
 			kidozBridgeObject.Call("getIsFlexiViewVisible");
+			return 0;
+		}
+
+
+		// Description: Disable/enable dragging the flexiview
+		// Parameters: 
+		// 		boolean - true the flexi will be draggable 
+		// return:
+		//		0 	- the function worked correctly
+		//		NO_GAME_OBJECT	- there is no Kidoz gameobject 
+		public static int setFlexiViewDraggable( bool draggable)
+		{
+			if (instance == null) {
+				return NO_GAME_OBJECT;
+			}
+			kidozBridgeObject.Call("setFlexiViewDraggable",draggable);
+			return 0;
+		}
+
+		// Description: Disable/enable closing the flexiview
+		// Parameters: 
+		// 		boolean - true the flexi will be closeable 
+		// return:
+		//		0 	- the function worked correctly
+		//		NO_GAME_OBJECT	- there is no Kidoz gameobject 
+		public static int setFlexiViewClosable( bool Closable)
+		{
+			if (instance == null) {
+				return NO_GAME_OBJECT;
+			}
+			kidozBridgeObject.Call("setFlexiViewClosable",Closable);
 			return 0;
 		}
 
@@ -713,6 +766,20 @@ namespace KidozSDK {
 			return PLATFORM_NOT_SUPPORTED;
 		}
 
+		// Description: Add panel to view which will be opened automatically for the requested duration 
+		// Parameters: 
+		// 		PANEL_TYPE panel_type - The panel type (where the panel will be located)
+		//		HANDLE_POSITION handle_position - the place where to place the handle for the panel
+		//		float startDelay				- the selected time in seconds before the panel will be opened. -1 will disable this feature
+		//		float duration					- the selected time in seconds for the panel to stay open. -1 the panel will not be closed.
+		// return:
+		//		0 	- the function worked correctly
+		//		NO_GAME_OBJECT	- there is no Kidoz gameobject 
+		public static int addPanelToView(PANEL_TYPE panel_type, HANDLE_POSITION handle_position, float startDelay, float duration)
+		{
+			return PLATFORM_NOT_SUPPORTED;
+		}
+
 		// Description: Change the panel button visibility 
 		// Parameters: 
 		// 		bool visible - true the panel will appear. false the button will be hidden
@@ -746,6 +813,17 @@ namespace KidozSDK {
 			return PLATFORM_NOT_SUPPORTED;
 		}
 
+		// Description: Set Automatically show panel on being added to view
+		// Parameters: 
+		// 		float startDelay - time in seconds before automaticly opening the panel
+		//		float showPeriod - time in seconds for the panel to stay open
+		// return:
+		//		0 	- the function worked correctly
+		//		NO_GAME_OBJECT	- there is no Kidoz gameobject 
+		public static int setPanelAutoExpend(float startDelay, float showPeriod)
+		{
+			return PLATFORM_NOT_SUPPORTED;
+		}
 		// Description: Collapse the panel view 
 		// Parameters: 
 		// 		N/A
@@ -814,6 +892,18 @@ namespace KidozSDK {
 			return PLATFORM_NOT_SUPPORTED;
 		}
 
+
+		// Description: Disable/enable closing the flexiview
+		// Parameters: 
+		// 		boolean - true the flexi will be closeable 
+		// return:
+		//		0 	- the function worked correctly
+		//		NO_GAME_OBJECT	- there is no Kidoz gameobject 
+		public static int setFlexiViewClosable( bool Closable)
+		{
+			return PLATFORM_NOT_SUPPORTED;
+		}
+
 		private  void showCallBack(string message){
 
 		}
@@ -872,6 +962,16 @@ namespace KidozSDK {
 			return PLATFORM_NOT_SUPPORTED;
 		}
 
+		// Description: Disable/enable dragging the flexiview
+		// Parameters: 
+		// 		boolean - true the flexi will be draggable 
+		// return:
+		//		0 	- the function worked correctly
+		//		NO_GAME_OBJECT	- there is no Kidoz gameobject 
+		public static int setFlexiViewDraggable( bool draggable)
+		{
+			return PLATFORM_NOT_SUPPORTED;
+		}
 
 		public static void printToastMessage(String message)
 		{

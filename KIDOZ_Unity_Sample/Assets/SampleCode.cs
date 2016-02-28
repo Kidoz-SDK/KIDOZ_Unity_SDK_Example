@@ -27,9 +27,14 @@ public class SampleCode : MonoBehaviour {
 		
 		Kidoz.flexiViewHide += flexiHide;
 
+		Kidoz.playerOpen += playerOpen;
+		
+		Kidoz.playerClose += playerClose;
+
+
 		Kidoz.addFeedButton(0, 0);
 
-		Kidoz.addPanelToView (Kidoz.PANEL_TYPE.RIGHT, Kidoz.HANDLE_POSITION.CENTER);
+		Kidoz.addPanelToView (Kidoz.PANEL_TYPE.BOTTOM, Kidoz.HANDLE_POSITION.START,2,10);
 
 		Kidoz.addBannerToView (Kidoz.BANNER_POSITION.BOTTOM);
 
@@ -112,6 +117,17 @@ public class SampleCode : MonoBehaviour {
 	private void flexiHide(string value)
 	{
 		print ("flexihide");
+
+	}
+
+	private void playerOpen(string value)
+	{
+		print ("playerOpen");
+
+	}
+	private void playerClose(string value)
+	{
+		print ("playerClose");
 
 	}
 }
