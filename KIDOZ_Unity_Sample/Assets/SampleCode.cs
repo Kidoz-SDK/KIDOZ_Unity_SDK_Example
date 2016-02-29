@@ -34,7 +34,7 @@ public class SampleCode : MonoBehaviour {
 
 		Kidoz.addFeedButton(0, 0);
 
-		Kidoz.addPanelToView (Kidoz.PANEL_TYPE.BOTTOM, Kidoz.HANDLE_POSITION.START,2,10);
+		Kidoz.addPanelToView (Kidoz.PANEL_TYPE.BOTTOM, Kidoz.HANDLE_POSITION.START,0.0f,0.0f);
 
 		Kidoz.addBannerToView (Kidoz.BANNER_POSITION.BOTTOM);
 
