@@ -1,6 +1,6 @@
 KIDOZ Unity SDK Sample App
 =================================
-**KIDOZ SDK and the sample App is compatible with Android 4.0 (API level 14) and above.**
+**KIDOZ SDK and the sample App is compatible with Android 4.0 (API level 14) and above and Unity version greater then 5 **
 
 **When comming from a previous version. Please manualy delete the Plugins/Android/KidozSdk/libs/okhttp-2.5.0.jar file, since we are updated to 2.7.0 version**
 
