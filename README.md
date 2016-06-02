@@ -1,10 +1,10 @@
 KIDOZ Unity SDK Sample App
 =================================
-**KIDOZ SDK and the sample App is compatible with Android 4.0 (API level 14) and above and Unity version greater then 5**
+**KIDOZ SDK and the sample App are compatible with Android 4.0 (API level 14) and above and Unity version greater than 5**
 
-**When comming from a previous version. Please manualy delete the Plugins/Android/KidozSdk/libs/okhttp-2.5.0.jar file, since we are updated to 2.7.0 version**
+**When comming from a previous version, please manually delete the Plugins/Android/KidozSdk/libs/okhttp-2.5.0.jar file, since we are updated to 2.7.0 version**
 
-**When comming from a previous version. Please manualy delete the Plugins/Android/KidozSdk/libs/okhttp-2.7.0.jar file, since we are updated to 3.0.1 version**
+**When comming from a previous version, please manually delete the Plugins/Android/KidozSdk/libs/okhttp-2.7.0.jar file, since we are updated to 3.0.1 version**
 
 *Updated to KIDOZ SDK version 0.5.6* 
 
@@ -13,11 +13,11 @@ KIDOZ Unity SDK Sample App
 This Unity application project provides an example of the [KIDOZ](http://www.kidoz.net) SDK integration.
 
 The example application contains the following creative tools:
-* KIDOZ's Feed view content tool - the `Feed View`
-* KIDOZ's default button - the `Feed Button`
-* KIDOZ's Panel view `Panel View`
-* KIDOZ's Banner view `Banner View`
-* KIDOZ's Flexi view `Flexi View`
+* KIDOZ Feed view content tool - the `Feed View`
+* KIDOZ default button - the `Feed Button`
+* KIDOZ Panel view `Panel View`
+* KIDOZ Banner view `Banner View`
+* KIDOZ Flexi view `Flexi View`
 
 ###Running the sample app
 1. Clone (or Download) the Unity project (download button located on the right) and unzip the downloaded .zip file
