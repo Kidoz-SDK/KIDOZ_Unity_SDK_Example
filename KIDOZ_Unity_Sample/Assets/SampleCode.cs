@@ -31,6 +31,11 @@ public class SampleCode : MonoBehaviour {
 		
 		Kidoz.playerClose += playerClose;
 
+		Kidoz.interstitialOpen += interstitialOpen;
+		
+		Kidoz.interstitialClose += interstitialClose;
+		
+		Kidoz.interstitialReady += interstitialReady;
 
 		Kidoz.addFeedButton(0, 0);
 
@@ -45,6 +50,21 @@ public class SampleCode : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 
+	}
+	void OnGUI() {
+		if (GUI.Button (new Rect (500, 100*5, 200, 100), "load interstitial")) 
+		{
+			Kidoz.loadInterstitialAd(false);
+			
+			
+		}
+		
+		if (GUI.Button (new Rect (500, 100*7, 200, 100), "show interstitial")) 
+		{
+			Kidoz.showInterstitial();
+			
+			
+		}
 	}
 
 	public void btnPress()
@@ -129,5 +149,21 @@ public class SampleCode : MonoBehaviour {
 	{
 		print ("playerClose");
 
+	}
+
+	private void interstitialOpen(string value)
+	{
+		Kidoz.printToastMessage ("interstitialOpen");
+	}
+	
+	private void interstitialClose(string value)
+	{
+		Kidoz.printToastMessage ("interstitialClose");
+	}
+	
+	private void interstitialReady(string value)
+	{
+		Kidoz.printToastMessage ("interstitialReady");
+		//		Kidoz.showInterstitial();
 	}
 }

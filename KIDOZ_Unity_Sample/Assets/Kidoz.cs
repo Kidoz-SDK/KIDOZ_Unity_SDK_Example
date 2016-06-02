@@ -79,6 +79,11 @@ namespace KidozSDK {
 
 		public static event Action<string> playerClose;
 
+		public static event Action<string> interstitialOpen;
+
+		public static event Action<string> interstitialClose;
+
+		public static event Action<string> interstitialReady;
 #endif
 		public string PublisherID;
 		public string SecurityToken;
@@ -459,11 +464,50 @@ namespace KidozSDK {
 			return 0;
 		}
 
-//		aaa
+		// Description: Load interstitial add
+		// Parameters: 
+		// 		
+		// return:
+		//		0 	- the function worked correctly
+		//		NO_GAME_OBJECT	- there is no Kidoz gameobject 
+		public static int loadInterstitialAd( bool isAutoShow)
+		{
+			if (instance == null) {
+				return NO_GAME_OBJECT;
+			}
+			kidozBridgeObject.Call("loadInterstitialAd",isAutoShow);
+			return 0;
+		}
 
+		// Description: show the interstitial add that was loaded
+		// Parameters: 
+		// 		
+		// return:
+		//		0 	- the function worked correctly
+		//		NO_GAME_OBJECT	- there is no Kidoz gameobject 
+		public static int showInterstitial( )
+		{
+			if (instance == null) {
+				return NO_GAME_OBJECT;
+			}
+			kidozBridgeObject.Call("showInterstitial");
+			return 0;
+		}
 
+		// Description: return if an interstitial add was loaded
+		// Parameters: 
+		// 		
+		// return:
+		//		0 	- interstitial add was not loaded
+		//		NO_GAME1_OBJECT	- there is no Kidoz gameobject 
+		public static bool getIsInterstitialLoaded( )
+		{
+			if (instance == null) {
+				return false;
+			}
+			return kidozBridgeObject.Call<bool>("getIsInterstitialLoaded");
 
-
+		}
 
 		private  void showCallBack(string message){
 #if UNITY_4_6 || UNITY_5
@@ -596,6 +640,30 @@ namespace KidozSDK {
 			#endif
 		} 
 
+		private void interstitialOpenCallBack(string message){
+			#if UNITY_4_6 || UNITY_5
+			if (interstitialOpen != null) {
+				interstitialOpen(message);
+			}
+			#endif
+		} 
+
+		private void interstitialCloseCallBack(string message){
+			#if UNITY_4_6 || UNITY_5
+			if (interstitialClose != null) {
+				interstitialClose(message);
+			}
+			#endif
+		} 
+
+		private void interstitialReadyCallBack(string message){
+			#if UNITY_4_6 || UNITY_5
+			if (interstitialReady != null) {
+				interstitialReady(message);
+			}
+			#endif
+		} 
+
 		public AndroidJavaObject getContext(){
 			return activityContext;
 		}
@@ -639,6 +707,8 @@ namespace KidozSDK {
 					kidozBridgeObject.Call("setFlexiViewEventListener", this.gameObject.name,"flexiViewReadyCallBack","flexiViewShowCallBack","flexiViewHideCallBack");
 
 					kidozBridgeObject.Call("setPlayersEventListener", this.gameObject.name,"playerOpenCallBack","playerCloseCallBack");
+
+					kidozBridgeObject.Call("setInterstitialEventListener", this.gameObject.name,"interstitialOpenCallBack","interstitialCloseCallBack","interstitialReadyCallBack");
 
 				}
 
@@ -971,6 +1041,40 @@ namespace KidozSDK {
 		public static int setFlexiViewDraggable( bool draggable)
 		{
 			return PLATFORM_NOT_SUPPORTED;
+		}
+
+		// Description: Load interstitial add
+		// Parameters: 
+		// 		
+		// return:
+		//		0 	- the function worked correctly
+		//		NO_GAME_OBJECT	- there is no Kidoz gameobject 
+		public static int loadInterstitialAd(bool isAutoShow )
+		{
+			return PLATFORM_NOT_SUPPORTED;
+		}
+		
+		// Description: show the interstitial add that was loaded
+		// Parameters: 
+		// 		
+		// return:
+		//		0 	- the function worked correctly
+		//		NO_GAME_OBJECT	- there is no Kidoz gameobject 
+		public static int showInterstitial( )
+		{
+			return PLATFORM_NOT_SUPPORTED;
+		}
+		
+		// Description: return if an interstitial add was loaded
+		// Parameters: 
+		// 		
+		// return:
+		//		0 	- interstitial add was not loaded
+		//		NO_GAME1_OBJECT	- there is no Kidoz gameobject 
+		public static bool getIsInterstitialLoaded( )
+		{
+			return false;
+			
 		}
 
 		public static void printToastMessage(String message)

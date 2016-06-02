@@ -10,8 +10,10 @@
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 
-    <application>
-
+    <application android:hardwareAccelerated="true">
+        <activity android:name="com.kidoz.sdk.api.ui_views.interstitial.KidozAdActivity"
+                  android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|uiMode|screenSize|smallestScreenSize"
+                  />
         <!-- SDK DEFENITIONS -->
         <receiver android:name="com.kidoz.sdk.api.receivers.SdkReceiver" >
             <intent-filter>
