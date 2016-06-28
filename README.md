@@ -178,6 +178,9 @@ You can activate the interstitial widget by first calling the load function
 The second stage after the ad was loaded (using the ```	Kidoz.interstitialReady ``` listener you can call
 ```Kidoz.showInterstitial(); ```
 
+It is possible to test if the ad was loaded using the following function:
+```Kidoz.getIsInterstitialLoaded() ```
+
 ```
 all listeners are of type: private void listenerName(string value)
  Kidoz.bannerReady += bannerReady;
