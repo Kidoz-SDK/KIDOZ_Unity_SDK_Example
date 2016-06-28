@@ -13,9 +13,10 @@ KIDOZ Unity SDK Sample App
 This Unity application project provides an example of the [KIDOZ](http://www.kidoz.net) SDK integration.
 
 The example application contains the following creative tools:
+* KIDOZ Panel view `Panel View`
+* KIDOZ Interstitial view `Interstitial View`
 * KIDOZ Feed view content tool - the `Feed View`
 * KIDOZ default button - the `Feed Button`
-* KIDOZ Panel view `Panel View`
 * KIDOZ Banner view `Banner View`
 * KIDOZ Flexi view `Flexi View`
 
