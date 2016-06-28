@@ -168,6 +168,31 @@ Kidoz.addFlexiView (bool<auto show>, Kidoz.FLEXI_VIEW_POSITION<the flexi view st
 
 ```
 
+#KIDOZ Interstial View
+
+KidozInterstitial is a full screen single ad unit.
+
+You can activate the interstitial widget by first calling the load function
+```Kidoz.loadInterstitialAd(false) ```
+
+The second stage after the ad was loaded (using the ```	Kidoz.interstitialReady ``` listener you can call
+```Kidoz.showInterstitial(); ```
+
+```
+all listeners are of type: private void listenerName(string value)
+ Kidoz.bannerReady += bannerReady;
+		
+	Kidoz.interstitialOpen += listenerName;
+		
+	Kidoz.interstitialClose += listenerName;
+		
+	Kidoz.interstitialReady += listenerName;
+		
+	
+```
+
+
+
 For any question or assistance, please contact us at SDK@kidoz.net.
 </br>
 License
