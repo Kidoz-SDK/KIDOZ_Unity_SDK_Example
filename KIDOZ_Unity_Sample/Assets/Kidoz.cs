@@ -84,6 +84,8 @@ namespace KidozSDK {
 		public static event Action<string> interstitialClose;
 
 		public static event Action<string> interstitialReady;
+
+		public static event Action<string> interstitialOnLoadFail;
 #endif
 		public string PublisherID;
 		public string SecurityToken;
@@ -664,6 +666,14 @@ namespace KidozSDK {
 			#endif
 		} 
 
+		private void interstitialOnLoadFailCallBack(string message){
+			#if UNITY_4_6 || UNITY_5
+			if (interstitialOnLoadFail != null) {
+				interstitialOnLoadFail(message);
+			}
+			#endif
+		} 
+
 		public AndroidJavaObject getContext(){
 			return activityContext;
 		}
@@ -708,7 +718,7 @@ namespace KidozSDK {
 
 					kidozBridgeObject.Call("setPlayersEventListener", this.gameObject.name,"playerOpenCallBack","playerCloseCallBack");
 
-					kidozBridgeObject.Call("setInterstitialEventListener", this.gameObject.name,"interstitialOpenCallBack","interstitialCloseCallBack","interstitialReadyCallBack");
+					kidozBridgeObject.Call("setInterstitialEventListener", this.gameObject.name,"interstitialOpenCallBack","interstitialCloseCallBack","interstitialReadyCallBack","interstitialOnLoadFailCallBack");
 
 				}
 

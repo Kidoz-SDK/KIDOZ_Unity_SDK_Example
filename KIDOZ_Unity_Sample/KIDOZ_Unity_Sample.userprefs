@@ -1,8 +1,9 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace />
-  <MonoDevelop.Ide.Workbench ActiveDocument="../../../asvn/unity/sdk/Assets/SampleCode.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/SampleCode.cs">
     <Files>
-      <File FileName="../../../asvn/unity/sdk/Assets/SampleCode.cs" Line="50" Column="13" />
+      <File FileName="Assets/Kidoz.cs" Line="1063" Column="37" />
+      <File FileName="Assets/SampleCode.cs" Line="58" Column="4" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

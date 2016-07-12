@@ -164,6 +164,6 @@ public class SampleCode : MonoBehaviour {
 	private void interstitialReady(string value)
 	{
 		Kidoz.printToastMessage ("interstitialReady");
-		//		Kidoz.showInterstitial();
+				Kidoz.showInterstitial();
 	}
 }
