@@ -8,7 +8,7 @@ KIDOZ Unity SDK Sample App
 
 **When comming from a previous version, please manually delete the Plugins/Android/KidozSdk/libs/okhttp-2.7.0.jar file, since we are updated to 3.0.1 version**
 
-**When comming from a previous version, please manually delete the Kidoz.cs located in the root assetes folder , since we moved the file postion**
+**When comming from a previous version, please manually delete the Kidoz.cs located in the root assetes folder , since we moved the file postion. Also please make sure that the KidozObject script file points to the new Kidoz Script**
 
 
 *Please make sure that the activity in the manifest is defined as com.unity3d.player.UnityPlayerActivity*
