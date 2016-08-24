@@ -1,12 +1,15 @@
 KIDOZ Unity SDK Sample App
 =================================
+*Updated to KIDOZ Android SDK version 0.5.9 iOS SDK version 0.5.4* 
+
 **KIDOZ SDK and the sample App are compatible with Android 4.0 (API level 14) and above and Unity versions greater than 5**
 
 **When comming from a previous version, please manually delete the Plugins/Android/KidozSdk/libs/okhttp-2.5.0.jar file, since we are updated to 2.7.0 version**
 
 **When comming from a previous version, please manually delete the Plugins/Android/KidozSdk/libs/okhttp-2.7.0.jar file, since we are updated to 3.0.1 version**
 
-*Updated to KIDOZ SDK version 0.5.6* 
+**When comming from a previous version, please manually delete the Kidoz.cs located in the root assetes folder , since we moved the file postion**
+
 
 *Please make sure that the activity in the manifest is defined as com.unity3d.player.UnityPlayerActivity*
 
