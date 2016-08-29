@@ -1,3 +1,5 @@
+[![Demo CountPages alpha](https://kidoz-cdn.s3.amazonaws.com/wordpress/kidoz_small.gif)](https://www.youtube.com/watch?v=-ljFjRn7jeM)
+
 KIDOZ Unity SDK Sample App
 =================================
 *Updated to KIDOZ Android SDK version 0.5.9 iOS SDK version 0.5.4* 
