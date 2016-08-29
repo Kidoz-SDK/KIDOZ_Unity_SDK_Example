@@ -127,49 +127,8 @@ There are two basic functions that can be used to add a feed button:<br>
 The visibilty of the button can be controlled using the following function: ```Kidoz.changeFeedButtonVisibility(visible)```
 
 
-#KIDOZ Banner View
-<a href="url"><img src="https://s3.amazonaws.com/kidoz-cdn/sdk/sdk_banner_preview.png" align="right" height="80" width="445" ></a>
 
-`KidozBanner` is a customized interactive banner view with standard size of `320 * 50` dp.
- 
-You can add the `KidozBanner` by calling the following code
-
-```Kidoz.addBannerToView (Kidoz.BANNER_POSITION);```
- 
-- 	To Show banner use the following line:
-	
-```
-Kidoz.showBanner();
-``` 
- 
-- 	To Hide banner use the following line:
-	
-```
-Kidoz.hideBanner();
-```
-
-- 	To change the banner position use the following line:
-	
-```
-Kidoz.changeBannerPosition();
-```
-
-- 	To add event listeners to banner view use:
-
-```
-all listeners are of type: private void listenerName(string value)
- Kidoz.bannerReady += bannerReady;
-		
-	Kidoz.bannerShow += listenerName;
-		
-	Kidoz.bannerHide += listenerName;
-		
-	Kidoz.bannerContentLoaded += listenerName;
-		
-	Kidoz.bannerContentLoadFailed += listenerName;
-```
-
-#KIDOZ Flexi Point View
+#KIDOZ Flexi Point View *only in Android
 <a href="url"><img src="https://s3.amazonaws.com/kidoz-cdn/sdk/flexi_sample_preview.png" align="right" height="300" width="300" ></a>
 `FlexiView` is a small interactive single content view, which hovers over the screen content.  
 
