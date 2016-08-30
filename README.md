@@ -1,4 +1,4 @@
-[![Demo CountPages alpha](https://kidoz-cdn.s3.amazonaws.com/wordpress/kidoz_small.gif)](https://www.youtube.com/watch?v=-ljFjRn7jeM)
+[<img src="https://kidoz-cdn.s3.amazonaws.com/wordpress/kidoz_small.gif" width="533px" height="300px">](https://www.youtube.com/watch?v=-ljFjRn7jeM)
 
 KIDOZ Unity SDK Sample App
 =================================
