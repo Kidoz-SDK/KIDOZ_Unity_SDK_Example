@@ -2,11 +2,11 @@
 
 KIDOZ Unity SDK Sample App
 =================================
-*Updated to KIDOZ Android SDK version 0.5.9 iOS SDK version 0.5.4* 
+*Updated to KIDOZ Android SDK version 0.7.0 iOS SDK version 0.5.7* 
 
 **KIDOZ SDK and the sample App are compatible with Android 4.0 (API level 14) and above and Unity versions greater than 5**
 
-**When comming from a previous version, please manually delete the Plugins/Android/KidozSdk/libs/okhttp-2.5.0.jar file, since we are updated to 2.7.0 version**
+**When comming from a previous version, please manually delete the Plugins/Android/KidozSdk/libs/okhttp-2.5.0.jar file, since we are updated to 3.4.0 version**
 
 **When comming from a previous version, please manually delete the Plugins/Android/KidozSdk/libs/okhttp-2.7.0.jar file, since we are updated to 3.0.1 version**
 
@@ -86,20 +86,25 @@ You can also expand the panel programmatically by using the following function:
 ``Kidoz.collapsePanelView()``` <\br>
 
 
-#KIDOZ Interstitial View
+#KIDOZ Interstitial / Rewarded View
 
-KidozInterstitial is a full screen single ad unit.
+KidozInterstitial is a full screen single ad unit which can be used as simple interstitial or rewared mode.
 
 You can activate the interstitial widget by first calling the load function
-```Kidoz.loadInterstitialAd(false) ```
+```Kidoz.loadInterstitialAd(false, INTERSTITIAL_AD_MODE.NORMAL) ```
 
-The second stage after the ad was loaded (using the ```	Kidoz.interstitialReady ``` listener you can call
+To request rewarded ad call this function
+```Kidoz.loadInterstitialAd(false, INTERSTITIAL_AD_MODE.NORMAL) ```
+
+
+The second stage after the ad was loaded (using the Kidoz.interstitialReady  listener you can call
 ```Kidoz.showInterstitial(); ```
 
+ 
 It is possible to test if the ad was loaded using the following function:
 ```Kidoz.getIsInterstitialLoaded() ```
 
-```
+
 all listeners are of type: private void listenerName(string value)
  Kidoz.bannerReady += bannerReady;
 		
@@ -108,6 +113,12 @@ all listeners are of type: private void listenerName(string value)
 	Kidoz.interstitialClose += listenerName;
 		
 	Kidoz.interstitialReady += listenerName;
+	
+	Kidoz.interstitialOnLoadFail += interstitialOnLoadFail;
+	
+	Kidoz.onRewardedDone += onRewardedDone; 
+		
+	Kidoz.onRewardedVideoStarted += onRewardedVideoStarted;
 		
 	
 ```
