@@ -49,6 +49,13 @@ namespace KidozSDK {
 			BOTTOM_CENTER = 7,
 			BOTTOM_END = 8
 		}
+
+		public enum INTERSTITIAL_AD_MODE
+		{
+			NORMAL = 0,
+			REWARDED = 1
+		}
+
 		public const int NO_GAME_OBJECT = -1;
 		public const int PLATFORM_NOT_SUPPORTED = -2;
 #if UNITY_4_6 || UNITY_5
@@ -91,6 +98,16 @@ namespace KidozSDK {
 		public static event Action<string> interstitialReady;
 
 		public static event Action<string> interstitialOnLoadFail;
+
+		public static event Action<string> onRewardedDone;
+
+		public static event Action<string> onRewardedVideoStarted;
+
+		public static event Action<string> videoUnitReady;
+
+		public static event Action<string> videoUnitOpen;
+
+		public static event Action<string> videoUnitClose;
 #endif
 		public string PublisherID;
 		public string SecurityToken;
@@ -336,7 +353,7 @@ namespace KidozSDK {
 		//		NO_GAME_OBJECT	- there is no Kidoz gameobject 
 		public static int addBannerToView(BANNER_POSITION position)
 		{
-			kidozin.addBannerToView ((int)position);
+//			kidozin.addBannerToView ((int)position);
 			return 0;
 		}
 		
@@ -348,7 +365,7 @@ namespace KidozSDK {
 		//		NO_GAME_OBJECT	- there is no Kidoz gameobject 
 		public static int showBanner()
 		{
-			kidozin.showBanner ();
+//			kidozin.showBanner ();
 			return 0;
 		}
 		
@@ -360,7 +377,7 @@ namespace KidozSDK {
 		//		NO_GAME_OBJECT	- there is no Kidoz gameobject 
 		public static int hideBanner()
 		{
-			kidozin.hideBanner ();
+//			kidozin.hideBanner ();
 			return 0;
 		}
 		
@@ -372,7 +389,7 @@ namespace KidozSDK {
 		//		NO_GAME_OBJECT	- there is no Kidoz gameobject 
 		public static int changeBannerPosition(BANNER_POSITION position)
 		{
-			kidozin.changeBannerPosition ((int)position);
+//			kidozin.changeBannerPosition ((int)position);
 			return 0;
 		}
 		
@@ -454,7 +471,7 @@ namespace KidozSDK {
 			return 0;
 		}
 		
-		// Description: Load interstitial add
+		// Description: Load interstitial add ---- this function is deprecated 
 		// Parameters: 
 		// 		
 		// return:
@@ -465,7 +482,42 @@ namespace KidozSDK {
 			kidozin.loadInterstitialAd (isAutoShow);
 			return 0;
 		}
+
+
+
+		// Description: generate the interstitial object
+		// Parameters: 
+		// 		 
+		// return:
+		//		0 	- the function worked correctly
+		//		NO_GAME_OBJECT	- there is no Kidoz gameobject 
+		public static int generateInterstitial( )
+		{
+			kidozin.generateInterstitial ();
+			return 0;
+		}
+
+
+		// Description: Load interstitial/rewarded ad after the callback for interstial ready with value true is returned you may call the show function
+		// Parameters: 
+		// 		 int - 0 - if the request should return normal ad
+		//				1 - if the request should return rewarded ad
+		// return:
+		//		0 	- the function worked correctly
+		//		NO_GAME_OBJECT	- there is no Kidoz gameobject 
+		public static int requestInterstitialAd( INTERSTITIAL_AD_MODE adType)
+		{
+			kidozin.requestAd ((int)adType);
+			return 0;
+		}
+
+
+
 		
+
+
+
+
 		// Description: show the interstitial add that was loaded
 		// Parameters: 
 		// 		
@@ -492,12 +544,19 @@ namespace KidozSDK {
 		
 		public static bool getIsPanelExpanded()
 		{
-			return kidozin.getIsPanelExpended ();
+//			return kidozin.getIsPanelExpended ();
+			return false;
 		}
 
 		public static void printToastMessage(String message)
 		{
 			kidozin.logMessage (message); 
+		}
+
+		public static void showVideoUnit()
+		{
+			kidozin.showVideoUnit ();
+			
 		}
 
 ///listeners calls backs
@@ -667,11 +726,53 @@ namespace KidozSDK {
 	
 	private void interstitialOnLoadFailCallBack(string message){
 		#if UNITY_4_6 || UNITY_5
+		print ("interstitialOnLoadFailCallBack ----- oooOri");
 		if (interstitialOnLoadFail != null) {
 			interstitialOnLoadFail(message);
 		}
 		#endif
 	}
+
+	private void onRewardedCallBack(string message){
+		#if UNITY_4_6 || UNITY_5
+			if (onRewardedDone != null) {
+				onRewardedDone(message);
+		}
+		#endif
+	}
+
+	private void onRewardedVideoStartedCallBack(string message){
+		#if UNITY_4_6 || UNITY_5
+			if (onRewardedVideoStarted != null) {
+				onRewardedVideoStarted(message);
+		}
+		#endif
+	}
+	
+	private void videoUnitReadyCallBack(string message){
+		#if UNITY_4_6 || UNITY_5
+		if (videoUnitReady != null) {
+			videoUnitReady(message);
+		}
+		#endif
+	}
+
+	private void videoUnitOpenCallBack(string message){
+		#if UNITY_4_6 || UNITY_5
+		if (videoUnitOpen != null) {
+			videoUnitOpen(message);
+		}
+		#endif
+	}
+
+	private void videoUnitCloseCallBack(string message){
+		#if UNITY_4_6 || UNITY_5
+		if ( videoUnitClose != null) {
+			videoUnitClose(message);
+		}
+		#endif
+	}
+//		","","
 
 #if __OOO___ //UNITY_ANDROID && !UNITY_EDITOR
 		private static AndroidJavaObject kidozBridgeObject = null;

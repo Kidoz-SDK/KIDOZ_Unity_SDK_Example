@@ -15,11 +15,7 @@ public class SampleCode : MonoBehaviour {
 		Kidoz.panelExpand += panelExpand;
 		Kidoz.panelCollapse += panelCollapse;
 		Kidoz.panelReady += panelReady;
-		Kidoz.bannerReady += bannerReady;
-		Kidoz.bannerShow += bannerShow;
-		Kidoz.bannerHide += bannerHide;
-		Kidoz.bannerContentLoaded += bannerContentLoaded;
-		Kidoz.bannerContentLoadFailed += bannerContentLoadedFailed;
+
 
 		Kidoz.flexiViewReady += flexiReady;
 		
@@ -37,6 +33,8 @@ public class SampleCode : MonoBehaviour {
 		
 		Kidoz.interstitialReady += interstitialReady;
 
+		Kidoz.interstitialOnLoadFail += interstitialOnLoadFail;
+
 		Kidoz.addFeedButton(0, 0);
 
 		Kidoz.addPanelToView (Kidoz.PANEL_TYPE.BOTTOM, Kidoz.HANDLE_POSITION.START);
@@ -45,6 +43,10 @@ public class SampleCode : MonoBehaviour {
 
 		Kidoz.addFlexiView (true, Kidoz.FLEXI_VIEW_POSITION.MID_CENTER);
 
+		Kidoz.onRewardedDone += onRewardedDone; 
+		
+		Kidoz.onRewardedVideoStarted += onRewardedVideoStarted;
+
 	}
 	
 	// Update is called once per frame
@@ -52,14 +54,30 @@ public class SampleCode : MonoBehaviour {
 
 	}
 	void OnGUI() {
-		if (GUI.Button (new Rect (500, 100*5, 200, 100), "load interstitial")) 
+
+		double factor = Screen.width / 320.0;
+		GUIStyle myStyle = new GUIStyle (GUI.skin.GetStyle("label"));
+		myStyle.fontSize = (int)(15 * factor);
+
+
+		int width = (int)(100 * factor);
+		int height = (int) (100 * factor);
+
+		if (GUI.Button (new Rect (width, height*1, width, height), "load interstitial",myStyle)) 
 		{
-			Kidoz.loadInterstitialAd(false);
+			Kidoz.requestInterstitialAd(Kidoz.INTERSTITIAL_AD_MODE.NORMAL);
 			
 			
 		}
-		
-		if (GUI.Button (new Rect (500, 100*7, 200, 100), "show interstitial")) 
+
+		if (GUI.Button (new Rect (width, height*2, width, height), "load rewarded",myStyle)) 
+		{
+			Kidoz.requestInterstitialAd(Kidoz.INTERSTITIAL_AD_MODE.REWARDED);
+			
+			
+		}
+
+		if (GUI.Button (new Rect (width, height*3, width, height), "show interstitial",myStyle)) 
 		{
 			Kidoz.showInterstitial();
 			
@@ -164,6 +182,25 @@ public class SampleCode : MonoBehaviour {
 	private void interstitialReady(string value)
 	{
 		Kidoz.printToastMessage ("interstitialReady");
-				Kidoz.showInterstitial();
+//				Kidoz.showInterstitial();
+	}
+
+	private void interstitialOnLoadFail(string value)
+	{
+		print("interstitialOnLoadFail");
+		Kidoz.printToastMessage ("interstitialOnLoadFail");
+		//		Kidoz.showInterstitial();
+	}
+
+	private void onRewardedDone(string value)
+	{
+		print("onRewardedDone");
+		Kidoz.printToastMessage ("onRewardedDone");
+	}
+	
+	private void onRewardedVideoStarted(string value)
+	{
+		print ("onRewardedVideoStarted");
+		Kidoz.printToastMessage ("onRewardedVideoStarted");
 	}
 }

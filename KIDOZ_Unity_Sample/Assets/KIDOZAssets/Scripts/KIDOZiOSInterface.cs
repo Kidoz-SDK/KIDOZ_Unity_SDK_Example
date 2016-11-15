@@ -79,9 +79,19 @@ namespace KIDOZiOSInterface {
 		private static extern void KidozLoadInterstitialAd(bool autoShow);
 
 		[DllImport("__Internal")]
+		private static extern void KidozGenerateInterstitial();
+		
+		[DllImport("__Internal")]
+		private static extern void KidozRequestAd(bool rewarded);
+
+		[DllImport("__Internal")]
 		private static extern void KidozShowInterstitial();
 
+		[DllImport("__Internal")]
+		private static extern bool KidozGetIsInterstitialLoaded();
 
+		[DllImport("__Internal")]
+		private static extern void KidozLog(string message);
 
 		public KIDOZiOSInterface()
 		{
@@ -206,6 +216,21 @@ namespace KIDOZiOSInterface {
 			KidozLoadInterstitialAd (autoShow);
 		}
 
+		public void generateInterstitial()
+		{
+			KidozGenerateInterstitial();
+		}
+		
+		public void requestAd(int adType)
+		{
+			bool rewarded = false;
+			if (adType == 1) {
+				rewarded = true;
+			}
+			KidozRequestAd (rewarded);
+		}
+
+
 		public void showInterstitial()
 		{
 			KidozShowInterstitial ();
@@ -213,12 +238,17 @@ namespace KIDOZiOSInterface {
 
 		public bool getIsInterstitialLoaded()
 		{
-			return false;
+			return KidozGetIsInterstitialLoaded();
+		}
+
+		public void showVideoUnit()
+		{
+			return ;
 		}
 
 		public void logMessage(string message)
 		{
-
+			KidozLog (message);
 		}
 	}
 }

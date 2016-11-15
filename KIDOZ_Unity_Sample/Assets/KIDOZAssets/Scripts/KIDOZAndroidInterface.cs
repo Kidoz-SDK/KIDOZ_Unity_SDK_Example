@@ -43,13 +43,18 @@ namespace KIDOZAndroidInterface {
 
 				kidozBridgeObject.Call("setPanelViewEventListeners", "KidozObject","panelExpandCallBack","panelCollapseCallBack","panelReadyCallBack");
 
-				kidozBridgeObject.Call("setBannerEventListeners", "KidozObject","bannerReadyCallBack","bannerShowCallBack","bannerHideCallBack","bannerContentLoadedCallBack","bannerContentLoadFailedCallBack");
+//				kidozBridgeObject.Call("setBannerEventListeners", "KidozObject","bannerReadyCallBack","bannerShowCallBack","bannerHideCallBack","bannerContentLoadedCallBack","bannerContentLoadFailedCallBack");
 
 				kidozBridgeObject.Call("setFlexiViewEventListener", "KidozObject","flexiViewReadyCallBack","flexiViewShowCallBack","flexiViewHideCallBack");
 
 				kidozBridgeObject.Call("setPlayersEventListener", "KidozObject","playerOpenCallBack","playerCloseCallBack");
 
 				kidozBridgeObject.Call("setInterstitialEventListener", "KidozObject","interstitialOpenCallBack","interstitialCloseCallBack","interstitialReadyCallBack","interstitialOnLoadFailCallBack");
+										
+				kidozBridgeObject.Call("setRewardedVideoEventListener", "KidozObject","onRewardedCallBack","onRewardedVideoStartedCallBack");
+
+				kidozBridgeObject.Call("setVideoUnitEventListener", "KidozObject","videoUnitReadyCallBack","videoUnitOpenCallBack","videoUnitCloseCallBack");
+
 				Debug.Log ("oooOri init android interface: end of listeners" );
 			}
 		}
@@ -57,7 +62,7 @@ namespace KIDOZAndroidInterface {
 		public void addFeedButton(int x, int y)
 		{
 			Debug.Log ("oooOri addFeedButton android interface: " + kidozBridgeObject);
-			kidozBridgeObject.Call("addFeedButton",x,y);
+			kidozBridgeObject.Call("addFeedButton",x,y,-1);
 		}
 		
 		public void addFeedBUtton(int x, int y, int size)
@@ -127,22 +132,22 @@ namespace KIDOZAndroidInterface {
 		
 		public void addBannerToView(int position)
 		{
-			kidozBridgeObject.Call("addBannerToView",(int)position);
+//			kidozBridgeObject.Call("addBannerToView",(int)position);
 		}
 		
 		public void showBanner()
 		{
-			kidozBridgeObject.Call("showBanner");
+//			kidozBridgeObject.Call("showBanner");
 		}
 		
 		public void hideBanner()
 		{
-			kidozBridgeObject.Call("hideBanner");
+//			kidozBridgeObject.Call("hideBanner");
 		}
 		
 		public void changeBannerPosition(int position)
 		{
-			kidozBridgeObject.Call("changeBannerPosition",(int)position);
+//			kidozBridgeObject.Call("changeBannerPosition",(int)position);
 		}
 		
 		public void addFlexiView(bool autoShow, int position)
@@ -180,7 +185,17 @@ namespace KIDOZAndroidInterface {
 		{
 			kidozBridgeObject.Call("loadInterstitialAd",autoShow);
 		}
+
+		public void generateInterstitial()
+		{
+			kidozBridgeObject.Call("loadInterstitialAd",false);
+		}
 		
+		public void requestAd(int adType)
+		{
+			kidozBridgeObject.Call("loadInterstitialAd",false,adType);
+		}
+
 		public void showInterstitial()
 		{
 			kidozBridgeObject.Call("showInterstitial");
@@ -190,7 +205,13 @@ namespace KIDOZAndroidInterface {
 		{
 			return kidozBridgeObject.Call<bool>("getIsInterstitialLoaded");
 		}
-		
+
+		public void showVideoUnit()
+		{
+			kidozBridgeObject.Call("showVideoUnit");
+
+		}
+
 		public void logMessage(string message)
 		{
 			kidozBridgeObject.Call("printToastLog",message); 
