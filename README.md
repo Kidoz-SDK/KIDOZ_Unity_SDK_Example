@@ -91,10 +91,10 @@ You can also expand the panel programmatically by using the following function:
 KidozInterstitial is a full screen single ad unit which can be used as simple interstitial or rewared mode.
 
 You can activate the interstitial widget by first calling the load function
-```Kidoz.loadInterstitialAd(false, INTERSTITIAL_AD_MODE.NORMAL) ```
+```Kidoz.requestInterstitialAd(false, INTERSTITIAL_AD_MODE.NORMAL) ```
 
 To request rewarded ad call this function
-```Kidoz.loadInterstitialAd(false, INTERSTITIAL_AD_MODE.NORMAL) ```
+```Kidoz.requestInterstitialAd(false, INTERSTITIAL_AD_MODE.NORMAL) ```
 
 
 The second stage after the ad was loaded (using the Kidoz.interstitialReady  listener you can call
