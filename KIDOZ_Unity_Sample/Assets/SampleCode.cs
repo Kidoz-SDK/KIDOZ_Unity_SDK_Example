@@ -47,6 +47,8 @@ public class SampleCode : MonoBehaviour {
 		
 		Kidoz.onRewardedVideoStarted += onRewardedVideoStarted;
 
+		Kidoz.generateInterstitial();
+
 	}
 	
 	// Update is called once per frame
