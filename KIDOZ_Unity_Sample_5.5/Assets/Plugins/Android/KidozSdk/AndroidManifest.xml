@@ -1,0 +1,32 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.kidoz.sdk.api"
+    android:versionCode="58"
+    android:versionName="0.5.8" >
+
+    <uses-sdk
+        android:minSdkVersion="14"
+        android:targetSdkVersion="22" />
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+
+    <application android:hardwareAccelerated="true">
+        <activity android:name="com.kidoz.sdk.api.ui_views.interstitial.KidozAdActivity"
+                  android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|uiMode|screenSize|smallestScreenSize"
+                  />
+        <activity android:name="com.kidoz.sdk.api.ui_views.video_unit.VideoUnitActivity"
+                  android:theme="@android:style/Theme.Black.NoTitleBar.Fullscreen"
+                  android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|uiMode|screenSize|smallestScreenSize"/>
+        <!-- SDK DEFENITIONS -->
+        <receiver android:name="com.kidoz.sdk.api.receivers.SdkReceiver" >
+            <intent-filter>
+                <action android:name="android.intent.action.PACKAGE_ADDED" />
+
+                <data android:scheme="package" />
+            </intent-filter>
+        </receiver>
+        <!-- SDK DEFENITIONS -->
+
+    </application>
+
+</manifest>
