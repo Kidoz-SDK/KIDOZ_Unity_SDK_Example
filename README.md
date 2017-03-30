@@ -129,6 +129,8 @@ all listeners are of type: private void listenerName(string value)
 	Kidoz.onRewardedVideoStarted += onRewardedVideoStarted;
 		
 	
+_Deprecated units_:
+
 # KIDOZ Feed
 ### Calling the Feed View Programmatically
 You can display the feed view programmatically by calling the following method: ```Kidoz.showFeedView()``` 
