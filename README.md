@@ -84,7 +84,7 @@ The `PanelView` can be placed on one of four sides of the activity screen - `PAN
 The `PanelView` can be controlled via a special `Handle` button that can be located in any of the 3 following positions -  
 `HANDLE_POSITION.START`,`HANDLE_POSITION.CENTER`,`HANDLE_POSITION.END` depending on the `PanelView` initial screen location.
 </br>
-<a href="url"><img src="https://s3.amazonaws.com/kidoz-cdn/sdk/sdk_panel_layout.jpg" align="center" height="500" width="433" ></a>
+<a href="url"><img src="http://kidoz-cdn.s3.amazonaws.com/media/Panel%20Position%20Github.jpg" align="center" height="500" width="433" ></a>
 </br>
 to activate the panel use the following function:
 ```Kidoz.addPanelToView (Panel_type, Handle_Position);```
