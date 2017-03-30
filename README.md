@@ -31,6 +31,8 @@ _Deprecated units_:
 * KIDOZ Feed view content tool - the `Feed View`
 * KIDOZ Flexi view `Flexi View`
 
+** Note that you need to select either Interstital OR Rewarded during application lifetime.
+
 Running the sample app
 1. Clone (or Download) the Unity project (download button located on the right) and unzip the downloaded .zip file
 2. Launch `Unity`, click `File` --> `Open Project` --> `Open`, navigate to unzipped project directory, select the whole directory and click `OK`
