@@ -22,12 +22,12 @@ This Unity application project provides an example of the [KIDOZ](http://www.kid
 
 The example application contains the following creative tools:
 
-Recommended units:
+_Recommended units_:
 * KIDOZ Panel view `Panel View`
 * KIDOZ Interstitial view `Rewarded View`
 * KIDOZ Interstitial view `Interstitial View`
 
-Deprecated units:
+_Deprecated units_:
 * KIDOZ Feed view content tool - the `Feed View`
 * KIDOZ Flexi view `Flexi View`
 
@@ -42,10 +42,10 @@ Running the sample app
 5. To run the SDK Sample App go to `File` --> `Build & Run`
 
 
-KIDOZ SDK - Getting Started
+# KIDOZ SDK - Getting Started
 =================================
 
-####IMPORTANT
+#### IMPORTANT
 This demo application uses `buildToolsVersion "22.0.1"`. if your `Android Studio` is not updated with this version you can follow one of these steps (or both):
 
  - 	Update `buildToolsVersion`
@@ -64,7 +64,7 @@ This demo application uses `buildToolsVersion "22.0.1"`. if your `Android Studio
 
 <a href="url"><img src="http://d28lrrc51wcjkk.cloudfront.net/sdk/Unity_SDK_Publisher_Security_Token.png" align="center" height="250" width="400" ></a>
 
-####Using the SDK
+#### Using the SDK
 1. Select your relevant script file.
 2. Add ```using KidozSDK;``` in the using section of your code.
 3. Create two listeners with the following signature </br>```void functionName(String)``` </br>One for Feed open and one for Feed close.
@@ -73,7 +73,7 @@ This demo application uses `buildToolsVersion "22.0.1"`. if your `Android Studio
 6. Connect the above listeners to ```Kidoz.playerOpen``` and ```Kidoz.playerClose```
 
 #KIDOZ Panel
-<a href="url"><img src="https://s3.amazonaws.com/kidoz-cdn/sdk/panel_view_sample_image.png" align="right" height="121" width="200" ></a>
+<a href="url"><img src="http://kidoz-cdn.s3.amazonaws.com/media/Panel%20Github.jpeg" align="right" height="121" width="200" ></a>
 
 `PanelView` is a customized special view that can slide in/out of the screen (both in horizontal and vertical layout) with minimal interference to user experience.
 The `PanelView` can be placed on one of four sides of the activity screen - `PANEL_TYPE.TOP`,`PANEL_TYPE.BOTTOM`,`PANEL_TYPE.RIGHT`,`PANEL_TYPE.LEFT` 
@@ -91,7 +91,7 @@ You can also expand the panel programmatically by using the following function:
 ``Kidoz.collapsePanelView()``` <\br>
 
 
-#KIDOZ Interstitial / Rewarded View
+# KIDOZ Interstitial / Rewarded View
 
 KidozInterstitial is a full screen single ad unit which can be used as simple interstitial or rewared mode.
 
@@ -129,13 +129,13 @@ all listeners are of type: private void listenerName(string value)
 ```
 
 
-#KIDOZ Feed
+# KIDOZ Feed
 ###Calling the Feed View Programmatically
 You can display the feed view programmatically by calling the following method: ```Kidoz.showFeedView()``` 
 to close the feed view call ```Kidoz.dismissFeedView()```
 
 
-###Adding the KIDOZ Feed Button
+### Adding the KIDOZ Feed Button
 <a href="url"><img src="https://kidoz-cdn.s3.amazonaws.com/sdk/btn_animation.gif" align="right" height="96" width="96" ></a>
 There are two basic functions that can be used to add a feed button:<br>
 1. ```Kidoz.addFeedButton(int xPos, int yPos)``` which will place KIDOZ top left corner button at the selected coordinates. The button size can be found using the following message: ```Kidoz.getFeedButtonDefaultSize()``` which will return an int number that represents the width and height of the button.
@@ -178,7 +178,7 @@ Kidoz.addFlexiView (bool<auto show>, Kidoz.FLEXI_VIEW_POSITION<the flexi view st
 ```
 
 
-For any question or assistance, please contact us at SDK@kidoz.net.
+# For any question or assistance, please contact us at SDK@kidoz.net.
 </br>
 License
 --------
