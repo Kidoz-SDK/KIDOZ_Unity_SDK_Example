@@ -21,14 +21,17 @@ KIDOZ Unity SDK Sample App
 This Unity application project provides an example of the [KIDOZ](http://www.kidoz.net) SDK integration.
 
 The example application contains the following creative tools:
+
+Recommended units:
 * KIDOZ Panel view `Panel View`
 * KIDOZ Interstitial view `Rewarded View`
 * KIDOZ Interstitial view `Interstitial View`
+
+Deprecated units:
 * KIDOZ Feed view content tool - the `Feed View`
-* KIDOZ default button - the `Feed Button`
 * KIDOZ Flexi view `Flexi View`
 
-###Running the sample app
+Running the sample app
 1. Clone (or Download) the Unity project (download button located on the right) and unzip the downloaded .zip file
 2. Launch `Unity`, click `File` --> `Open Project` --> `Open`, navigate to unzipped project directory, select the whole directory and click `OK`
 3. In the Assets tab click on the `FirstScene` (See printscreen below)
