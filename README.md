@@ -27,11 +27,12 @@ _Recommended units_:
 * KIDOZ Interstitial view `Rewarded View`
 * KIDOZ Interstitial view `Interstitial View`
 
+** Note that you need to select either Interstital OR Rewarded during application lifetime.
+
 _Deprecated units_:
 * KIDOZ Feed view content tool - the `Feed View`
 * KIDOZ Flexi view `Flexi View`
 
-** Note that you need to select either Interstital OR Rewarded during application lifetime.
 
 Running the sample app
 1. Clone (or Download) the Unity project (download button located on the right) and unzip the downloaded .zip file
