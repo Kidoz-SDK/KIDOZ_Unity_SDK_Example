@@ -129,7 +129,7 @@ all listeners are of type: private void listenerName(string value)
 	Kidoz.onRewardedVideoStarted += onRewardedVideoStarted;
 		
 	
-_Deprecated units_:
+## _Deprecated units_:
 
 # KIDOZ Feed
 ### Calling the Feed View Programmatically
