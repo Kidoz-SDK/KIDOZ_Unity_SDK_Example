@@ -72,7 +72,7 @@ This demo application uses `buildToolsVersion "22.0.1"`. if your `Android Studio
 5. Create two listeners with the following signature </br>```void functionName(string)``` for movie open and movie close
 6. Connect the above listeners to ```Kidoz.playerOpen``` and ```Kidoz.playerClose```
 
-#KIDOZ Panel
+# KIDOZ Panel
 <a href="url"><img src="http://kidoz-cdn.s3.amazonaws.com/media/Panel%20Github.jpeg" align="right" height="121" width="200" ></a>
 
 `PanelView` is a customized special view that can slide in/out of the screen (both in horizontal and vertical layout) with minimal interference to user experience.
@@ -126,17 +126,14 @@ all listeners are of type: private void listenerName(string value)
 	Kidoz.onRewardedVideoStarted += onRewardedVideoStarted;
 		
 	
-```
-
-
 # KIDOZ Feed
-###Calling the Feed View Programmatically
+### Calling the Feed View Programmatically
 You can display the feed view programmatically by calling the following method: ```Kidoz.showFeedView()``` 
 to close the feed view call ```Kidoz.dismissFeedView()```
 
 
 ### Adding the KIDOZ Feed Button
-<a href="url"><img src="https://kidoz-cdn.s3.amazonaws.com/sdk/btn_animation.gif" align="right" height="96" width="96" ></a>
+
 There are two basic functions that can be used to add a feed button:<br>
 1. ```Kidoz.addFeedButton(int xPos, int yPos)``` which will place KIDOZ top left corner button at the selected coordinates. The button size can be found using the following message: ```Kidoz.getFeedButtonDefaultSize()``` which will return an int number that represents the width and height of the button.
 </br>
@@ -146,7 +143,7 @@ The visibilty of the button can be controlled using the following function: ```K
 
 
 
-#KIDOZ Flexi Point View *only in Android
+# KIDOZ Flexi Point View *only in Android
 <a href="url"><img src="https://s3.amazonaws.com/kidoz-cdn/sdk/flexi_sample_preview.png" align="right" height="300" width="300" ></a>
 `FlexiView` is a small interactive single content view, which hovers over the screen content.  
 
