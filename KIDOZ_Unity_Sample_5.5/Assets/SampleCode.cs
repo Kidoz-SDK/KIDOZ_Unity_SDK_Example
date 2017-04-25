@@ -39,6 +39,7 @@ public class SampleCode : MonoBehaviour {
 
 		Kidoz.addPanelToView (Kidoz.PANEL_TYPE.BOTTOM, Kidoz.HANDLE_POSITION.START);
 
+
 		Kidoz.addBannerToView (Kidoz.BANNER_POSITION.BOTTOM);
 
 		Kidoz.addFlexiView (true, Kidoz.FLEXI_VIEW_POSITION.MID_CENTER);
@@ -114,6 +115,10 @@ public class SampleCode : MonoBehaviour {
 	private void panelReady(string value)
 	{
 		print ("panel ready");
+
+		Kidoz.printToastMessage ("!!!!!");
+
+		Kidoz.changePanelVisibility(false);
 
 	}
 	private void bannerReady(string value)
