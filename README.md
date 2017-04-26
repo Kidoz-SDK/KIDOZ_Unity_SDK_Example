@@ -14,8 +14,6 @@ KIDOZ Unity SDK Sample App
 
 **Please use the 5.5 sample. In case of using the older versoin please import the Kidoz package**
 
-*Please make sure that the activity in the manifest is defined as com.unity3d.player.UnityPlayerActivity*
-
 *When compiling for iOS please add the following frameworks: libsqlite3.tbd, webkit.framework*
 
 This Unity application project provides an example of the [KIDOZ](http://www.kidoz.net) SDK integration.
