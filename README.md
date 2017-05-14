@@ -43,6 +43,7 @@ _Deprecated units_:
 3. Open your requested Scene. 
 4. Drag the `KidozObject` into the selected scene.
 5. Select the `KidozObject` and enter your `Publisher ID` and `Security Token`
+6. If you're having issues with the 'KidozObject' you can open the SampleScene by double clicking it instead.
 
 <a href="url"><img src="http://d28lrrc51wcjkk.cloudfront.net/sdk/Unity_SDK_Publisher_Security_Token.png" align="center" height="250" width="400" ></a>
 
