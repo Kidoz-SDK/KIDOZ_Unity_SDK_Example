@@ -131,7 +131,7 @@ to close the feed view call ```Kidoz.dismissFeedView()```
 There are two basic functions that can be used to add a feed button:<br>
 1. ```Kidoz.addFeedButton(int xPos, int yPos)``` which will place KIDOZ top left corner button at the selected coordinates. The button size can be found using the following message: ```Kidoz.getFeedButtonDefaultSize()``` which will return an int number that represents the width and height of the button.
 </br>
-2. ```Kidoz.addFeedButton(int xPos, int yPos, int size)``` that will place KIDOZ top left corner button at the selected coordinates with the requested size. The same size applies for both the width and height of the button.
+2. Kidoz.addFeedButton(int xPos, int yPos, int size)``` that will place KIDOZ top left corner button at the selected coordinates with the requested size. The same size applies for both the width and height of the button.
 
 The visibilty of the button can be controlled using the following function: ```Kidoz.changeFeedButtonVisibility(visible)```
 
