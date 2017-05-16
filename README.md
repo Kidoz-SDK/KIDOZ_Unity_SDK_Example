@@ -1,20 +1,11 @@
 [<img src="https://kidoz-cdn.s3.amazonaws.com/wordpress/kidoz_small.gif" width="533px" height="300px">](https://www.youtube.com/watch?v=-ljFjRn7jeM)
 
-KIDOZ Unity SDK Sample App
-=================================
-*Updated to KIDOZ Android SDK version 0.7.4 iOS SDK version 0.5.9* 
+# KIDOZ Unity SDK Sample App
 
-**KIDOZ SDK and the sample App are compatible with Android 4.0 (API level 14) and above and Unity versions greater than 5**
+** KIDOZ SDK and the sample App are compatible with Android 4.0 (API level 14) and above and Unity versions greater than 5**
 
-**When comming from a previous version, please manually delete previous okhttp jar file, and use the attached onen**
 
-**When comming from a previous version,  please manually delete previous okio jar file, and use the attached onen**
-
-**When comming from a previous version, please manually delete the Kidoz.cs located in the root assetes folder , since we moved the file postion. also make sure that teh KidozObject points to the new Kidoz script**
-
-**Please use the 5.5 sample. In case of using the older versoin please import the Kidoz package**
-
-*When compiling for iOS please add the following frameworks: libsqlite3.tbd, webkit.framework*
+# General
 
 This Unity application project provides an example of the [KIDOZ](http://www.kidoz.net) SDK integration.
 
@@ -30,9 +21,11 @@ _Recommended units_:
 _Deprecated units_:
 * KIDOZ Feed view content tool - the `Feed View`
 * KIDOZ Flexi view `Flexi View`
+* KIDOZ Banner ad
 
 
-Running the sample app
+# Running the sample app
+
 1. Clone (or Download) the Unity project (download button located on the right) and unzip the downloaded .zip file
 2. Launch `Unity`, click `File` --> `Open Project` --> `Open`, navigate to unzipped project directory, select the whole directory and click `OK`
 3. In the Assets tab click on the `FirstScene` (See printscreen below)
@@ -44,18 +37,6 @@ Running the sample app
 
 
 # KIDOZ SDK - Getting Started
-=================================
-
-#### IMPORTANT
-This demo application uses `buildToolsVersion "22.0.1"`. if your `Android Studio` is not updated with this version you can follow one of these steps (or both):
-
- - 	Update `buildToolsVersion`
-
-1. Inside `Android Studio` click the `SDK Manager` icon
-2. In the left side menu, navigate to `Appearance & Behavior` --> `System Settings` --> `Android SDK`
-3. Click the `SDK Tools` tab
-4. Check the `Android SDK Build Tools` and click `OK` 
-
 
 1. Import the `KidozSDK` Unity package. `Assets` --> `Import Package` --> `Custom Package` --> select the extracted KidozSDK package.
 2. In the import window select all components. A new Prefabs object named `KidozObject` will appear in the Assets folder. 
@@ -72,6 +53,15 @@ This demo application uses `buildToolsVersion "22.0.1"`. if your `Android Studio
 4. Connect the two listeners function you created to  ```Kidoz.viewOpened``` and to ```Kidoz.viewClosed```
 5. Create two listeners with the following signature </br>```void functionName(string)``` for movie open and movie close
 6. Connect the above listeners to ```Kidoz.playerOpen``` and ```Kidoz.playerClose```
+
+# SideNote (iOS)
+
+**When compiling for iOS please add the following frameworks: libsqlite3.tbd, webkit.framework**
+
+# General Events
+The following general events are important if you wish to follow the SDK's initialization state:
+		Kidoz.initSuccess += onKidozInitSuccess;
+		Kidoz.initError += onKidozInitError;
 
 # KIDOZ Panel
 <a href="url"><img src="http://kidoz-cdn.s3.amazonaws.com/media/Panel%20Github.jpeg" align="right" height="121" width="200" ></a>
@@ -121,6 +111,8 @@ all listeners are of type: private void listenerName(string value)
 	Kidoz.interstitialReady += listenerName;
 	
 	Kidoz.interstitialOnLoadFail += interstitialOnLoadFail;
+
+	Kidoz.interstitialOnNoOffers += interstitialOnNoOffers;
 	
 	Kidoz.onRewardedDone += onRewardedDone; 
 		
@@ -176,6 +168,23 @@ Kidoz.addFlexiView (bool<auto show>, Kidoz.FLEXI_VIEW_POSITION<the flexi view st
 		Kidoz.flexiViewHide += listenerName;
 
 ```
+
+Trouble Shooting
+================
+**Kidoz plugin does not currently support Unity editor runtime. Please make sure you switch to a relevant platform (iOS/Android) before working or ignore any error in the Editor runtime.
+
+**When comming from a previous version, please manually delete previous okhttp jar file, and use the attached onen**
+
+**When comming from a previous version,  please manually delete previous okio jar file, and use the attached onen**
+
+**When comming from a previous version, please manually delete the Kidoz.cs located in the root assetes folder , since we moved the file postion. also make sure that teh KidozObject points to the new Kidoz script**
+
+**Android Build Tools Version**
+This demo application uses `buildToolsVersion "22.0.1"`. if your `Android Studio` is not updated with this version you can follow one of these steps (or both):
+1. Inside `Android Studio` click the `SDK Manager` icon
+2. In the left side menu, navigate to `Appearance & Behavior` --> `System Settings` --> `Android SDK`
+3. Click the `SDK Tools` tab
+4. Check the `Android SDK Build Tools` and click `OK` 
 
 
 # For any question or assistance, please contact us at SDK@kidoz.net.
