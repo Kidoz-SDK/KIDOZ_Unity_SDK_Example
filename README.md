@@ -2,7 +2,7 @@
 
 # KIDOZ Unity SDK Sample App
 
-** KIDOZ SDK and the sample App are compatible with Android 4.0 (API level 14) and above and Unity versions greater than 5**
+**Here you can get the Kidoz Unity plugin and a sample app for Unity. See integration instructions and additional information bellow.**
 
 
 # General
@@ -16,7 +16,7 @@ _Recommended units_:
 * KIDOZ Interstitial view `Rewarded View`
 * KIDOZ Interstitial view `Interstitial View`
 
-** Note that you need to select either Interstital OR Rewarded during application lifetime.
+*Note that you need to select either Interstital OR Rewarded during application lifetime.
 
 _Deprecated units_:
 * KIDOZ Feed view content tool - the `Feed View`
@@ -43,8 +43,11 @@ _Deprecated units_:
 3. Open your requested Scene. 
 4. Drag the `KidozObject` into the selected scene.
 5. Select the `KidozObject` and enter your `Publisher ID` and `Security Token`
+6. If you're having issues with the 'KidozObject' you can open the SampleScene by double clicking it instead.
 
 <a href="url"><img src="http://d28lrrc51wcjkk.cloudfront.net/sdk/Unity_SDK_Publisher_Security_Token.png" align="center" height="250" width="400" ></a>
+
+*Note: When compiling for iOS please add the following frameworks: libsqlite3.tbd, webkit.framework*
 
 #### Using the SDK
 1. Select your relevant script file.
@@ -54,9 +57,6 @@ _Deprecated units_:
 5. Create two listeners with the following signature </br>```void functionName(string)``` for movie open and movie close
 6. Connect the above listeners to ```Kidoz.playerOpen``` and ```Kidoz.playerClose```
 
-# SideNote (iOS)
-
-**When compiling for iOS please add the following frameworks: libsqlite3.tbd, webkit.framework**
 
 # General Events
 The following general events are important if you wish to follow the SDK's initialization state:
@@ -132,7 +132,7 @@ to close the feed view call ```Kidoz.dismissFeedView()```
 There are two basic functions that can be used to add a feed button:<br>
 1. ```Kidoz.addFeedButton(int xPos, int yPos)``` which will place KIDOZ top left corner button at the selected coordinates. The button size can be found using the following message: ```Kidoz.getFeedButtonDefaultSize()``` which will return an int number that represents the width and height of the button.
 </br>
-2. ```Kidoz.addFeedButton(int xPos, int yPos, int size)``` that will place KIDOZ top left corner button at the selected coordinates with the requested size. The same size applies for both the width and height of the button.
+2. Kidoz.addFeedButton(int xPos, int yPos, int size)``` that will place KIDOZ top left corner button at the selected coordinates with the requested size. The same size applies for both the width and height of the button.
 
 The visibilty of the button can be controlled using the following function: ```Kidoz.changeFeedButtonVisibility(visible)```
 
@@ -171,6 +171,8 @@ Kidoz.addFlexiView (bool<auto show>, Kidoz.FLEXI_VIEW_POSITION<the flexi view st
 
 Trouble Shooting
 ================
+**KIDOZ SDK and this sample app are compatible with Android 4.0 (API level 14) and above and Unity versions greater than 5**
+
 **Kidoz plugin does not currently support Unity editor runtime. Please make sure you switch to a relevant platform (iOS/Android) before working or ignore any error in the Editor runtime.
 
 **When comming from a previous version, please manually delete previous okhttp jar file, and use the attached onen**
