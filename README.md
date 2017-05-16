@@ -2,6 +2,8 @@
 
 # KIDOZ Unity SDK Sample App
 
+Version: 0.7.7
+
 **Here you can get the Kidoz Unity plugin and a sample app for Unity. See integration instructions and additional information bellow.**
 
 
@@ -102,7 +104,7 @@ It is possible to test if the ad was loaded using the following function:
 
 
 all listeners are of type: private void listenerName(string value)
- Kidoz.bannerReady += bannerReady;
+ 	Kidoz.bannerReady += bannerReady;
 		
 	Kidoz.interstitialOpen += listenerName;
 		
