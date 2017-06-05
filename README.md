@@ -2,7 +2,7 @@
 
 # KIDOZ Unity SDK Sample App
 
-Version: 0.7.7
+Version: 0.8.0.1
 
 **Here you can get the Kidoz Unity plugin and a sample app for Unity. See integration instructions and additional information bellow.**
 
@@ -90,19 +90,22 @@ You can also expand the panel programmatically by using the following function:
 KidozInterstitial is a full screen single ad unit which can be used as simple interstitial or rewared mode.
 
 You can activate the interstitial widget by first calling the load function
-```Kidoz.requestInterstitialAd(false, INTERSTITIAL_AD_MODE.NORMAL) ```
+```Kidoz.loadInterstitialAd(false); ```
 
 To request rewarded ad call this function
-```Kidoz.requestInterstitialAd(false, INTERSTITIAL_AD_MODE.NORMAL) ```
+```Kidoz.loadRewardedAd(false); ```
 
 
-The second stage after the ad was loaded (using the Kidoz.interstitialReady  listener you can call
+The second stage after the ad was loaded (using the Kidoz.interstitialReady/rewardedReady callback you can call
 ```Kidoz.showInterstitial(); ```
+or 
+```Kidoz.showRewarded(); ```
 
  
 It is possible to test if the ad was loaded using the following function:
 ```Kidoz.getIsInterstitialLoaded() ```
-
+or
+```Kidoz.getIsRewardedLoaded() ```
 
 all listeners are of type: private void listenerName(string value)
  	Kidoz.bannerReady += bannerReady;
@@ -121,6 +124,15 @@ all listeners are of type: private void listenerName(string value)
 		
 	Kidoz.onRewardedVideoStarted += onRewardedVideoStarted;
 		
+	Kidoz.rewardedOpen += rewardedOpen;
+	
+	Kidoz.rewardedClose += rewardedClose;
+	
+	Kidoz.rewardedReady += rewardedReady;
+	
+	Kidoz.rewardedOnLoadFail += rewardedOnLoadFail;
+	
+	Kidoz.rewardedOnNoOffers += rewardedOnNoOffers;
 	
 ## _Deprecated units_:
 
