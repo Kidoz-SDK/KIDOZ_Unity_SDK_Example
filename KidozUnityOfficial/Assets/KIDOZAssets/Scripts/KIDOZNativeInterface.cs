@@ -55,11 +55,21 @@ namespace KIDOZNativeInterface {
 
 		void setFlexiViewClosable(bool closable);
 
+		//***********************************//
+		//***** INTERSTITIAL & REWARDED *****//
+		//***********************************//
+
 		void loadInterstitialAd(bool autoShow);
+
+		void loadRewardedAd(bool autoShow);
 
 		void showInterstitial();
 
+		void showRewarded();
+
 		bool getIsInterstitialLoaded();
+
+		bool getIsRewardedLoaded();
 
 		void logMessage(string message);
 	}

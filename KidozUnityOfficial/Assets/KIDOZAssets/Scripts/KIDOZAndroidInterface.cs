@@ -49,7 +49,7 @@ namespace KIDOZAndroidInterface {
 
 				kidozBridgeObject.Call("setInterstitialEventListener", "KidozObject","interstitialOpenCallBack","interstitialCloseCallBack","interstitialReadyCallBack","interstitialOnLoadFailCallBack", "interstitialOnNoOffersCallBack");
 										
-				kidozBridgeObject.Call("setRewardedVideoEventListener", "KidozObject","onRewardedCallBack","onRewardedVideoStartedCallBack");
+				kidozBridgeObject.Call("setRewardedVideoEventListener", "KidozObject","onRewardedCallBack","onRewardedVideoStartedCallBack","rewardedOpenCallBack","rewardedCloseCallBack","rewardedReadyCallBack","rewardedOnLoadFailCallBack", "rewardedOnNoOffersCallBack");
 
 				kidozBridgeObject.Call("setVideoUnitEventListener", "KidozObject","videoUnitReadyCallBack","videoUnitOpenCallBack","videoUnitCloseCallBack");
 
@@ -186,7 +186,17 @@ namespace KIDOZAndroidInterface {
 		{
 			kidozBridgeObject.Call("setFlexiViewClosable",closable);
 		}
-		
+
+		public void showVideoUnit()
+		{
+			kidozBridgeObject.Call("showVideoUnit");
+		}
+
+
+		//***********************************//
+		//***** INTERSTITIAL & REWARDED *****//
+		//***********************************//
+
 		public void loadInterstitialAd(bool autoShow)
 		{
 			kidozBridgeObject.Call("loadInterstitialAd",autoShow);
@@ -195,11 +205,6 @@ namespace KIDOZAndroidInterface {
 		public void generateInterstitial()
 		{
 			kidozBridgeObject.Call("loadInterstitialAd",false);
-		}
-		
-		public void requestAd(int adType)
-		{
-			kidozBridgeObject.Call("loadInterstitialAd",false,adType);
 		}
 
 		public void showInterstitial()
@@ -212,11 +217,27 @@ namespace KIDOZAndroidInterface {
 			return kidozBridgeObject.Call<bool>("getIsInterstitialLoaded");
 		}
 
-		public void showVideoUnit()
+		public void loadRewardedAd(bool autoShow)
 		{
-			kidozBridgeObject.Call("showVideoUnit");
-
+			kidozBridgeObject.Call("loadRewardedAd",autoShow);
 		}
+		
+		public void generateRewarded()
+		{
+			kidozBridgeObject.Call("loadRewardedAd",false);
+		}
+		
+		public void showRewarded()
+		{
+			kidozBridgeObject.Call("showRewarded");
+		}
+		
+		public bool getIsRewardedLoaded()
+		{
+			return kidozBridgeObject.Call<bool>("getIsRewardedLoaded");
+		}
+
+
 
 		public void logMessage(string message)
 		{

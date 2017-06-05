@@ -109,6 +109,16 @@ namespace KidozSDK {
 
 		public static event Action<string> onRewardedVideoStarted;
 
+		public static event Action<string> rewardedOpen;
+		
+		public static event Action<string> rewardedClose;
+		
+		public static event Action<string> rewardedReady;
+		
+		public static event Action<string> rewardedOnLoadFail;
+		
+		public static event Action<string> rewardedOnNoOffers;
+
 		public static event Action<string> videoUnitReady;
 
 		public static event Action<string> videoUnitOpen;
@@ -481,7 +491,25 @@ namespace KidozSDK {
 			kidozin.setFlexiViewClosable (Closable);
 			return 0;
 		}
-		
+
+		public static bool getIsPanelExpanded()
+		{
+			//			return kidozin.getIsPanelExpended (); //TODO: WHY?
+			return false;
+		}
+
+
+
+
+
+		//***********************************//
+		//***** INTERSTITIAL & REWARDED *****//
+		//***********************************//
+
+
+
+
+
 		// Description: Load interstitial add ---- this function is deprecated 
 		// Parameters: 
 		// 		
@@ -494,7 +522,11 @@ namespace KidozSDK {
 			return 0;
 		}
 
-
+		public static int loadRewardedAd( bool isAutoShow)
+		{
+			kidozin.loadRewardedAd (isAutoShow);
+			return 0;
+		}
 
 		// Description: generate the interstitial object
 		// Parameters: 
@@ -507,18 +539,10 @@ namespace KidozSDK {
 			kidozin.generateInterstitial ();
 			return 0;
 		}
-	
 
-		// Description: Load interstitial/rewarded ad after the callback for interstial ready with value true is returned you may call the show function
-		// Parameters: 
-		// 		 int - 0 - if the request should return normal ad
-		//				1 - if the request should return rewarded ad
-		// return:
-		//		0 	- the function worked correctly
-		//		NO_GAME_OBJECT	- there is no Kidoz gameobject 
-		public static int requestInterstitialAd( INTERSTITIAL_AD_MODE adType)
+		public static int generateRewarded( )
 		{
-			kidozin.requestAd ((int)adType);
+			kidozin.generateRewarded ();
 			return 0;
 		}
 
@@ -533,7 +557,13 @@ namespace KidozSDK {
 			kidozin.showInterstitial ();
 			return 0;
 		}
-		
+
+		public static int showRewarded( )
+		{
+			kidozin.showRewarded ();
+			return 0;
+		}
+
 		// Description: return if an interstitial add was loaded
 		// Parameters: 
 		// 		
@@ -546,11 +576,13 @@ namespace KidozSDK {
 			
 		}
 		
-		public static bool getIsPanelExpanded()
+		public static bool getIsRewardedLoaded( )
 		{
-//			return kidozin.getIsPanelExpended (); //TODO: WHY?
-			return false;
+			return kidozin.getIsRewardedLoaded ();
+			
 		}
+
+
 
 		public static void printToastMessage(String message)
 		{
@@ -668,6 +700,29 @@ namespace KidozSDK {
 		}
 	} 
 	
+	private void videoUnitReadyCallBack(string message){
+		if (videoUnitReady != null) {
+			videoUnitReady(message);
+		}
+	}
+	
+	private void videoUnitOpenCallBack(string message){
+		if (videoUnitOpen != null) {
+			videoUnitOpen(message);
+		}
+	}
+	
+	private void videoUnitCloseCallBack(string message){
+		if ( videoUnitClose != null) {
+			videoUnitClose(message);
+		}
+	}
+
+
+	//***********************************//
+	//***** INTERSTITIAL & REWARDED *****//
+	//***********************************//
+
 	private void interstitialOpenCallBack(string message){
 		if (interstitialOpen != null) {
 			interstitialOpen(message);
@@ -694,40 +749,53 @@ namespace KidozSDK {
 
 	private void interstitialOnNoOffersCallBack(string message){
 		if (interstitialOnNoOffers != null) {
-				print ("xxx dartchi");
 			interstitialOnNoOffers(message);
 		}
 	}
 
 	private void onRewardedCallBack(string message){
 		if (onRewardedDone != null) {
-				onRewardedDone(message);
+			onRewardedDone(message);
 		}
 	}
 
 	private void onRewardedVideoStartedCallBack(string message){
-			if (onRewardedVideoStarted != null) {
-				onRewardedVideoStarted(message);
+		if (onRewardedVideoStarted != null) {
+			onRewardedVideoStarted(message);
 		}
 	}
 	
-	private void videoUnitReadyCallBack(string message){
-		if (videoUnitReady != null) {
-			videoUnitReady(message);
+	private void rewardedOpenCallBack(string message){
+		if (rewardedOpen != null) {
+			rewardedOpen(message);
+		}
+	} 
+	
+	private void rewardedCloseCallBack(string message){
+		if (rewardedClose != null) {
+			rewardedClose(message);
+		}
+	} 
+	
+	private void rewardedReadyCallBack(string message){
+		if (rewardedReady != null) {
+			rewardedReady(message);
+		}
+	} 
+	
+	private void rewardedOnLoadFailCallBack(string message){
+		if (rewardedOnLoadFail != null) {
+			rewardedOnLoadFail(message);
+		}
+	}
+	
+	private void rewardedOnNoOffersCallBack(string message){
+		if (rewardedOnNoOffers != null) {
+			rewardedOnNoOffers(message);
 		}
 	}
 
-	private void videoUnitOpenCallBack(string message){
-		if (videoUnitOpen != null) {
-			videoUnitOpen(message);
-		}
-	}
 
-	private void videoUnitCloseCallBack(string message){
-		if ( videoUnitClose != null) {
-			videoUnitClose(message);
-		}
-	}
 
 #if __OOO___ //UNITY_ANDROID && !UNITY_EDITOR
 		private static AndroidJavaObject kidozBridgeObject = null;
@@ -1190,6 +1258,8 @@ namespace KidozSDK {
 					kidozBridgeObject.Call("setPlayersEventListener", this.gameObject.name,"playerOpenCallBack","playerCloseCallBack");
 
 					kidozBridgeObject.Call("setInterstitialEventListener", this.gameObject.name,"interstitialOpenCallBack","interstitialCloseCallBack","interstitialReadyCallBack","interstitialOnLoadFailCallBack", "interstitialOnNoOffersCallBack");
+
+					kidozBridgeObject.Call("setRewardedVideoEventListener", "KidozObject","onRewardedCallBack","onRewardedVideoStartedCallBack","rewardedOpenCallBack","rewardedCloseCallBack","rewardedReadyCallBack","rewardedOnLoadFailCallBack", "rewardedOnNoOffersCallBack");
 
 				}
 

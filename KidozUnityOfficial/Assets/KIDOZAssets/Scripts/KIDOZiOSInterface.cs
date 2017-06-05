@@ -215,6 +215,15 @@ namespace KIDOZiOSInterface {
 		public void setFlexiViewClosable(bool closable)
 		{
 		}
+		
+		public void showVideoUnit()
+		{
+			return ;
+		}
+		
+		//***********************************//
+		//***** INTERSTITIAL & REWARDED *****//
+		//***********************************//
 
 		public void loadInterstitialAd(bool autoShow)
 		{
@@ -225,16 +234,6 @@ namespace KIDOZiOSInterface {
 		{
 			KidozGenerateInterstitial();
 		}
-		
-		public void requestAd(int adType)
-		{
-			bool rewarded = false;
-			if (adType == 1) {
-				rewarded = true;
-			}
-			KidozRequestAd (rewarded);
-		}
-
 
 		public void showInterstitial()
 		{
@@ -246,10 +245,27 @@ namespace KIDOZiOSInterface {
 			return KidozGetIsInterstitialLoaded();
 		}
 
-		public void showVideoUnit()
+		public void loadRewardedAd(bool autoShow)
 		{
-			return ;
+			//STUB
 		}
+		
+		public void generateRewarded()
+		{
+			//STUB
+		}
+		
+		public void showRewarded()
+		{
+			//STUB
+		}
+		
+		public bool getIsRewardedLoaded()
+		{
+			//STUB
+			return false;
+		}
+
 
 		public void logMessage(string message)
 		{

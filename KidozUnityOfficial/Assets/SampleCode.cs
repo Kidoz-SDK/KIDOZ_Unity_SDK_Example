@@ -30,6 +30,11 @@ public class SampleCode : MonoBehaviour {
 		Kidoz.interstitialOnNoOffers += interstitialOnNoOffers;
 		Kidoz.onRewardedDone += onRewardedDone;
 		Kidoz.onRewardedVideoStarted += onRewardedVideoStarted;
+		Kidoz.rewardedOpen += rewardedOpen;
+		Kidoz.rewardedClose += rewardedClose;
+		Kidoz.rewardedReady += rewardedReady;
+		Kidoz.rewardedOnLoadFail += rewardedOnLoadFail;
+		Kidoz.rewardedOnNoOffers += rewardedOnNoOffers;
 		
 		//Show sample Ads on Start()
 		Kidoz.addFeedButton(0, 0);
@@ -61,21 +66,28 @@ public class SampleCode : MonoBehaviour {
 		myStyle.normal.textColor = Color.yellow;
 
 		//Add buttons
-		if (GUI.Button (new Rect (width, btnHeight, width, height), "Load interstitial",myStyle)) 
+		if (GUI.Button (new Rect (width, btnHeight, width, height), "Load Interstitial",myStyle)) 
 		{
-			Kidoz.requestInterstitialAd(Kidoz.INTERSTITIAL_AD_MODE.NORMAL);
+			Kidoz.loadInterstitialAd(false);
 		}
 		btnHeight += height;
 
-		if (GUI.Button (new Rect (width, btnHeight, width, height), "Load rewarded",myStyle)) 
+		if (GUI.Button (new Rect (width, btnHeight, width, height), "Load Rewarded",myStyle)) 
 		{
-			Kidoz.requestInterstitialAd(Kidoz.INTERSTITIAL_AD_MODE.REWARDED);
+			Kidoz.loadRewardedAd(false);
 		}
 		btnHeight += height;
 
-		if (GUI.Button (new Rect (width, btnHeight, width, height), "Show interstitial",myStyle)) 
+		if (GUI.Button (new Rect (width, btnHeight, width, height), "Show Interstitial",myStyle)) 
 		{
 			Kidoz.showInterstitial();
+		}
+		btnHeight += height;
+
+		
+		if (GUI.Button (new Rect (width, btnHeight, width, height), "Show Rewarded",myStyle)) 
+		{
+			Kidoz.showRewarded();
 		}
 		btnHeight += height;
 
@@ -230,5 +242,32 @@ public class SampleCode : MonoBehaviour {
 	{
 		print ("SampleCode |onRewardedVideoStarted");
 		Kidoz.printToastMessage ("SampleCode | onRewardedVideoStarted");
+	}
+
+	private void rewardedOpen(string value)
+	{
+		Kidoz.printToastMessage ("SampleCode | rewardedOpen");
+	}
+	
+	private void rewardedClose(string value)
+	{
+		Kidoz.printToastMessage ("SampleCode | rewardedClose");
+	}
+	
+	private void rewardedReady(string value)
+	{
+		Kidoz.printToastMessage ("SampleCode | rewardedReady");
+	}
+	
+	private void rewardedOnLoadFail(string value)
+	{
+		print("SampleCode | rewardedOnLoadFail");
+		Kidoz.printToastMessage ("SampleCode | rewardedOnLoadFail");
+	}
+	
+	private void rewardedOnNoOffers(string value)
+	{
+		print ("SampleCode | rewardedOnNoOffers");
+		Kidoz.printToastMessage ("SampleCode | rewardedOnNoOffers");
 	}
 }
