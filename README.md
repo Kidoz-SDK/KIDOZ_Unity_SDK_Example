@@ -2,7 +2,7 @@
 
 # KIDOZ Unity SDK Sample App
 
-Version: 0.8.0.1
+Version: 0.8.0.3
 
 **Here you can get the Kidoz Unity plugin and a sample app for Unity. See integration instructions and additional information bellow.**
 
