@@ -39,9 +39,7 @@ namespace KIDOZAndroidInterface {
 
 				kidozBridgeObject.Call("setFeedViewEventListeners", "KidozObject","showCallBack","closeCallBack","feedReadyCallBack");
 
-				kidozBridgeObject.Call("setPanelViewEventListeners", "KidozObject","panelExpandCallBack","panelCollapseCallBack","panelReadyCallBack");
-
-//				kidozBridgeObject.Call("setBannerEventListeners", "KidozObject","bannerReadyCallBack","bannerShowCallBack","bannerHideCallBack","bannerContentLoadedCallBack","bannerContentLoadFailedCallBack");
+				kidozBridgeObject.Call("setPanelViewEventListeners", "KidozObject","panelExpandCallBack","panelCollapseCallBack","panelReadyCallBack");		
 
 				kidozBridgeObject.Call("setFlexiViewEventListener", "KidozObject","flexiViewReadyCallBack","flexiViewShowCallBack","flexiViewHideCallBack");
 
@@ -52,6 +50,8 @@ namespace KIDOZAndroidInterface {
 				kidozBridgeObject.Call("setRewardedVideoEventListener", "KidozObject","onRewardedCallBack","onRewardedVideoStartedCallBack","rewardedOpenCallBack","rewardedCloseCallBack","rewardedReadyCallBack","rewardedOnLoadFailCallBack", "rewardedOnNoOffersCallBack");
 
 				kidozBridgeObject.Call("setVideoUnitEventListener", "KidozObject","videoUnitReadyCallBack","videoUnitOpenCallBack","videoUnitCloseCallBack");
+
+				kidozBridgeObject.Call("setBannerEventListener", "KidozObject", "bannerReadyCallBack", "bannerCloseCallBack", "bannerHideCallBack");
 
 				Debug.Log ("oooOri init android interface: end of listeners" );
 			}
@@ -136,26 +136,6 @@ namespace KIDOZAndroidInterface {
 			kidozBridgeObject.Call("dismissFeedView");
 		}
 		
-		public void addBannerToView(int position)
-		{
-//			kidozBridgeObject.Call("addBannerToView",(int)position);
-		}
-		
-		public void showBanner()
-		{
-//			kidozBridgeObject.Call("showBanner");
-		}
-		
-		public void hideBanner()
-		{
-//			kidozBridgeObject.Call("hideBanner");
-		}
-		
-		public void changeBannerPosition(int position)
-		{
-//			kidozBridgeObject.Call("changeBannerPosition",(int)position);
-		}
-		
 		public void addFlexiView(bool autoShow, int position)
 		{
 			kidozBridgeObject.Call("addFlexiView",autoShow, (int)position);
@@ -236,6 +216,27 @@ namespace KIDOZAndroidInterface {
 		{
 			return kidozBridgeObject.Call<bool>("getIsRewardedLoaded");
 		}
+
+
+		//******************//
+		//***** BANNER *****//
+		//******************//
+
+		public void loadBanner(bool autoShow, int position)
+		{
+			kidozBridgeObject.Call("loadBannerAd", autoShow, position);
+		}
+
+		public void showBanner()
+		{
+			kidozBridgeObject.Call ("showBannerAd");
+		}
+
+		public void hideBanner()
+		{
+			kidozBridgeObject.Call ("hideBannerAd");
+		}
+
 
 
 

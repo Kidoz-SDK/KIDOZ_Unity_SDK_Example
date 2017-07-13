@@ -30,11 +30,7 @@ namespace KidozSDK {
 		public enum BANNER_POSITION 
 		{
 			TOP =0,
-			BOTTOM = 1,
-			TOP_LEFT = 2,
-			TOP_RIGHT = 3,
-			BOTTON_LEFT = 4,
-			BOTTOM_RIGHT = 5,
+			BOTTOM = 1
 		}
 
 		public enum FLEXI_VIEW_POSITION
@@ -74,12 +70,6 @@ namespace KidozSDK {
 		public static event Action<string> panelCollapse;
 
 		public static event Action<string> panelReady;
-
-		public static event Action<string> bannerReady;
-
-		public static event Action<string> bannerShow;
-
-		public static event Action<string> bannerHide;
 
 		public static event Action<string> bannerContentLoaded;
 
@@ -124,6 +114,15 @@ namespace KidozSDK {
 		public static event Action<string> videoUnitOpen;
 
 		public static event Action<string> videoUnitClose;
+
+
+		//banner
+		public static event Action<string> bannerReady;
+
+		public static event Action<string> bannerClose;
+
+		public static event Action<string> bannerError;
+
 
 		public string PublisherID;
 		public string SecurityToken;
@@ -365,56 +364,7 @@ namespace KidozSDK {
 			kidozin.dismissFeedView ();
 			return 0;
 		}
-		
-		// Description: add Banner to view 
-		// Parameters: 
-		// 		int - banner position
-		// return:
-		//		0 	- the function worked correctly
-		//		NO_GAME_OBJECT	- there is no Kidoz gameobject 
-		public static int addBannerToView(BANNER_POSITION position)
-		{
-//			kidozin.addBannerToView ((int)position);
-			return 0;
-		}
-		
-		// Description: show the banner 
-		// Parameters: 
-		// 		N/A
-		// return:
-		//		0 	- the function worked correctly
-		//		NO_GAME_OBJECT	- there is no Kidoz gameobject 
-		public static int showBanner()
-		{
-//			kidozin.showBanner ();
-			return 0;
-		}
-		
-		// Description: hide the banner 
-		// Parameters: 
-		// 		N/A
-		// return:
-		//		0 	- the function worked correctly
-		//		NO_GAME_OBJECT	- there is no Kidoz gameobject 
-		public static int hideBanner()
-		{
-//			kidozin.hideBanner ();
-			return 0;
-		}
-		
-		// Description: change the panel position 
-		// Parameters: 
-		// 		int - banner position
-		// return:
-		//		0 	- the function worked correctly
-		//		NO_GAME_OBJECT	- there is no Kidoz gameobject 
-		public static int changeBannerPosition(BANNER_POSITION position)
-		{
-//			kidozin.changeBannerPosition ((int)position);
-			return 0;
-		}
-		
-		
+
 		// Description: add flexiView
 		// Parameters: 
 		// 		boolean - automatic show
@@ -584,6 +534,57 @@ namespace KidozSDK {
 
 
 
+
+
+
+		//******************//
+		//***** BANNER *****//
+		//******************//
+
+
+
+
+
+
+		// Description: add Banner to view 
+		// Parameters: 
+		// 		int - banner position
+		// return:
+		//		0 	- the function worked correctly
+		//		NO_GAME_OBJECT	- there is no Kidoz gameobject 
+		public static int loadBanner(bool isAutoShow, BANNER_POSITION position)
+		{
+			kidozin.loadBanner(isAutoShow, (int)position);
+			return 0;
+		}
+
+		// Description: show the banner 
+		// Parameters: 
+		// 		N/A
+		// return:
+		//		0 	- the function worked correctly
+		//		NO_GAME_OBJECT	- there is no Kidoz gameobject 
+		public static int showBanner()
+		{
+			kidozin.showBanner ();
+			return 0;
+		}
+
+		// Description: hide the banner 
+		// Parameters: 
+		// 		N/A
+		// return:
+		//		0 	- the function worked correctly
+		//		NO_GAME_OBJECT	- there is no Kidoz gameobject 
+		public static int hideBanner()
+		{
+			kidozin.hideBanner ();
+			return 0;
+		}
+
+
+
+
 		public static void printToastMessage(String message)
 		{
 			kidozin.logMessage (message); 
@@ -651,27 +652,18 @@ namespace KidozSDK {
 			bannerReady(message);
 		}
 	} 
-	private void bannerShowCallBack(string message){
-		if (bannerShow != null) {
-			bannerShow(message);
+
+	private void bannerCloseCallBack(string message){
+		if (bannerClose != null) {
+			bannerClose(message);
 		}
 	} 
-	private void bannerHideCallBack(string message){
-		if (bannerHide != null) {
-			bannerHide(message);
+
+	private void bannerErrorCallBack(string message){
+		if (bannerError != null) {
+			bannerError(message);
 		}
 	} 
-	private void bannerContentLoadedCallBack(string message){
-		if (bannerContentLoaded != null) {
-			bannerContentLoaded(message);
-		}
-	} 
-	private void bannerContentLoadFailedCallBack(string message){
-		if (bannerContentLoadFailed != null) {
-			bannerContentLoadFailed(message);
-		}
-	} 
-	
 	
 	private void flexiViewReadyCallBack(string message){
 		if (flexiViewReady != null) {
@@ -1014,13 +1006,10 @@ namespace KidozSDK {
 		// return:
 		//		0 	- the function worked correctly
 		//		NO_GAME_OBJECT	- there is no Kidoz gameobject 
-		public static int addBannerToView(BANNER_POSITION position)
+		public static int loadBanner(bool isAutoShow, BANNER_POSITION position)
 		{
-			if (instance == null) {
-				return NO_GAME_OBJECT;
-			}
-			kidozBridgeObject.Call("addBannerToView",(int)position);
-			return 0;
+		kidozin.loadBanner (isAutoShow, (int)position);
+		return 0;
 		}
 
 		// Description: show the banner 
@@ -1031,11 +1020,8 @@ namespace KidozSDK {
 		//		NO_GAME_OBJECT	- there is no Kidoz gameobject 
 		public static int showBanner()
 		{
-			if (instance == null) {
-				return NO_GAME_OBJECT;
-			}
-			kidozBridgeObject.Call("showBanner");
-			return 0;
+		kidozin.showBanner ();
+		return 0;
 		}
 
 		// Description: hide the banner 
@@ -1046,26 +1032,8 @@ namespace KidozSDK {
 		//		NO_GAME_OBJECT	- there is no Kidoz gameobject 
 		public static int hideBanner()
 		{
-			if (instance == null) {
-				return NO_GAME_OBJECT;
-			}
-			kidozBridgeObject.Call("hideBanner");
-			return 0;
-		}
-
-		// Description: change the panel position 
-		// Parameters: 
-		// 		int - banner position
-		// return:
-		//		0 	- the function worked correctly
-		//		NO_GAME_OBJECT	- there is no Kidoz gameobject 
-		public static int changeBannerPosition(BANNER_POSITION position)
-		{
-			if (instance == null) {
-				return NO_GAME_OBJECT;
-			}
-			kidozBridgeObject.Call("changeBannerPosition",(int)position);
-			return 0;
+		kidozin.hideBanner ();
+		return 0;
 		}
 
 
@@ -1260,6 +1228,8 @@ namespace KidozSDK {
 					kidozBridgeObject.Call("setInterstitialEventListener", this.gameObject.name,"interstitialOpenCallBack","interstitialCloseCallBack","interstitialReadyCallBack","interstitialOnLoadFailCallBack", "interstitialOnNoOffersCallBack");
 
 					kidozBridgeObject.Call("setRewardedVideoEventListener", "KidozObject","onRewardedCallBack","onRewardedVideoStartedCallBack","rewardedOpenCallBack","rewardedCloseCallBack","rewardedReadyCallBack","rewardedOnLoadFailCallBack", "rewardedOnNoOffersCallBack");
+
+					kidozBridgeObject.Call("setBannerEventListener", "KidozObject", "bannerReadyCallBack", "bannerCloseCallBack", "bannerErrorCallBack");
 
 				}
 

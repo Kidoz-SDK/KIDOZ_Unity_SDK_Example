@@ -1,11 +1,8 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/KIDOZAssets/Scripts/Kidoz.cs">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Plugins/Android/AndroidManifest.xml">
     <Files>
-      <File FileName="Assets/KIDOZAssets/Scripts/KIDOZNativeInterface.cs" Line="58" Column="1" />
-      <File FileName="Assets/KIDOZAssets/Scripts/KIDOZAndroidInterface.cs" Line="38" Column="91" />
-      <File FileName="Assets/KIDOZAssets/Scripts/Kidoz.cs" Line="579" Column="22" />
-      <File FileName="Assets/SampleCode.cs" Line="77" Column="9" />
+      <File FileName="Assets/Plugins/Android/AndroidManifest.xml" Line="10" Column="23" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

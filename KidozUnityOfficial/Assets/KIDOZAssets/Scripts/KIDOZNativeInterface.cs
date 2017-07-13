@@ -35,13 +35,11 @@ namespace KIDOZNativeInterface {
 
 		void dismissFeedView();
 
-		void addBannerToView(int position);
+		void loadBanner(bool autoShow, int position);
 
 		void showBanner();
 
 		void hideBanner();
-
-		void changeBannerPosition(int position);
 
 		void addFlexiView(bool autoShow, int position);
 

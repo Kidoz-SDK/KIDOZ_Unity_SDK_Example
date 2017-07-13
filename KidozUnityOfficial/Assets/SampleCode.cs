@@ -35,7 +35,10 @@ public class SampleCode : MonoBehaviour {
 		Kidoz.rewardedReady += rewardedReady;
 		Kidoz.rewardedOnLoadFail += rewardedOnLoadFail;
 		Kidoz.rewardedOnNoOffers += rewardedOnNoOffers;
-		
+		Kidoz.bannerReady += bannerReady;
+		Kidoz.bannerClose += bannerClose;
+		Kidoz.bannerError += bannerError;
+
 		//Show sample Ads on Start()
 		Kidoz.addFeedButton(0, 0);
 		Kidoz.addPanelToView (Kidoz.PANEL_TYPE.BOTTOM, Kidoz.HANDLE_POSITION.START);
@@ -46,7 +49,7 @@ public class SampleCode : MonoBehaviour {
 	}
 
 	void OnGUI() {
-		double factor = Screen.width / 320.0;
+		double factor = Screen.width / 335.0;
 		GUIStyle myStyle = new GUIStyle (GUI.skin.GetStyle("label"));
 		
 		int width = (int)(100 * factor);
@@ -88,6 +91,30 @@ public class SampleCode : MonoBehaviour {
 		if (GUI.Button (new Rect (width, btnHeight, width, height), "Show Rewarded",myStyle)) 
 		{
 			Kidoz.showRewarded();
+		}
+		btnHeight += height;
+
+		if (GUI.Button (new Rect (width, btnHeight, width, height), "Load&Show Banner", myStyle)) 
+		{
+			Kidoz.loadBanner (true, Kidoz.BANNER_POSITION.BOTTOM);
+		}
+		btnHeight += height;
+
+		if (GUI.Button (new Rect (width, btnHeight, width, height), "Load Banner", myStyle)) 
+		{
+			Kidoz.loadBanner (false, Kidoz.BANNER_POSITION.BOTTOM);
+		}
+		btnHeight += height;
+
+		if (GUI.Button (new Rect (width, btnHeight, width, height), "Show Banner", myStyle)) 
+		{
+			Kidoz.showBanner ();
+		}
+		btnHeight += height;
+
+		if (GUI.Button (new Rect (width, btnHeight, width, height), "Hide Banner", myStyle)) 
+		{
+			Kidoz.hideBanner ();
 		}
 		btnHeight += height;
 
@@ -147,34 +174,7 @@ public class SampleCode : MonoBehaviour {
 	{
 		print ("SampleCode | panel ready");
 		
-//		Kidoz.changePanelVisibility(false);
-		
-	}
-	private void bannerReady(string value)
-	{
-		print ("SampleCode | ready");
-		
-	}
-	
-	private void bannerShow(string value)
-	{
-		print ("SampleCode | bannerShow");
-		
-	}
-	private void bannerHide(string value)
-	{
-		print ("SampleCode | bannerHide");
-		
-	}
-	private void bannerContentLoaded(string value)
-	{
-		print ("SampleCode | bannerContentLoaded");
-		
-	}
-	private void bannerContentLoadedFailed(string value)
-	{
-		print ("SampleCode | bannerContentLoadedFailed");
-		
+//		Kidoz.changePanelVisibility(false);	
 	}
 	
 	private void flexiReady(string value)
@@ -269,5 +269,23 @@ public class SampleCode : MonoBehaviour {
 	{
 		print ("SampleCode | rewardedOnNoOffers");
 		Kidoz.printToastMessage ("SampleCode | rewardedOnNoOffers");
+	}
+
+	private void bannerReady(string value)
+	{
+		print ("SampleCode | bannerReady");
+		Kidoz.printToastMessage ("SampleCode | bannerReady");
+	}
+
+	private void bannerClose(string value)
+	{
+		print ("SampleCode | bannerHide");
+		Kidoz.printToastMessage ("SampleCode | bannerHide");
+	}
+
+	private void bannerError(string value)
+	{
+		print ("SampleCode | bannerError: " + value);
+		Kidoz.printToastMessage ("SampleCode | bannerError: " + value);
 	}
 }

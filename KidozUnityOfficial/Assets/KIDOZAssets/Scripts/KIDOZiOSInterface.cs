@@ -49,15 +49,6 @@ namespace KIDOZiOSInterface {
 		private static extern void KidozDismissFeedView();
 
 		[DllImport("__Internal")]
-		private static extern void KidozShowBanner();
-
-		[DllImport("__Internal")]
-		private static extern void KidozHideBanner();
-
-		[DllImport("__Internal")]
-		private static extern void KidozChangeBannerPosition();
-
-		[DllImport("__Internal")]
 		private static extern void KidozAddFlexiView(bool autoShow, int position);
 
 		[DllImport("__Internal")]
@@ -92,6 +83,16 @@ namespace KIDOZiOSInterface {
 
 		[DllImport("__Internal")]
 		private static extern void KidozLog(string message);
+
+		//banner
+		[DllImport("__Internal")]
+		private static extern void KidozLoadBanner (bool autoShow, int position);
+
+		[DllImport("__Internal")]
+		private static extern void KidozShowBanner ();
+
+		[DllImport("__Internal")]
+		private static extern void KidozHideBanner ();
 
 		public KIDOZiOSInterface()
 		{
@@ -175,8 +176,9 @@ namespace KIDOZiOSInterface {
 			KidozDismissFeedView ();
 		}
 
-		public void addBannerToView(int position)
-		{
+
+		public void loadBanner(bool autoShow, int position)
+		{			
 		}
 
 		public void showBanner()
@@ -184,10 +186,6 @@ namespace KIDOZiOSInterface {
 		}
 
 		public void hideBanner()
-		{
-		}
-
-		public void changeBannerPosition(int position)
 		{
 		}
 
