@@ -6,6 +6,8 @@ Version: 0.8.0.3
 
 **Here you can get the Kidoz Unity plugin and a sample app for Unity. See integration instructions and additional information bellow.**
 
+Note: Since version 0.8.0.3 it's possible to use both Interstitial and Rewarded Video in your app.
+
 Note: Unity 5.6 introduced changes to it's drawing design blocking some view methods from working effectively. At the moment, if you updated your IDE to >=5.6, please only use our Interstitial & Rewarded ad units.
 
 # General
