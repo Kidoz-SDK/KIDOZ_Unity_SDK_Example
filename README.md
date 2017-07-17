@@ -2,7 +2,7 @@
 
 # KIDOZ Unity SDK Sample App
 
-Version: 0.8.0.3
+Version: 0.8.1.1
 
 **Here you can get the Kidoz Unity plugin and a sample app for Unity. See integration instructions and additional information bellow.**
 
@@ -67,6 +67,31 @@ _Deprecated units_:
 The following general events are important if you wish to follow the SDK's initialization state:
 		Kidoz.initSuccess += onKidozInitSuccess;
 		Kidoz.initError += onKidozInitError;
+
+# Kidoz Banner
+To load a banner ad:
+```java
+Kidoz.loadBanner (<AUTO_SHOW>, <BANNER_POSITION>);
+AUTO_SHOW - Should banner be shown as soon as it finishes loading
+BANNER_POSITION = {Kidoz.BANNER_POSITION.BOTTOM, Kidoz.BANNER_POSITION.TOP}
+```
+
+To show a non-autoShow banner:
+```java
+Kidoz.showBanner ();
+```
+
+To hide a visible banner:
+```java
+Kidoz.hideBanner ();
+```
+
+Delegate callbacks:
+```java
+Kidoz.bannerReady += <bannerReady Callback>;
+Kidoz.bannerClose += <bannerClose Callback>;
+Kidoz.bannerError += <bannerError Callback>;
+```
 
 # KIDOZ Panel
 <a href="url"><img src="http://kidoz-cdn.s3.amazonaws.com/media/Panel%20Github.jpeg" align="right" height="121" width="200" ></a>
