@@ -20,13 +20,13 @@ _Recommended units_:
 * KIDOZ Panel view `Panel View`
 * KIDOZ Interstitial view `Rewarded View`
 * KIDOZ Interstitial view `Interstitial View`
+* KIDOZ Banner `Banner`
 
 *Note that you need to select either Interstital OR Rewarded during application lifetime.
 
 _Deprecated units_:
 * KIDOZ Feed view content tool - the `Feed View`
 * KIDOZ Flexi view `Flexi View`
-* KIDOZ Banner ad
 
 
 # Running the sample app
