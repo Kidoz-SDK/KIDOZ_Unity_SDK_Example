@@ -8,7 +8,7 @@ Version: 0.8.1.2
 
 Note: Since version 0.8.0.3 it's possible to use both Interstitial and Rewarded Video in your app.
 
-Note: Unity 5.6 introduced changes to it's drawing design blocking some view methods from working effectively. At the moment, if you updated your IDE to >=5.6, please only use our Interstitial & Rewarded ad units.
+Note: Unity 5.6 & Unity 5.6.1 contain changes to their drawing design blocking some view methods from working effectively. At the moment, on these versions please only use our Interstitial & Rewarded ad units. Starting from Unity 5.6.2 all of our widgets work as expected.
 
 # General
 
