@@ -85,6 +85,7 @@ namespace KIDOZiOSInterface {
 		private static extern void KidozLog(string message);
 
 		//banner
+		/*
 		[DllImport("__Internal")]
 		private static extern void KidozLoadBanner (bool autoShow, int position);
 
@@ -93,6 +94,7 @@ namespace KIDOZiOSInterface {
 
 		[DllImport("__Internal")]
 		private static extern void KidozHideBanner ();
+		*/
 
 		public KIDOZiOSInterface()
 		{
