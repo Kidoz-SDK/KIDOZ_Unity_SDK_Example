@@ -2,13 +2,13 @@
 
 # KIDOZ Unity SDK Sample App
 
-Version: 0.8.1.1
+Version: 0.8.1.2
 
 **Here you can get the Kidoz Unity plugin and a sample app for Unity. See integration instructions and additional information bellow.**
 
 Note: Since version 0.8.0.3 it's possible to use both Interstitial and Rewarded Video in your app.
 
-Note: Unity 5.6 introduced changes to it's drawing design blocking some view methods from working effectively. At the moment, if you updated your IDE to >=5.6, please only use our Interstitial & Rewarded ad units.
+Note: Unity 5.6 & Unity 5.6.1 contain changes to their drawing design blocking some view methods from working effectively. At the moment, on these versions please only use our Interstitial & Rewarded ad units. Starting from Unity 5.6.2 all of our widgets work as expected.
 
 # General
 
@@ -20,13 +20,13 @@ _Recommended units_:
 * KIDOZ Panel view `Panel View`
 * KIDOZ Interstitial view `Rewarded View`
 * KIDOZ Interstitial view `Interstitial View`
+* KIDOZ Banner `Banner`
 
 *Note that you need to select either Interstital OR Rewarded during application lifetime.
 
 _Deprecated units_:
 * KIDOZ Feed view content tool - the `Feed View`
 * KIDOZ Flexi view `Flexi View`
-* KIDOZ Banner ad
 
 
 # Running the sample app
