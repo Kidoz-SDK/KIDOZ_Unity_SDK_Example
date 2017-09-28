@@ -27,12 +27,20 @@ namespace KidozSDK {
 			START, CENTER, END
 		} ;
 
+
 		public enum BANNER_POSITION 
 		{
+			[ObsoleteAttribute("Use TOP_CENTER")]
 			TOP =0,
-			BOTTOM = 1
+			[ObsoleteAttribute("Use BOTTOM_CENTER")]
+			BOTTOM = 1,
+			TOP_CENTER = 0,
+			BOTTOM_CENTER = 1,
+			TOP_LEFT = 2,
+			TOP_RIGHT = 3,
+			BOTTOM_LEFT = 4,
+			BOTTOM_RIGHT = 5
 		}
-
 		public enum FLEXI_VIEW_POSITION
 		{
 			TOP_START = 0,
