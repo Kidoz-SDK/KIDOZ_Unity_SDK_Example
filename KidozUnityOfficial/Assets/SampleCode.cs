@@ -15,8 +15,6 @@ public class SampleCode : MonoBehaviour {
 		//Delegates
 		Kidoz.initSuccess += onKidozInitSuccess;
 		Kidoz.initError += onKidozInitError;
-		Kidoz.viewOpened += viewOpened;
-		Kidoz.viewClosed += viewClosed;
 		Kidoz.panelExpand += panelExpand;
 		Kidoz.panelCollapse += panelCollapse;
 		Kidoz.panelReady += panelReady;
@@ -42,7 +40,6 @@ public class SampleCode : MonoBehaviour {
 		Kidoz.bannerError += bannerError;
 
 		//Show sample Ads on Start()
-		Kidoz.addFeedButton(0, 0);
 		Kidoz.addPanelToView (Kidoz.PANEL_TYPE.BOTTOM, Kidoz.HANDLE_POSITION.START);
 		Kidoz.addFlexiView (true, Kidoz.FLEXI_VIEW_POSITION.MID_CENTER);
 
@@ -125,11 +122,6 @@ public class SampleCode : MonoBehaviour {
 		}
 		btnHeight += height;
 
-		if (GUI.Button (new Rect (width, btnHeight, width, height), "Show Feed",myStyle)) 
-		{
-			Kidoz.showFeedView();
-		}
-		btnHeight += height;
 
 		if (GUI.Button (new Rect (width, btnHeight, width, height), "Check Init", myStyle)) 
 		{
@@ -155,20 +147,6 @@ public class SampleCode : MonoBehaviour {
 		Kidoz.printToastMessage (errMsg);
 	}
 
-	public void btnPress()
-	{
-		Kidoz.showFeedView ();
-	}
-
-	private void viewOpened(string value)
-	{
-		print ("SampleCode | Feed view opened");
-	}
-
-	private void viewClosed(string value)
-	{
-		print ("SampleCode | Feed view closed");
-	}
 
 	private void panelExpand(string value)
 	{
