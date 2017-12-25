@@ -2,9 +2,11 @@
 
 # KIDOZ Unity SDK Sample App
 
-Version: 0.8.2.1
+Version: 0.8.3.2
 
 **Here you can get the Kidoz Unity plugin and a sample app for Unity. See integration instructions and additional information bellow.**
+
+Note: Since version 0.8.3.2 Feed is deprecated  .
 
 Note: Since version 0.8.0.3 it's possible to use both Interstitial and Rewarded Video in your app.
 
@@ -73,8 +75,9 @@ To load a banner ad:
 ```java
 Kidoz.loadBanner (<AUTO_SHOW>, <BANNER_POSITION>);
 AUTO_SHOW - Should banner be shown as soon as it finishes loading
-BANNER_POSITION = {Kidoz.BANNER_POSITION.BOTTOM, Kidoz.BANNER_POSITION.TOP}
+
 ```
+The banner can be placed on one of six sides of the activity screen with BANNER_POSITION - `TOP_CENTER`, `BOTTOM_CENTER` ,`TOP_LEFT` ,`TOP_RIGHT` ,`BOTTOM_LEFT` ,`BOTTOM_RIGHT`.
 
 To show a non-autoShow banner:
 ```java
@@ -84,6 +87,11 @@ Kidoz.showBanner ();
 To hide a visible banner:
 ```java
 Kidoz.hideBanner ();
+```
+
+To change banner position:
+```java
+Kidoz.setBannerPosition(<BANNER_POSITION>);
 ```
 
 Delegate callbacks:
@@ -162,21 +170,6 @@ all listeners are of type: private void listenerName(string value)
 	Kidoz.rewardedOnNoOffers += rewardedOnNoOffers;
 	
 ## _Deprecated units_:
-
-# KIDOZ Feed
-### Calling the Feed View Programmatically
-You can display the feed view programmatically by calling the following method: ```Kidoz.showFeedView()``` 
-to close the feed view call ```Kidoz.dismissFeedView()```
-
-
-### Adding the KIDOZ Feed Button
-
-There are two basic functions that can be used to add a feed button:<br>
-1. ```Kidoz.addFeedButton(int xPos, int yPos)``` which will place KIDOZ top left corner button at the selected coordinates. The button size can be found using the following message: ```Kidoz.getFeedButtonDefaultSize()``` which will return an int number that represents the width and height of the button.
-</br>
-2. Kidoz.addFeedButton(int xPos, int yPos, int size)``` that will place KIDOZ top left corner button at the selected coordinates with the requested size. The same size applies for both the width and height of the button.
-
-The visibilty of the button can be controlled using the following function: ```Kidoz.changeFeedButtonVisibility(visible)```
 
 
 

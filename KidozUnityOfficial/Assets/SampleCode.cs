@@ -98,7 +98,7 @@ public class SampleCode : MonoBehaviour {
 
 		if (GUI.Button (new Rect (width, btnHeight, width, height), "Load&Show Banner", myStyle)) 
 		{
-			Kidoz.loadBanner (true, Kidoz.BANNER_POSITION.BOTTOM);
+			Kidoz.loadBanner (true, Kidoz.BANNER_POSITION.BOTTOM_CENTER);
 		}
 
 
