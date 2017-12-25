@@ -5,7 +5,7 @@ using System.Collections;
 using UnityEngine; 
 using UnityEngine.UI;
 namespace KIDOZAndroidInterface {
-	#if UNITY_ANDROID 	
+#if UNITY_ANDROID
 	public class KIDOZAndroidInterface : KIDOZNativeInterface.KIDOZNativeInterface
 	{
 
@@ -28,6 +28,8 @@ namespace KIDOZAndroidInterface {
 				activityContext = activityClass.GetStatic<AndroidJavaObject>("currentActivity");
 			}
 
+			string kidoz_name = KidozSDK.Kidoz.Instance.gameObject.name;
+
 			//init Kidoz
 			using ( var kidozBridgeClass = new AndroidJavaClass("com.kidoz.sdk.api.platforms.KidozUnityBridge")) {
 				
@@ -35,23 +37,23 @@ namespace KIDOZAndroidInterface {
 
 				kidozBridgeObject.Call("initialize", new object[] { activityContext, developerID, securityToken});
 
-				kidozBridgeObject.Call("setMainSDKEventListeners", "KidozObject", "initSuccessCallback", "initErrorCallback");
+				kidozBridgeObject.Call("setMainSDKEventListeners", kidoz_name, "initSuccessCallback", "initErrorCallback");
 
-				kidozBridgeObject.Call("setFeedViewEventListeners", "KidozObject","showCallBack","closeCallBack","feedReadyCallBack");
+				kidozBridgeObject.Call("setFeedViewEventListeners", kidoz_name,"showCallBack","closeCallBack","feedReadyCallBack");
 
-				kidozBridgeObject.Call("setPanelViewEventListeners", "KidozObject","panelExpandCallBack","panelCollapseCallBack","panelReadyCallBack");		
+				kidozBridgeObject.Call("setPanelViewEventListeners", kidoz_name,"panelExpandCallBack","panelCollapseCallBack","panelReadyCallBack");		
 
-				kidozBridgeObject.Call("setFlexiViewEventListener", "KidozObject","flexiViewReadyCallBack","flexiViewShowCallBack","flexiViewHideCallBack");
+				kidozBridgeObject.Call("setFlexiViewEventListener", kidoz_name,"flexiViewReadyCallBack","flexiViewShowCallBack","flexiViewHideCallBack");
 
-				kidozBridgeObject.Call("setPlayersEventListener", "KidozObject","playerOpenCallBack","playerCloseCallBack");
+				kidozBridgeObject.Call("setPlayersEventListener", kidoz_name,"playerOpenCallBack","playerCloseCallBack");
 
-				kidozBridgeObject.Call("setInterstitialEventListener", "KidozObject","interstitialOpenCallBack","interstitialCloseCallBack","interstitialReadyCallBack","interstitialOnLoadFailCallBack", "interstitialOnNoOffersCallBack");
+				kidozBridgeObject.Call("setInterstitialEventListener", kidoz_name,"interstitialOpenCallBack","interstitialCloseCallBack","interstitialReadyCallBack","interstitialOnLoadFailCallBack", "interstitialOnNoOffersCallBack");
 										
-				kidozBridgeObject.Call("setRewardedVideoEventListener", "KidozObject","onRewardedCallBack","onRewardedVideoStartedCallBack","rewardedOpenCallBack","rewardedCloseCallBack","rewardedReadyCallBack","rewardedOnLoadFailCallBack", "rewardedOnNoOffersCallBack");
+				kidozBridgeObject.Call("setRewardedVideoEventListener", kidoz_name,"onRewardedCallBack","onRewardedVideoStartedCallBack","rewardedOpenCallBack","rewardedCloseCallBack","rewardedReadyCallBack","rewardedOnLoadFailCallBack", "rewardedOnNoOffersCallBack");
 
-				kidozBridgeObject.Call("setVideoUnitEventListener", "KidozObject","videoUnitReadyCallBack","videoUnitOpenCallBack","videoUnitCloseCallBack");
+				kidozBridgeObject.Call("setVideoUnitEventListener", kidoz_name,"videoUnitReadyCallBack","videoUnitOpenCallBack","videoUnitCloseCallBack");
 
-				kidozBridgeObject.Call("setBannerEventListener", "KidozObject", "bannerReadyCallBack", "bannerCloseCallBack", "bannerHideCallBack");
+				kidozBridgeObject.Call("setBannerEventListener", kidoz_name, "bannerReadyCallBack", "bannerCloseCallBack", "bannerHideCallBack");
 
 				Debug.Log ("oooOri init android interface: end of listeners" );
 			}
@@ -64,13 +66,13 @@ namespace KIDOZAndroidInterface {
 
 			return kidozBridgeObject.Call<bool>("isInitialised");
 		}
-		
+			
 		public void addFeedButton(int x, int y)
 		{
 			Debug.Log ("oooOri addFeedButton android interface: " + kidozBridgeObject);
 			kidozBridgeObject.Call("addFeedButton",x,y,-1);
 		}
-		
+			
 		public void addFeedBUtton(int x, int y, int size)
 		{
 			kidozBridgeObject.Call("addFeedButton",x,y,size);
@@ -226,6 +228,13 @@ namespace KIDOZAndroidInterface {
 		{
 			kidozBridgeObject.Call("loadBannerAd", autoShow, position);
 		}
+
+		public void setBannerPosition(int position)
+		{
+			kidozBridgeObject.Call("setBannerPosition", position);
+		}
+
+
 
 		public void showBanner()
 		{

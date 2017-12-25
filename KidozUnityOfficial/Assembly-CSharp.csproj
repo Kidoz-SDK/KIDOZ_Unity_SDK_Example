@@ -47,6 +47,7 @@
   </ItemGroup>
   <ItemGroup>
      <Compile Include="Assets\KIDOZAssets\Scripts\KIDOZAndroidInterface.cs" />
+     <Compile Include="Assets\KIDOZAssets\Scripts\KIDOZDummyInterface.cs" />
      <Compile Include="Assets\KIDOZAssets\Scripts\KIDOZNativeInterface.cs" />
      <Compile Include="Assets\KIDOZAssets\Scripts\KIDOZiOSInterface.cs" />
      <Compile Include="Assets\KIDOZAssets\Scripts\Kidoz.cs" />
