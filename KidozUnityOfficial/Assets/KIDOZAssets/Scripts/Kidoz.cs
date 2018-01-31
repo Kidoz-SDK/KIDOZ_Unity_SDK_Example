@@ -180,14 +180,10 @@ namespace KidozSDK
 		{
 			if (instance == null)
 			{
-				SetInstance ( this );
-
-				init ( "7", "QVBIh5K3tr1AxO4A1d4ZWx1YAe5567os" );
-
-				 
+				SetInstance ( this );				 
 				if (!string.IsNullOrEmpty ( PublisherID ) && !string.IsNullOrEmpty ( SecurityToken ))
 				{
-					//init ( PublisherID, SecurityToken );
+					init ( PublisherID, SecurityToken );
 				}
 			}
 			else
