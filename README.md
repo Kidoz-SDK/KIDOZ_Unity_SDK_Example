@@ -1,16 +1,17 @@
+
 [<img src="https://kidoz-cdn.s3.amazonaws.com/wordpress/kidoz_small.gif" width="533px" height="300px">](https://www.youtube.com/watch?v=-ljFjRn7jeM)
 
 # KIDOZ Unity SDK Sample App
 
-Version: 0.8.3.2
+Version: 0.8.5.1
 
 **Here you can get the Kidoz Unity plugin and a sample app for Unity. See integration instructions and additional information bellow.**
-
-Note: Since version 0.8.3.2 Feed is deprecated  .
 
 Note: Since version 0.8.0.3 it's possible to use both Interstitial and Rewarded Video in your app.
 
 Note: Unity 5.6 & Unity 5.6.1 contain changes to their drawing design blocking some view methods from working effectively. At the moment, on these versions please only use our Interstitial & Rewarded ad units. Starting from Unity 5.6.2 all of our widgets work as expected.
+
+Due to new regulation by Google Play Design for Family policy , all references to YouTube were removed from the SDK.
 
 # General
 
@@ -26,7 +27,7 @@ _Recommended units_:
 
 *Note that you need to select either Interstital OR Rewarded during application lifetime.
 
-_Deprecated units_:
+_Removed units_:
 * KIDOZ Feed view content tool - the `Feed View`
 * KIDOZ Flexi view `Flexi View`
 
@@ -169,40 +170,7 @@ all listeners are of type: private void listenerName(string value)
 	
 	Kidoz.rewardedOnNoOffers += rewardedOnNoOffers;
 	
-## _Deprecated units_:
 
-
-
-# KIDOZ Flexi Point View *only in Android
-<a href="url"><img src="https://s3.amazonaws.com/kidoz-cdn/sdk/flexi_sample_preview.png" align="right" height="300" width="300" ></a>
-`FlexiView` is a small interactive single content view, which hovers over the screen content.  
-
-You can add the `FlexiView` by calling the following function:
-	
-```
-Kidoz.addFlexiView (bool<auto show>, Kidoz.FLEXI_VIEW_POSITION<the flexi view start position);
-```
- 
-- 	To Show/Hide Flexi view use the following lines:
-```
- // Show flexi view
- Kidoz.showFlexiView();
- 
- // Hide flexi view
- Kidoz.hideFlexiView();
-```
- 
-- 	To add event listeners to Flexi View use:
-```
- All listeners are of type: private void listenerName(string value)
- 
- Kidoz.flexiViewReady += listenerName;
-
-		Kidoz.flexiViewShow += listenerName;
-
-		Kidoz.flexiViewHide += listenerName;
-
-```
 
 Trouble Shooting
 ================
