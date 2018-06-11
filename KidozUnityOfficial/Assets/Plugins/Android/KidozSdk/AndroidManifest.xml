@@ -8,15 +8,11 @@
         android:targetSdkVersion="22" />
 
     <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
-
     <application android:hardwareAccelerated="true">
         <activity android:name="com.kidoz.sdk.api.ui_views.interstitial.KidozAdActivity"
                   android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|uiMode|screenSize|smallestScreenSize"
                   />
-        <activity android:name="com.kidoz.sdk.api.ui_views.video_unit.VideoUnitActivity"
-                  android:theme="@android:style/Theme.Black.NoTitleBar.Fullscreen"
-                  android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|uiMode|screenSize|smallestScreenSize"/>
+ 
         <!-- SDK DEFENITIONS -->
         <receiver android:name="com.kidoz.sdk.api.receivers.SdkReceiver" >
             <intent-filter>

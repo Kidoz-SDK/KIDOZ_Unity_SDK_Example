@@ -45,18 +45,6 @@ namespace KidozSDK
 			BOTTOM_LEFT = 4,
 			BOTTOM_RIGHT = 5
 		}
-		public enum FLEXI_VIEW_POSITION
-		{
-			TOP_START = 0,
-			TOP_CENTER = 1,
-			TOP_END = 2,
-			MID_START = 3,
-			MID_CENTER = 4,
-			MID_END = 5,
-			BOTTOM_START = 6,
-			BOTTOM_CENTER = 7,
-			BOTTOM_END = 8
-		}
 
 		public enum INTERSTITIAL_AD_MODE
 		{
@@ -74,9 +62,7 @@ namespace KidozSDK
 		public static event Action<string> viewOpened;
 
 		public static event Action<string> viewClosed;
-
-		public static event Action<String> feedReady;
-
+		
 		public static event Action<string> panelExpand;
 
 		public static event Action<string> panelCollapse;
@@ -86,12 +72,6 @@ namespace KidozSDK
 		public static event Action<string> bannerContentLoaded;
 
 		public static event Action<string> bannerContentLoadFailed;
-
-		public static event Action<string> flexiViewReady;
-
-		public static event Action<string> flexiViewShow;
-
-		public static event Action<string> flexiViewHide;
 
 		public static event Action<string> playerOpen;
 
@@ -120,13 +100,7 @@ namespace KidozSDK
 		public static event Action<string> rewardedOnLoadFail;
 
 		public static event Action<string> rewardedOnNoOffers;
-
-		public static event Action<string> videoUnitReady;
-
-		public static event Action<string> videoUnitOpen;
-
-		public static event Action<string> videoUnitClose;
-
+		
 
 		//banner
 		public static event Action<string> bannerReady;
@@ -247,49 +221,9 @@ namespace KidozSDK
 		//Since Kidoz SDK should be activated only once use this function to create 
 		//a game object. If Kidoz game object was added to the scene there is no need to call this function
 
+		
 
-		// Description: Add feed button in the selected location.
-		// Parameters: 
-		// 		int xPos - the x position of the left top left corner of the button image.
-		//		int yPos - the y postion of the left top left corner of the button image.
-		// return:
-		//		0 	- the function worked correctly
-		//		NO_GAME_OBJECT	- there is no Kidoz gameobject 
-
-		[System.Obsolete("FeedButton is deprecated, please use other widget types")]
-		public static int addFeedButton (int xPos, int yPos)
-		{
-			kidozin.addFeedButton ( xPos, yPos );
-			return 0;
-		}
-
-		// Description: Add feed button in the selected location.
-		// Parameters: 
-		// 		int xPos - the x position of the left top left corner of the button image.
-		//		int yPos - the y postion of the left top left corner of the button image.
-		//		int size - the requested button size. Since the button is square the width and height are the same.
-		// return:
-		//		0 	- the function worked correctly
-		//		NO_GAME_OBJECT	- there is no Kidoz gameobject 
-		[System.Obsolete("FeedButton is deprecated, please use other widget types")]
-		public static int addFeedButton (int xPos, int yPos, int size)
-		{
-			kidozin.addFeedBUtton ( xPos, yPos, size );
-			return 0;
-		}
-
-		// Description: Change the feed button visibility 
-		// Parameters: 
-		// 		bool visible - true the button will appear. false the button will be hidden
-		// return:
-		//		0 	- the function worked correctly
-		//		NO_GAME_OBJECT	- there is no Kidoz gameobject 
-		public static int changeFeedButtonVisibility (bool visible)
-		{
-			kidozin.changeFeedButtonVisibility ( visible );
-			return 0;
-		}
-
+	
 
 
 		// Description: Add panel to view 
@@ -370,119 +304,6 @@ namespace KidozSDK
 			return 0;
 		}
 
-		// Description: returns the default feed button size. 
-		// Parameters: 
-		// 		bool visible - true the button will appear. false the button will be hidden
-		// return:
-		//		>0 	- the button size. since the button is square the returned value is for both width and height. 
-		//		NO_GAME_OBJECT	- there is no Kidoz gameobject 
-		public static int getFeedButtonDefaultSize ()
-		{
-			return kidozin.getFeedButtonSize ( );
-		}
-
-		// Description: Display the feed view. 
-		// Parameters: 
-		// 		N/A
-		// return:
-		//		0 	- the function worked correctly
-		//		NO_GAME_OBJECT	- there is no Kidoz gameobject 
-		[System.Obsolete("FeedView is deprecated, please use other widget types")]
-		public static int showFeedView ()
-		{
-			kidozin.showFeedView ( );
-
-			return 0;
-		}
-		// Description: close the feed view. 
-		// Parameters: 
-		// 		N/A
-		// return:
-		//		0 	- the function worked correctly
-		//		NO_GAME_OBJECT	- there is no Kidoz gameobject 
-		public static int dismissFeedView ()
-		{
-			kidozin.dismissFeedView ( );
-			return 0;
-		}
-
-		// Description: add flexiView
-		// Parameters: 
-		// 		boolean - automatic show
-		//		int - initial position
-		// return:
-		//		0 	- the function worked correctly
-		//		NO_GAME_OBJECT	- there is no Kidoz gameobject 
-		public static int addFlexiView (bool isAutoShow, FLEXI_VIEW_POSITION position)
-		{
-			kidozin.addFlexiView ( isAutoShow, (int) position );
-			return 0;
-		}
-
-		// Description: hide flexiView
-		// Parameters: 
-		// 		
-		// return:
-		//		0 	- the function worked correctly
-		//		NO_GAME_OBJECT	- there is no Kidoz gameobject 
-		public static int hideFlexiView ()
-		{
-			kidozin.hideFlexiView ( );
-			return 0;
-		}
-
-		// Description: show flexiView
-		// Parameters: 
-		// 		boolean - automatic show
-		//		int - initial position
-		// return:
-		//		0 	- the function worked correctly
-		//		NO_GAME_OBJECT	- there is no Kidoz gameobject 
-		public static int showFlexiView ()
-		{
-			kidozin.showFlexiView ( );
-			return 0;
-		}
-
-		// Description: get if the flexi view is visible
-		// Parameters: 
-		// 		
-		// return:
-		//		0 	- the function worked correctly
-		//		NO_GAME_OBJECT	- there is no Kidoz gameobject 
-		public static int getIsFlexiViewVisible ()
-		{
-			if (kidozin.getIsFlexiViewVisible ( ))
-			{
-				return 1;
-			}
-			return 0;
-		}
-
-
-		// Description: Disable/enable dragging the flexiview
-		// Parameters: 
-		// 		boolean - true the flexi will be draggable 
-		// return:
-		//		0 	- the function worked correctly
-		//		NO_GAME_OBJECT	- there is no Kidoz gameobject 
-		public static int setFlexiViewDraggable (bool draggable)
-		{
-			kidozin.setFlexiViewDraggable ( draggable );
-			return 0;
-		}
-
-		// Description: Disable/enable closing the flexiview
-		// Parameters: 
-		// 		boolean - true the flexi will be closeable 
-		// return:
-		//		0 	- the function worked correctly
-		//		NO_GAME_OBJECT	- there is no Kidoz gameobject 
-		public static int setFlexiViewClosable (bool Closable)
-		{
-			kidozin.setFlexiViewClosable ( Closable );
-			return 0;
-		}
 
 		public static bool getIsPanelExpanded ()
 		{
@@ -493,13 +314,10 @@ namespace KidozSDK
 
 
 
-
 		//***********************************//
 		//***** INTERSTITIAL & REWARDED *****//
 		//***********************************//
-
-
-
+		
 
 
 		// Description: Load interstitial add ---- this function is deprecated 
@@ -645,11 +463,7 @@ namespace KidozSDK
 			kidozin.logMessage ( message );
 		}
 
-		public static void showVideoUnit ()
-		{
-			kidozin.showVideoUnit ( );
 
-		}
 
 		///listeners calls backs
 		////////////////////////////////////
@@ -684,14 +498,7 @@ namespace KidozSDK
 				viewClosed ( message );
 			}
 		}
-
-		private void feedReadyCallBack (string message)
-		{
-			if (feedReady != null)
-			{
-				feedReady ( message );
-			}
-		}
+		
 
 
 		private void panelExpandCallBack (string message)
@@ -741,28 +548,7 @@ namespace KidozSDK
 				bannerError ( message );
 			}
 		}
-
-		private void flexiViewReadyCallBack (string message)
-		{
-			if (flexiViewReady != null)
-			{
-				flexiViewReady ( message );
-			}
-		}
-		private void flexiViewShowCallBack (string message)
-		{
-			if (flexiViewShow != null)
-			{
-				flexiViewShow ( message );
-			}
-		}
-		private void flexiViewHideCallBack (string message)
-		{
-			if (flexiViewHide != null)
-			{
-				flexiViewHide ( message );
-			}
-		}
+		
 
 		private void playerOpenCallBack (string message)
 		{
@@ -779,29 +565,6 @@ namespace KidozSDK
 			}
 		}
 
-		private void videoUnitReadyCallBack (string message)
-		{
-			if (videoUnitReady != null)
-			{
-				videoUnitReady ( message );
-			}
-		}
-
-		private void videoUnitOpenCallBack (string message)
-		{
-			if (videoUnitOpen != null)
-			{
-				videoUnitOpen ( message );
-			}
-		}
-
-		private void videoUnitCloseCallBack (string message)
-		{
-			if (videoUnitClose != null)
-			{
-				videoUnitClose ( message );
-			}
-		}
 
 
 		//***********************************//

@@ -39,11 +39,7 @@ namespace KIDOZAndroidInterface {
 
 				kidozBridgeObject.Call("setMainSDKEventListeners", kidoz_name, "initSuccessCallback", "initErrorCallback");
 
-				kidozBridgeObject.Call("setFeedViewEventListeners", kidoz_name,"showCallBack","closeCallBack","feedReadyCallBack");
-
 				kidozBridgeObject.Call("setPanelViewEventListeners", kidoz_name,"panelExpandCallBack","panelCollapseCallBack","panelReadyCallBack");		
-
-				kidozBridgeObject.Call("setFlexiViewEventListener", kidoz_name,"flexiViewReadyCallBack","flexiViewShowCallBack","flexiViewHideCallBack");
 
 				kidozBridgeObject.Call("setPlayersEventListener", kidoz_name,"playerOpenCallBack","playerCloseCallBack");
 
@@ -51,11 +47,9 @@ namespace KIDOZAndroidInterface {
 										
 				kidozBridgeObject.Call("setRewardedVideoEventListener", kidoz_name,"onRewardedCallBack","onRewardedVideoStartedCallBack","rewardedOpenCallBack","rewardedCloseCallBack","rewardedReadyCallBack","rewardedOnLoadFailCallBack", "rewardedOnNoOffersCallBack");
 
-				kidozBridgeObject.Call("setVideoUnitEventListener", kidoz_name,"videoUnitReadyCallBack","videoUnitOpenCallBack","videoUnitCloseCallBack");
-
 				kidozBridgeObject.Call("setBannerEventListener", kidoz_name, "bannerReadyCallBack", "bannerCloseCallBack", "bannerHideCallBack");
 
-				Debug.Log ("oooOri init android interface: end of listeners" );
+				Debug.Log ("init android interface: end of listeners" );
 			}
 		}
 
@@ -67,22 +61,7 @@ namespace KIDOZAndroidInterface {
 			return kidozBridgeObject.Call<bool>("isInitialised");
 		}
 			
-		public void addFeedButton(int x, int y)
-		{
-			Debug.Log ("oooOri addFeedButton android interface: " + kidozBridgeObject);
-			kidozBridgeObject.Call("addFeedButton",x,y,-1);
-		}
-			
-		public void addFeedBUtton(int x, int y, int size)
-		{
-			kidozBridgeObject.Call("addFeedButton",x,y,size);
-		}
-		
-		public void changeFeedButtonVisibility(bool visible)
-		{
-			kidozBridgeObject.Call("changeFeedButtonVisibility",visible);
-		}
-		
+				
 		public void addPanelToView(int panelType, int handle_position)
 		{
 			kidozBridgeObject.Call("addPanelToView",(int)panelType,(int)handle_position);
@@ -117,64 +96,8 @@ namespace KIDOZAndroidInterface {
 		{
 			kidozBridgeObject.Call("setPanelViewColor",color);
 		}
-		
-		public int getFeedButtonSize()
-		{
-			//oooTODO: implement missing function
-			//Kidoz tempObject = getInstance ();
-			//AndroidJavaObject con = tempObject.getContext ();
-			//int size = kidozBridgeObject.Call<int>("getFeedButtonSize");
-//			return size;
-			return 0;
-		}
-		
-		public void showFeedView()
-		{
-			kidozBridgeObject.Call("showFeedView");
-		}
-		
-		public void dismissFeedView()
-		{
-			kidozBridgeObject.Call("dismissFeedView");
-		}
-		
-		public void addFlexiView(bool autoShow, int position)
-		{
-			kidozBridgeObject.Call("addFlexiView",autoShow, (int)position);
-		}
-		
-		public void hideFlexiView()
-		{
-			kidozBridgeObject.Call("hideFlexiView");
-		}
-		
-		public void showFlexiView()
-		{
-			kidozBridgeObject.Call("showFlexiView");
-		}
-		
-		public bool getIsFlexiViewVisible()
-		{
-			bool res = kidozBridgeObject.Call<bool>("getIsFlexiViewVisible");
-			return res;
-		}
-		
-		public void setFlexiViewDraggable(bool dragable)
-		{
-			kidozBridgeObject.Call("setFlexiViewDraggable",dragable);
-		}
-		
-		public void setFlexiViewClosable(bool closable)
-		{
-			kidozBridgeObject.Call("setFlexiViewClosable",closable);
-		}
 
-		public void showVideoUnit()
-		{
-			kidozBridgeObject.Call("showVideoUnit");
-		}
-
-
+		
 		//***********************************//
 		//***** INTERSTITIAL & REWARDED *****//
 		//***********************************//

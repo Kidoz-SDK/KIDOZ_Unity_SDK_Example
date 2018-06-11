@@ -18,9 +18,6 @@ public class SampleCode : MonoBehaviour {
 		Kidoz.panelExpand += panelExpand;
 		Kidoz.panelCollapse += panelCollapse;
 		Kidoz.panelReady += panelReady;
-		Kidoz.flexiViewReady += flexiReady;
-		Kidoz.flexiViewShow += flexiShow;
-		Kidoz.flexiViewHide += flexiHide;
 		Kidoz.playerOpen += playerOpen;
 		Kidoz.playerClose += playerClose;
 		Kidoz.interstitialOpen += interstitialOpen;
@@ -41,7 +38,6 @@ public class SampleCode : MonoBehaviour {
 
 		//Show sample Ads on Start()
 		Kidoz.addPanelToView (Kidoz.PANEL_TYPE.BOTTOM, Kidoz.HANDLE_POSITION.START);
-		Kidoz.addFlexiView (true, Kidoz.FLEXI_VIEW_POSITION.MID_CENTER);
 
 	}
 
@@ -164,23 +160,7 @@ public class SampleCode : MonoBehaviour {
 		//		Kidoz.changePanelVisibility(false);	
 	}
 
-	private void flexiReady(string value)
-	{
-		print ("SampleCode | flexiview ready");
-
-	}
-
-	private void flexiShow(string value)
-	{
-		print ("SampleCode | flexishow");
-
-	}
-	private void flexiHide(string value)
-	{
-		print ("SampleCode | flexihide");
-
-	}
-
+	
 	private void playerOpen(string value)
 	{
 		print ("SampleCode | playerOpen");
