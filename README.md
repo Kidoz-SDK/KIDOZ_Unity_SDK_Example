@@ -1,9 +1,11 @@
 
+
 [<img src="https://kidoz-cdn.s3.amazonaws.com/wordpress/kidoz_small.gif" width="533px" height="300px">](https://www.youtube.com/watch?v=-ljFjRn7jeM)
 
 # KIDOZ Unity SDK Sample App
 
-Version: 0.8.5.1
+KIDOZ Android SDK Version: 0.8.5.2
+KIDOZ iOS SDK Version: 1.1.3  
 
 **Here you can get the Kidoz Unity plugin and a sample app for Unity. See integration instructions and additional information bellow.**
 
@@ -20,10 +22,10 @@ This Unity application project provides an example of the [KIDOZ](http://www.kid
 The example application contains the following creative tools:
 
 _Recommended units_:
-* KIDOZ Panel view `Panel View`
-* KIDOZ Interstitial view `Rewarded View`
-* KIDOZ Interstitial view `Interstitial View`
-* KIDOZ Banner `Banner`
+* KIDOZ Panel view `Panel View` (Android only)
+* KIDOZ Interstitial view `Rewarded View` (Android and iOS)
+* KIDOZ Interstitial view `Interstitial View` (Android and iOS)
+* KIDOZ Banner `Banner` (Android only)
 
 *Note that you need to select either Interstital OR Rewarded during application lifetime.
 
@@ -71,7 +73,7 @@ The following general events are important if you wish to follow the SDK's initi
 		Kidoz.initSuccess += onKidozInitSuccess;
 		Kidoz.initError += onKidozInitError;
 
-# Kidoz Banner
+# KIDOZ Banner (Android)
 To load a banner ad:
 ```java
 Kidoz.loadBanner (<AUTO_SHOW>, <BANNER_POSITION>);
@@ -102,7 +104,7 @@ Kidoz.bannerClose += <bannerClose Callback>;
 Kidoz.bannerError += <bannerError Callback>;
 ```
 
-# KIDOZ Panel
+# KIDOZ Panel (Android)
 <a href="url"><img src="http://kidoz-cdn.s3.amazonaws.com/media/Panel%20Github.jpeg" align="right" height="121" width="200" ></a>
 
 `PanelView` is a customized special view that can slide in/out of the screen (both in horizontal and vertical layout) with minimal interference to user experience.
@@ -121,7 +123,7 @@ You can also expand the panel programmatically by using the following function:
 ``Kidoz.collapsePanelView()``` <\br>
 
 
-# KIDOZ Interstitial / Rewarded View
+# KIDOZ Interstitial / Rewarded View (Android and iOS)
 
 KidozInterstitial is a full screen single ad unit which can be used as simple interstitial or rewared mode.
 
@@ -171,10 +173,48 @@ all listeners are of type: private void listenerName(string value)
 	Kidoz.rewardedOnNoOffers += rewardedOnNoOffers;
 	
 
+**Kidoz iOS Interstitial best practices**
+- The preferred timing to show Interstitial Ads : Before the game ends, between game levels, after completing a game level .   
+- Some Interstitial Ads may contain video with sound. In order to maximise user experience, it is important to mute or pause game background sounds and pause the game while the Interstitial is displayed. This can be achieved by using `interstitialOpen` and `interstitialClose` callbacks:
+```
+Kidoz.interstitialOpen += interstitialOpen;	
+Kidoz.interstitialClose += interstitialClose;
+```
+```
+private void interstitialOpen(string  value)  {
+// mute/pause background sounds
+// pause your game 
+}
+
+private void interstitialClose(string  value)
+// unmute/resume background sounds
+// resume your game 
+}
+```
+
+**Kidoz iOS Rewarded best practices**
+- The preferred timing to show Rewarded Ads : Based on the implementation of rewarded logics in your game .   
+- Some Rewarded Ads may contain video with sound. In order to maximise user experience, it is important to mute or pause game background sounds and pause the game flow while the Rewarded is displayed. This can be achieved by using `rewardedOpen` and `rewardedClose` callbacks:
+```
+Kidoz.rewardedOpen += rewardedOpen;  
+Kidoz.rewardedClose += rewardedClose;
+```
+```
+
+-(void)rewardedOpen {
+//mute/pause background sounds
+//pause your game 
+}
+
+-(void)rewardedClose {
+//unmute/resume background sounds
+//resume your game 
+}
+```
 
 Trouble Shooting
 ================
-**KIDOZ SDK and this sample app are compatible with Android 4.0 (API level 14) and above and Unity versions greater than 5**
+**KIDOZ SDK and this sample app are compatible with Android 4.0 (API level 14) and above, iOS 8.0 and above and Unity versions greater than 5**
 
 **Kidoz plugin does not currently support Unity editor runtime. Please make sure you switch to a relevant platform (iOS/Android) before working or ignore any error in the Editor runtime.
 
