@@ -1,275 +1,284 @@
 using System;
+using AOT;
 using KIDOZNativeInterface;
 using System.Runtime.InteropServices;
 
 namespace KIDOZiOSInterface {
-
 	public class KIDOZiOSInterface : KIDOZNativeInterface.KIDOZNativeInterface
 	{
-		[DllImport("__Internal")]
-		private static extern void unityTestFunction();
-
-		[DllImport("__Internal")]
-		private static extern void KidozInit( string developerID,  string securityToken);
-
-		[DllImport("__Internal")]
-		private static extern void KidozAddFeedButton (float x, float y);
-
-		[DllImport("__Internal")]
-		private static extern void KidozAddFeedBUttonWithSize (float x, float y, float size);
-
-		[DllImport("__Internal")]
-		private static extern void KidozChangeFeedButtonVisibility(bool visible);
-
-		[DllImport("__Internal")]
-		private static extern void KidozAddPanelToView(int panelType, int handle_position);
-
-		[DllImport("__Internal")]
-		private static extern void KidozChangePanelVisibility(bool visible);
-
-		[DllImport("__Internal")]
-		private static extern void KidozExpandPanelView();
-
-		[DllImport("__Internal")]
-		private static extern void KidozCollapsePanelView();
-
-		[DllImport("__Internal")]
-		private static extern bool KidozIsPanelExpanded();
-
-		[DllImport("__Internal")]
-		private static extern void KidozSetPanelViewColor(string color);
-
-		[DllImport("__Internal")]
-		private static extern int KidozGetFeedButtonSize();
-
-		[DllImport("__Internal")]
-		private static extern void KidozShowFeedView();
-
-		[DllImport("__Internal")]
-		private static extern void KidozDismissFeedView();
-
-		[DllImport("__Internal")]
-		private static extern void KidozAddFlexiView(bool autoShow, int position);
-
-		[DllImport("__Internal")]
-		private static extern void KidozHideFlexiView();
-
-		[DllImport("__Internal")]
-		private static extern void KidozShowFlexiView();
-
-		[DllImport("__Internal")]
-		private static extern bool KidozGetIsFlexiViewVisible();
-
-		[DllImport("__Internal")]
-		private static extern void KidozSetFlexiViewClosable(bool closable);
-
-		[DllImport("__Internal")]
-		private static extern void KidozSetFlexiViewDraggable(bool dragable);
-
-		[DllImport("__Internal")]
-		private static extern void KidozLoadInterstitialAd(bool autoShow);
-
-		[DllImport("__Internal")]
-		private static extern void KidozGenerateInterstitial();
+		
+		enum KidozSDKEvents {SDK_INIT_SUCCESS, SDK_INIT_ERROR,
+			INTERSTITIAL_READY,INTERSTITIAL_OPENED,INTERSTITIAL_CLOSED,INTERSTITIAL_NO_OFFERS,INTERSTITIAL_LOAD_FAILED,
+			REWARDED_READY,REWARDED_OPENED,REWARDED_CLOSED,REWARDED_NO_OFFERS,REWARDED_LOAD_FAILED,REWARDED_VIDEO_STARTED,REWARDED_DONE };
 		
 		[DllImport("__Internal")]
-		private static extern void KidozRequestAd(bool rewarded);
-
+		private static extern void KidozInit(string developerID ,string securityToken ,DelegateMessage callback);
+		
 		[DllImport("__Internal")]
-		private static extern void KidozShowInterstitial();
-
-		[DllImport("__Internal")]
-		private static extern bool KidozGetIsInterstitialLoaded();
-
+		private static extern bool KidozIsInitialised();
+		
 		[DllImport("__Internal")]
 		private static extern void KidozLog(string message);
-
-		//banner
-		/*
+		
 		[DllImport("__Internal")]
-		private static extern void KidozLoadBanner (bool autoShow, int position);
-
+		private static extern void KidozLoadInterstitialAd(bool autoShow);
+		
 		[DllImport("__Internal")]
-		private static extern void KidozShowBanner ();
-
+		private static extern void KidozShowInterstitial();
+		
 		[DllImport("__Internal")]
-		private static extern void KidozHideBanner ();
-		*/
-
+		private static extern bool KidozGetIsInterstitialLoaded();
+		
+		[DllImport("__Internal")]
+		private static extern void KidozLoadRewardedAd(bool autoShow);
+		
+		[DllImport("__Internal")]
+		private static extern void KidozShowRewarded();
+		
+		[DllImport("__Internal")]
+		private static extern bool KidozGetRewardedLoaded();
+		
+		private delegate void DelegateMessage(int number);
+		
+		[MonoPInvokeCallback(typeof(DelegateMessage))] 
+		private static void delegateMessageReceived(int number) {
+			
+			switch((KidozSDKEvents)number){
+				
+			case KidozSDKEvents.SDK_INIT_SUCCESS:
+				KidozSDK.Kidoz.Instance.initSuccessCallback("");
+				break;
+				
+			case KidozSDKEvents.SDK_INIT_ERROR:
+				KidozSDK.Kidoz.Instance.initErrorCallback("");
+				break;
+				
+			case KidozSDKEvents.INTERSTITIAL_READY:
+				KidozSDK.Kidoz.Instance.interstitialReadyCallBack("");
+				break;
+				
+			case KidozSDKEvents.INTERSTITIAL_OPENED:
+				KidozSDK.Kidoz.Instance.interstitialOpenCallBack("");
+				break;
+				
+			case KidozSDKEvents.INTERSTITIAL_CLOSED:
+				KidozSDK.Kidoz.Instance.interstitialCloseCallBack("");
+				break;
+				
+			case KidozSDKEvents.INTERSTITIAL_NO_OFFERS:
+				KidozSDK.Kidoz.Instance.interstitialOnNoOffersCallBack("");
+				break;
+				
+			case KidozSDKEvents.INTERSTITIAL_LOAD_FAILED:
+				KidozSDK.Kidoz.Instance.interstitialOnLoadFailCallBack("");
+				break;
+				
+			case KidozSDKEvents.REWARDED_READY:
+				KidozSDK.Kidoz.Instance.rewardedReadyCallBack("");
+				break;
+				
+			case KidozSDKEvents.REWARDED_OPENED:
+				KidozSDK.Kidoz.Instance.rewardedOpenCallBack("");
+				break;
+				
+			case KidozSDKEvents.REWARDED_CLOSED:
+				KidozSDK.Kidoz.Instance.rewardedCloseCallBack("");
+				break;
+				
+			case KidozSDKEvents.REWARDED_NO_OFFERS:
+				KidozSDK.Kidoz.Instance.rewardedOnNoOffersCallBack("");
+				break;
+				
+			case KidozSDKEvents.REWARDED_LOAD_FAILED:
+				KidozSDK.Kidoz.Instance.rewardedOnLoadFailCallBack("");
+				break;
+				
+			case KidozSDKEvents.REWARDED_VIDEO_STARTED:
+				KidozSDK.Kidoz.Instance.onRewardedVideoStartedCallBack("");
+				break;
+				
+			case KidozSDKEvents.REWARDED_DONE:
+				KidozSDK.Kidoz.Instance.onRewardedCallBack("");
+				break;
+			}
+			
+		}
+		
+		
 		public KIDOZiOSInterface()
 		{
+			
 		}
-		public void testFunction()
-		{
-			unityTestFunction();
-		}
-
+		
 		public bool isInitialised()
 		{
-			return true; //TODO: return actual value once iOS supports this
+			return KidozIsInitialised();
 		}
 		
 		public void init(string developerID, string securityToken)
 		{
-			KidozInit(developerID, securityToken);
+			KidozInit(developerID,securityToken,delegateMessageReceived);
+			
+		}
+		
+		//***********************************//
+		//***** INTERSTITIAL & REWARDED *****//
+		//***********************************//
+		
+		
+		public void generateInterstitial()
+		{
+			KidozLoadInterstitialAd(false);
+		}
+		
+		public void loadInterstitialAd(bool autoShow)
+		{
+			KidozLoadInterstitialAd(autoShow);
+		}
+		
+		
+		public void showInterstitial()
+		{
+			KidozShowInterstitial();
+		}
+		
+		public bool getIsInterstitialLoaded()
+		{
+			return  KidozGetIsInterstitialLoaded();
+		}
+		
+		public void generateRewarded()
+		{
+			KidozLoadRewardedAd (false);
+		}
+		
+		public void loadRewardedAd(bool autoShow)
+		{
+			KidozLoadRewardedAd(autoShow);
+		}
+		
+		
+		public void showRewarded()
+		{
+			KidozShowRewarded();
+		}
+		
+		public bool getIsRewardedLoaded()
+		{
+			return KidozGetRewardedLoaded();
+		}
+		
+		//***********************************//
+		
+		public void logMessage(string message)
+		{
+			KidozLog (message);
+		}
+		
+		public void testFunction()
+		{
 		}
 		
 		public void addFeedButton(int x, int y)
 		{
-			KidozAddFeedButton ((float)x, (float)y);
 		}
 		
 		public void addFeedBUtton(int x, int y, int size)
 		{
-			KidozAddFeedBUttonWithSize ((float)x, (float)y, (float)size);
 		}
 		
 		public void changeFeedButtonVisibility(bool visible)
 		{
-			KidozChangeFeedButtonVisibility (visible);
 		}
 		
 		public void addPanelToView(int panelType, int handle_position)
 		{
-			KidozAddPanelToView (panelType,handle_position);
 		}
 		
 		public void addPanelToView(int panel_type, int handle_position, float startDelay, float duration)
 		{
-			//oooTODO: implement missing function
 		}
-
+		
 		public void changePanelVisibility(bool visible)
 		{
-			KidozChangePanelVisibility (visible);
 		}
-
+		
 		public void expandPanelView()
 		{
-			KidozExpandPanelView ();
 		}
-
+		
 		public void collapsePanelView()
 		{
-			KidozCollapsePanelView ();
 		}
-
+		
 		public bool getIsPanelExpended()
 		{
-			return KidozIsPanelExpanded();
+			return false;
 		}
 		public void setPanelViewColor(string color)
 		{
-
 		}
-
+		
 		public int getFeedButtonSize()
 		{
 			return 0;
 		}
-
+		
 		public void showFeedView()
 		{
-			KidozShowFeedView ();
 		}
-
+		
 		public void dismissFeedView()
 		{
-			KidozDismissFeedView ();
 		}
-
-
+		
+		public void setBannerPosition (int position)
+		{			
+		}
+		
 		public void loadBanner(bool autoShow, int position)
 		{			
 		}
-
+		
 		public void showBanner()
 		{
 		}
-
+		
 		public void hideBanner()
 		{
 		}
-
+		
 		public void addFlexiView(bool autoShow, int position)
 		{
 		}
-
+		
 		public void hideFlexiView()
 		{
 		}
-
+		
 		public void showFlexiView()
 		{
 		}
-
+		
 		public bool getIsFlexiViewVisible()
 		{
 			return false;
 		}
-
+		
 		public void setFlexiViewDraggable(bool dragable)
 		{
 		}
-
+		
 		public void setFlexiViewClosable(bool closable)
 		{
 		}
 		
 		public void showVideoUnit()
 		{
-			return ;
 		}
 		
-		//***********************************//
-		//***** INTERSTITIAL & REWARDED *****//
-		//***********************************//
-
-		public void loadInterstitialAd(bool autoShow)
-		{
-			KidozLoadInterstitialAd (autoShow);
-		}
-
-		public void generateInterstitial()
-		{
-			KidozGenerateInterstitial();
-		}
-
-		public void showInterstitial()
-		{
-			KidozShowInterstitial ();
-		}
-
-		public bool getIsInterstitialLoaded()
-		{
-			return KidozGetIsInterstitialLoaded();
-		}
-
-		public void loadRewardedAd(bool autoShow)
-		{
-			//STUB
-		}
-		
-		public void generateRewarded()
-		{
-			//STUB
-		}
-		
-		public void showRewarded()
-		{
-			//STUB
-		}
-		
-		public bool getIsRewardedLoaded()
-		{
-			//STUB
-			return false;
-		}
-
-
-		public void logMessage(string message)
-		{
-			KidozLog (message);
-		}
 	}
+	
+	
+
 }

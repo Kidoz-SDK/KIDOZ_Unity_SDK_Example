@@ -1,5 +1,5 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.kidoz.sdk.api"
+    package="com.kidoz.sdk.api.app"
     android:versionCode="58"
     android:versionName="0.5.8" >
 

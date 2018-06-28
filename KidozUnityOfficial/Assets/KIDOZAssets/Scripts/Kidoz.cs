@@ -15,23 +15,23 @@ using KIDOZDummyInterface;
 
 namespace KidozSDK
 {
-
-
-
+	
+	
+	
 	public class Kidoz :MonoBehaviour
 	{
-
+		
 		public enum PANEL_TYPE
 		{
 			BOTTOM = 0, TOP = 1, LEFT = 2, RIGHT = 3
 		};
-
+		
 		public enum HANDLE_POSITION
 		{
 			START, CENTER, END
 		};
-
-
+		
+		
 		public enum BANNER_POSITION
 		{
 			[ObsoleteAttribute ( "Use TOP_CENTER" )]
@@ -45,92 +45,88 @@ namespace KidozSDK
 			BOTTOM_LEFT = 4,
 			BOTTOM_RIGHT = 5
 		}
-
+		
 		public enum INTERSTITIAL_AD_MODE
 		{
 			NORMAL = 0,
 			REWARDED = 1
 		}
-
+		
 		public const int NO_GAME_OBJECT = -1;
 		public const int PLATFORM_NOT_SUPPORTED = -2;
-
+		
 		public static event Action<string> initSuccess;
-
+		
 		public static event Action<string> initError;
-
-		public static event Action<string> viewOpened;
-
-		public static event Action<string> viewClosed;
 		
 		public static event Action<string> panelExpand;
-
+		
 		public static event Action<string> panelCollapse;
-
+		
 		public static event Action<string> panelReady;
-
+		
 		public static event Action<string> bannerContentLoaded;
-
+		
 		public static event Action<string> bannerContentLoadFailed;
-
+		
 		public static event Action<string> playerOpen;
-
+		
 		public static event Action<string> playerClose;
-
+		
 		public static event Action<string> interstitialOpen;
-
+		
 		public static event Action<string> interstitialClose;
-
+		
 		public static event Action<string> interstitialReady;
-
+		
 		public static event Action<string> interstitialOnLoadFail;
-
+		
 		public static event Action<string> interstitialOnNoOffers;
-
+		
 		public static event Action<string> onRewardedDone;
-
+		
 		public static event Action<string> onRewardedVideoStarted;
-
+		
 		public static event Action<string> rewardedOpen;
-
+		
 		public static event Action<string> rewardedClose;
-
+		
 		public static event Action<string> rewardedReady;
-
+		
 		public static event Action<string> rewardedOnLoadFail;
-
+		
 		public static event Action<string> rewardedOnNoOffers;
 		
-
+		
 		//banner
 		public static event Action<string> bannerReady;
-
+		
 		public static event Action<string> bannerClose;
-
+		
 		public static event Action<string> bannerError;
-
-
+		
+		
 		public string PublisherID;
 		public string SecurityToken;
-
+		
 		static private bool initFlag = false;
-
-#if UNITY_IOS
+		
+		#if UNITY_IOS
 		private static KIDOZiOSInterface.KIDOZiOSInterface kidozin = new KIDOZiOSInterface.KIDOZiOSInterface();
-#elif UNITY_ANDROID
+		#elif UNITY_ANDROID
 		private static KIDOZAndroidInterface.KIDOZAndroidInterface kidozin = new KIDOZAndroidInterface.KIDOZAndroidInterface();
-#else
+		#else
 		private static KIDOZDummyInterface.KIDOZDummyInterface kidozin = new KIDOZDummyInterface.KIDOZDummyInterface ( );
-#endif
-
-
+		#endif
+		
+		
 		public const string KIDOZ_OBJECT_NAME = "KidozObject";
-
-
+		
+		
 		#region Singelton
-
+		
 		static private Kidoz instance = null;
-
+		
 		public static Kidoz Instance
 		{
 			get
@@ -142,19 +138,19 @@ namespace KidozSDK
 				return instance;
 			}
 		}
-
-
+		
+		
 		static void SetInstance (Kidoz _instance)
 		{
 			instance = _instance;
 			DontDestroyOnLoad ( instance.gameObject );
 		}
-
+		
 		void Awake ()
 		{
 			if (instance == null)
 			{
-				SetInstance ( this );				 
+				SetInstance ( this );
 				if (!string.IsNullOrEmpty ( PublisherID ) && !string.IsNullOrEmpty ( SecurityToken ))
 				{
 					init ( PublisherID, SecurityToken );
@@ -166,9 +162,9 @@ namespace KidozSDK
 				Destroy ( gameObject );
 			}
 		}
-
+		
 		public static Kidoz Create ()
-		{//
+		{
 			if (instance == null)
 			{
 				GameObject singleton = new GameObject ( KIDOZ_OBJECT_NAME );
@@ -176,9 +172,9 @@ namespace KidozSDK
 			}
 			return null;
 		}
-
+		
 		#endregion
-
+		
 		public static void init (string developerID, string securityToken)
 		{
 			if (initFlag == true)
@@ -201,8 +197,8 @@ namespace KidozSDK
 			print ( "Kidoz | init:" + developerID + "," + securityToken /*+ "," + "-->" + instance.PublisherID + "," + instance.SecurityToken*/ );
 			kidozin.init ( developerID, securityToken );
 		}
-
-
+		
+		
 		public static bool isInitialised ()
 		{
 			if (kidozin == null)
@@ -211,21 +207,19 @@ namespace KidozSDK
 			}
 			return kidozin.isInitialised ( );
 		}
-
+		
 		public static void testFunction ()
 		{
 			kidozin.testFunction ( );
 		}
-
+		
 		//Basic function creation function.
 		//Since Kidoz SDK should be activated only once use this function to create 
 		//a game object. If Kidoz game object was added to the scene there is no need to call this function
-
 		
-
-	
-
-
+		
+		
+		
 		// Description: Add panel to view 
 		// Parameters: 
 		// 		PANEL_TYPE panel_type - The panel type (where the panel will be located)
@@ -236,10 +230,10 @@ namespace KidozSDK
 		public static int addPanelToView (PANEL_TYPE panel_type, HANDLE_POSITION handle_position)
 		{
 			kidozin.addPanelToView ( (int) panel_type, (int) handle_position );
-
+			
 			return 0;
 		}
-
+		
 		// Description: Add panel to view which will be opened automatically for the requested duration 
 		// Parameters: 
 		// 		PANEL_TYPE panel_type - The panel type (where the panel will be located)
@@ -251,11 +245,11 @@ namespace KidozSDK
 		//		NO_GAME_OBJECT	- there is no Kidoz gameobject 
 		public static int addPanelToView (PANEL_TYPE panel_type, HANDLE_POSITION handle_position, float startDelay, float duration)
 		{
-
+			
 			//TODO: implement function
 			return 0;
 		}
-
+		
 		// Description: Change the panel button visibility 
 		// Parameters: 
 		// 		bool visible - true the panel will appear. false the button will be hidden
@@ -267,7 +261,7 @@ namespace KidozSDK
 			kidozin.changePanelVisibility ( visible );
 			return 0;
 		}
-
+		
 		// Description: Expand the panel view 
 		// Parameters: 
 		// 		N/A
@@ -279,7 +273,7 @@ namespace KidozSDK
 			kidozin.expandPanelView ( );
 			return 0;
 		}
-
+		
 		// Description: Collapse the panel view 
 		// Parameters: 
 		// 		N/A
@@ -291,7 +285,7 @@ namespace KidozSDK
 			kidozin.collapsePanelView ( );
 			return 0;
 		}
-
+		
 		// Description: set panel color
 		// Parameters: 
 		// 		string panelColor - the panel color as hex string with # sign
@@ -303,23 +297,21 @@ namespace KidozSDK
 			kidozin.setPanelViewColor ( panelColor );
 			return 0;
 		}
-
-
+		
+		
 		public static bool getIsPanelExpanded ()
 		{
 			//			return kidozin.getIsPanelExpended (); //TODO: WHY?
 			return false;
 		}
-
-
-
-
+		
+		
+		
+		
+		
 		//***********************************//
 		//***** INTERSTITIAL & REWARDED *****//
 		//***********************************//
-		
-
-
 		// Description: Load interstitial add ---- this function is deprecated 
 		// Parameters: 
 		// 		
@@ -331,13 +323,13 @@ namespace KidozSDK
 			kidozin.loadInterstitialAd ( isAutoShow );
 			return 0;
 		}
-
+		
 		public static int loadRewardedAd (bool isAutoShow)
 		{
 			kidozin.loadRewardedAd ( isAutoShow );
 			return 0;
 		}
-
+		
 		// Description: generate the interstitial object
 		// Parameters: 
 		// 		 
@@ -349,13 +341,13 @@ namespace KidozSDK
 			kidozin.generateInterstitial ( );
 			return 0;
 		}
-
+		
 		public static int generateRewarded ()
 		{
 			kidozin.generateRewarded ( );
 			return 0;
 		}
-
+		
 		// Description: show the interstitial add that was loaded
 		// Parameters: 
 		// 		
@@ -367,13 +359,13 @@ namespace KidozSDK
 			kidozin.showInterstitial ( );
 			return 0;
 		}
-
+		
 		public static int showRewarded ()
 		{
 			kidozin.showRewarded ( );
 			return 0;
 		}
-
+		
 		// Description: return if an interstitial add was loaded
 		// Parameters: 
 		// 		
@@ -383,29 +375,25 @@ namespace KidozSDK
 		public static bool getIsInterstitialLoaded ()
 		{
 			return kidozin.getIsInterstitialLoaded ( );
-
+			
 		}
-
+		
 		public static bool getIsRewardedLoaded ()
 		{
 			return kidozin.getIsRewardedLoaded ( );
-
+			
 		}
-
-
-
-
-
-
+		
+		
 		//******************//
 		//***** BANNER *****//
 		//******************//
-
-
-
-
-
-
+		
+		
+		
+		
+		
+		
 		// Description: add Banner to view 
 		// Parameters: 
 		// 		int - banner position
@@ -417,7 +405,7 @@ namespace KidozSDK
 			kidozin.loadBanner ( isAutoShow, (int) position );
 			return 0;
 		}
-
+		
 		// Description: set Banner Position 
 		// Parameters: 
 		// 		int - banner position
@@ -429,8 +417,8 @@ namespace KidozSDK
 			kidozin.setBannerPosition ( (int) position );
 			return 0;
 		}
-
-
+		
+		
 		// Description: show the banner 
 		// Parameters: 
 		// 		N/A
@@ -442,7 +430,7 @@ namespace KidozSDK
 			kidozin.showBanner ( );
 			return 0;
 		}
-
+		
 		// Description: hide the banner 
 		// Parameters: 
 		// 		N/A
@@ -454,53 +442,34 @@ namespace KidozSDK
 			kidozin.hideBanner ( );
 			return 0;
 		}
-
-
-
-
+		
+		
+		
+		
 		public static void printToastMessage (String message)
 		{
 			kidozin.logMessage ( message );
 		}
-
-
-
+		
 		///listeners calls backs
 		////////////////////////////////////
-		private void initSuccessCallback (string message)
+		public void initSuccessCallback (string message)
 		{
 			if (initSuccess != null)
 			{
 				initSuccess ( message );
 			}
 		}
-
-		private void initErrorCallback (string message)
+		
+		public void initErrorCallback (string message)
 		{
 			if (initError != null)
 			{
 				initError ( message );
 			}
 		}
-
-		private void showCallBack (string message)
-		{
-			if (viewOpened != null)
-			{
-				viewOpened ( message );
-			}
-		}
-
-		private void closeCallBack (string message)
-		{
-			if (viewClosed != null)
-			{
-				viewClosed ( message );
-			}
-		}
 		
-
-
+		
 		private void panelExpandCallBack (string message)
 		{
 			if (panelExpand != null)
@@ -508,7 +477,7 @@ namespace KidozSDK
 				panelExpand ( message );
 			}
 		}
-
+		
 		private void panelCollapseCallBack (string message)
 		{
 			if (panelCollapse != null)
@@ -516,7 +485,7 @@ namespace KidozSDK
 				panelCollapse ( message );
 			}
 		}
-
+		
 		private void panelReadyCallBack (string message)
 		{
 			if (panelReady != null)
@@ -524,7 +493,7 @@ namespace KidozSDK
 				panelReady ( message );
 			}
 		}
-
+		
 		private void bannerReadyCallBack (string message)
 		{
 			if (bannerReady != null)
@@ -532,7 +501,7 @@ namespace KidozSDK
 				bannerReady ( message );
 			}
 		}
-
+		
 		private void bannerCloseCallBack (string message)
 		{
 			if (bannerClose != null)
@@ -540,7 +509,7 @@ namespace KidozSDK
 				bannerClose ( message );
 			}
 		}
-
+		
 		private void bannerErrorCallBack (string message)
 		{
 			if (bannerError != null)
@@ -549,7 +518,7 @@ namespace KidozSDK
 			}
 		}
 		
-
+		
 		private void playerOpenCallBack (string message)
 		{
 			if (playerOpen != null)
@@ -564,115 +533,115 @@ namespace KidozSDK
 				playerClose ( message );
 			}
 		}
-
-
-
+		
+		
+		
 		//***********************************//
 		//***** INTERSTITIAL & REWARDED *****//
 		//***********************************//
-
-		private void interstitialOpenCallBack (string message)
+		
+		public void interstitialOpenCallBack (string message)
 		{
 			if (interstitialOpen != null)
 			{
 				interstitialOpen ( message );
 			}
 		}
-
-		private void interstitialCloseCallBack (string message)
+		
+		public void interstitialCloseCallBack (string message)
 		{
 			if (interstitialClose != null)
 			{
 				interstitialClose ( message );
 			}
 		}
-
-		private void interstitialReadyCallBack (string message)
+		
+		public void interstitialReadyCallBack (string message)
 		{
 			if (interstitialReady != null)
 			{
 				interstitialReady ( message );
 			}
 		}
-
-		private void interstitialOnLoadFailCallBack (string message)
+		
+		public void interstitialOnLoadFailCallBack (string message)
 		{
 			if (interstitialOnLoadFail != null)
 			{
 				interstitialOnLoadFail ( message );
 			}
 		}
-
-		private void interstitialOnNoOffersCallBack (string message)
+		
+		public void interstitialOnNoOffersCallBack (string message)
 		{
 			if (interstitialOnNoOffers != null)
 			{
 				interstitialOnNoOffers ( message );
 			}
 		}
-
-		private void onRewardedCallBack (string message)
+		
+		public void onRewardedCallBack (string message)
 		{
 			if (onRewardedDone != null)
 			{
 				onRewardedDone ( message );
 			}
 		}
-
-		private void onRewardedVideoStartedCallBack (string message)
+		
+		public void onRewardedVideoStartedCallBack (string message)
 		{
 			if (onRewardedVideoStarted != null)
 			{
 				onRewardedVideoStarted ( message );
 			}
 		}
-
-		private void rewardedOpenCallBack (string message)
+		
+		public void rewardedOpenCallBack (string message)
 		{
 			if (rewardedOpen != null)
 			{
 				rewardedOpen ( message );
 			}
 		}
-
-		private void rewardedCloseCallBack (string message)
+		
+		public void rewardedCloseCallBack (string message)
 		{
 			if (rewardedClose != null)
 			{
 				rewardedClose ( message );
 			}
 		}
-
-		private void rewardedReadyCallBack (string message)
+		
+		public void rewardedReadyCallBack (string message)
 		{
 			if (rewardedReady != null)
 			{
 				rewardedReady ( message );
 			}
 		}
-
-		private void rewardedOnLoadFailCallBack (string message)
+		
+		public void rewardedOnLoadFailCallBack (string message)
 		{
 			if (rewardedOnLoadFail != null)
 			{
 				rewardedOnLoadFail ( message );
 			}
 		}
-
-		private void rewardedOnNoOffersCallBack (string message)
+		
+		public void rewardedOnNoOffersCallBack (string message)
 		{
 			if (rewardedOnNoOffers != null)
 			{
 				rewardedOnNoOffers ( message );
 			}
 		}
-
-
-
-#if __OOO___ //UNITY_ANDROID && !UNITY_EDITOR
+		
+		
+		
+		#if __OOO___ //UNITY_ANDROID && !UNITY_EDITOR
 		private static AndroidJavaObject kidozBridgeObject = null;
 		private AndroidJavaObject activityContext = null;
-
+		
 		//Basic function creation function.
 		//Since Kidoz SDK should be activated only once use this function to create 
 		//a game object. If Kidoz game object was added to the scene there is no need to call this function
@@ -682,10 +651,10 @@ namespace KidozSDK
 				singleton.name = "Kidoz";
 				instance = singleton.AddComponent<Kidoz>();
 			}
-
+			
 			return instance;
 		}
-
+		
 		// Description: Add feed button in the selected location.
 		// Parameters: 
 		// 		int xPos - the x position of the left top left corner of the button image.
@@ -701,7 +670,7 @@ namespace KidozSDK
 			kidozBridgeObject.Call("addFeedButton",xPos,yPos);
 			return 0;
 		}
-
+		
 		// Description: Add feed button in the selected location.
 		// Parameters: 
 		// 		int xPos - the x position of the left top left corner of the button image.
@@ -718,7 +687,7 @@ namespace KidozSDK
 			kidozBridgeObject.Call("addFeedButton",xPos,yPos,size);
 			return 0;
 		}
-
+		
 		// Description: Change the feed button visibility 
 		// Parameters: 
 		// 		bool visible - true the button will appear. false the button will be hidden
@@ -733,9 +702,9 @@ namespace KidozSDK
 			kidozBridgeObject.Call("changeFeedButtonVisibility",visible);
 			return 0;
 		}
-
-
-
+		
+		
+		
 		// Description: Add panel to view 
 		// Parameters: 
 		// 		PANEL_TYPE panel_type - The panel type (where the panel will be located)
@@ -748,12 +717,12 @@ namespace KidozSDK
 			if (instance == null) {
 				return NO_GAME_OBJECT;
 			}
-
+			
 			kidozBridgeObject.Call("addPanelToView",(int)panel_type,(int)handle_position);
-
+			
 			return 0;
 		}
-
+		
 		// Description: Add panel to view which will be opened automatically for the requested duration 
 		// Parameters: 
 		// 		PANEL_TYPE panel_type - The panel type (where the panel will be located)
@@ -773,7 +742,7 @@ namespace KidozSDK
 			
 			return 0;
 		}
-
+		
 		// Description: Change the panel button visibility 
 		// Parameters: 
 		// 		bool visible - true the panel will appear. false the button will be hidden
@@ -788,7 +757,7 @@ namespace KidozSDK
 			kidozBridgeObject.Call("changePanelVisibility",visible);
 			return 0;
 		}
-
+		
 		// Description: Expand the panel view 
 		// Parameters: 
 		// 		N/A
@@ -803,7 +772,7 @@ namespace KidozSDK
 			kidozBridgeObject.Call("expandPanelView");
 			return 0;
 		}
-
+		
 		// Description: Collapse the panel view 
 		// Parameters: 
 		// 		N/A
@@ -818,7 +787,7 @@ namespace KidozSDK
 			kidozBridgeObject.Call("collapsePanelView");
 			return 0;
 		}
-
+		
 		// Description: set panel color
 		// Parameters: 
 		// 		string panelColor - the panel color as hex string with # sign
@@ -833,7 +802,7 @@ namespace KidozSDK
 			kidozBridgeObject.Call("setPanelViewColor",panelColor);
 			return 0;
 		}
-
+		
 		// Description: returns the default feed button size. 
 		// Parameters: 
 		// 		bool visible - true the button will appear. false the button will be hidden
@@ -850,7 +819,7 @@ namespace KidozSDK
 			int size = kidozBridgeObject.Call<int>("getFeedButtonSize");
 			return size;
 		}
-
+		
 		// Description: Display the feed view. 
 		// Parameters: 
 		// 		N/A
@@ -879,7 +848,7 @@ namespace KidozSDK
 			kidozBridgeObject.Call("dismissFeedView");
 			return 0;
 		}
-
+		
 		// Description: add Banner to view 
 		// Parameters: 
 		// 		int - banner position
@@ -888,10 +857,10 @@ namespace KidozSDK
 		//		NO_GAME_OBJECT	- there is no Kidoz gameobject 
 		public static int loadBanner(bool isAutoShow, BANNER_POSITION position)
 		{
-		kidozin.loadBanner (isAutoShow, (int)position);
-		return 0;
+			kidozin.loadBanner (isAutoShow, (int)position);
+			return 0;
 		}
-
+		
 		// Description: show the banner 
 		// Parameters: 
 		// 		N/A
@@ -899,11 +868,11 @@ namespace KidozSDK
 		//		0 	- the function worked correctly
 		//		NO_GAME_OBJECT	- there is no Kidoz gameobject 
 		public static int showBanner()
-		{
-		kidozin.showBanner ();
-		return 0;
+		{ flexi
+			kidozin.showBanner ();
+			return 0; flexi
 		}
-
+		
 		// Description: hide the banner 
 		// Parameters: 
 		// 		N/A
@@ -912,11 +881,11 @@ namespace KidozSDK
 		//		NO_GAME_OBJECT	- there is no Kidoz gameobject 
 		public static int hideBanner()
 		{
-		kidozin.hideBanner ();
-		return 0;
+			kidozin.hideBanner ();
+			return 0;
 		}
-
-
+		
+		
 		// Description: add flexiView
 		// Parameters: 
 		// 		boolean - automatic show
@@ -932,7 +901,7 @@ namespace KidozSDK
 			kidozBridgeObject.Call("addFlexiView",isAutoShow, (int)position);
 			return 0;
 		}
-
+		
 		// Description: hide flexiView
 		// Parameters: 
 		// 		
@@ -947,7 +916,7 @@ namespace KidozSDK
 			kidozBridgeObject.Call("hideFlexiView");
 			return 0;
 		}
-
+		
 		// Description: show flexiView
 		// Parameters: 
 		// 		boolean - automatic show
@@ -963,7 +932,7 @@ namespace KidozSDK
 			kidozBridgeObject.Call("showFlexiView");
 			return 0;
 		}
-
+		
 		// Description: get if the flexi view is visible
 		// Parameters: 
 		// 		
@@ -978,8 +947,8 @@ namespace KidozSDK
 			kidozBridgeObject.Call("getIsFlexiViewVisible");
 			return 0;
 		}
-
-
+		
+		
 		// Description: Disable/enable dragging the flexiview
 		// Parameters: 
 		// 		boolean - true the flexi will be draggable 
@@ -994,7 +963,7 @@ namespace KidozSDK
 			kidozBridgeObject.Call("setFlexiViewDraggable",draggable);
 			return 0;
 		}
-
+		
 		// Description: Disable/enable closing the flexiview
 		// Parameters: 
 		// 		boolean - true the flexi will be closeable 
@@ -1009,7 +978,7 @@ namespace KidozSDK
 			kidozBridgeObject.Call("setFlexiViewClosable",Closable);
 			return 0;
 		}
-
+		
 		// Description: Load interstitial add
 		// Parameters: 
 		// 		
@@ -1024,7 +993,7 @@ namespace KidozSDK
 			kidozBridgeObject.Call("loadInterstitialAd",isAutoShow);
 			return 0;
 		}
-
+		
 		// Description: show the interstitial add that was loaded
 		// Parameters: 
 		// 		
@@ -1039,7 +1008,7 @@ namespace KidozSDK
 			kidozBridgeObject.Call("showInterstitial");
 			return 0;
 		}
-
+		
 		// Description: return if an interstitial add was loaded
 		// Parameters: 
 		// 		
@@ -1052,10 +1021,10 @@ namespace KidozSDK
 				return false;
 			}
 			return kidozBridgeObject.Call<bool>("getIsInterstitialLoaded");
-
+			
 		}
-
-
+		
+		
 		public AndroidJavaObject getContext(){
 			return activityContext;
 		}
@@ -1066,76 +1035,76 @@ namespace KidozSDK
 		{
 			kidozBridgeObject.Call("printToastLog",message); 
 		}
-
+		
 		public static bool isInitialised(){
 			if (kidozin == null) {
 				return false;
 			}
 			return kidozin.isInitialised();
 		}
-
+		
 		void Awake() {
 			// Limit the number of instances to one
 			if(instance == null) {
-
+				
 				string obj_name = this.gameObject.name;
-
+				
 				instance = this;
 				DontDestroyOnLoad(gameObject);
-
+				
 				///get activity
 				using(AndroidJavaClass activityClass = new AndroidJavaClass("com.unity3d.player.UnityPlayer")) {
 					activityContext = activityClass.GetStatic<AndroidJavaObject>("currentActivity");
 				}
-
+				
 				//init Kidoz SDK
 				using ( var kidozBridgeClass = new AndroidJavaClass("com.kidoz.sdk.api.platforms.KidozUnityBridge")) {
-
+					
 					kidozBridgeObject = kidozBridgeClass.CallStatic<AndroidJavaObject>("getInstance",activityContext);
-
+					
 					kidozBridgeObject.Call("initialize", new object[] { activityContext, developerID, securityToken});
-
+					
 					KidozBridgeObject.Call("setMainSDKEventListeners", obj_name, "initSuccessCallback", "initErrorCallback");
-
+					
 					kidozBridgeObject.Call("setFeedViewEventListeners", obj_name,"showCallBack","closeCallBack","feedReadyCallBack");
-
+					
 					kidozBridgeObject.Call("setPanelViewEventListeners", obj_name,"panelExpandCallBack","panelCollapseCallBack","panelReadyCallBack");
-
+					
 					kidozBridgeObject.Call("setBannerEventListeners", obj_name,"bannerReadyCallBack","bannerShowCallBack","bannerHideCallBack","bannerContentLoadedCallBack","bannerContentLoadFailedCallBack");
-
+					
 					kidozBridgeObject.Call("setFlexiViewEventListener", obj_name,"flexiViewReadyCallBack","flexiViewShowCallBack","flexiViewHideCallBack");
-
+					
 					kidozBridgeObject.Call("setPlayersEventListener", obj_name,"playerOpenCallBack","playerCloseCallBack");
-
+					
 					kidozBridgeObject.Call("setInterstitialEventListener", obj_name,"interstitialOpenCallBack","interstitialCloseCallBack","interstitialReadyCallBack","interstitialOnLoadFailCallBack", "interstitialOnNoOffersCallBack");
-
+					
 					kidozBridgeObject.Call("setRewardedVideoEventListener", obj_name,"onRewardedCallBack","onRewardedVideoStartedCallBack","rewardedOpenCallBack","rewardedCloseCallBack","rewardedReadyCallBack","rewardedOnLoadFailCallBack", "rewardedOnNoOffersCallBack");
-
+					
 					kidozBridgeObject.Call("setBannerEventListener", obj_name, "bannerReadyCallBack", "bannerCloseCallBack", "bannerErrorCallBack");
-
+					
 				}
-
-
+				
+				
 			}
 			else {
 				// duplicate
 				Destroy(gameObject);
 			}
 		}
-
+		
 		void OnDestroy() {
 			if(this == instance)
 			{
 				instance = null;
-
+				
 			}
 		}
-
-
-#else
-
-#endif
-
+		
+		
+		#else
+		
+		#endif
+		
 	}
-
+	
 }
