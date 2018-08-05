@@ -52,9 +52,9 @@
      <Compile Include="Assets\KIDOZAssets\Scripts\KIDOZiOSInterface.cs" />
      <Compile Include="Assets\KIDOZAssets\Scripts\Kidoz.cs" />
      <Compile Include="Assets\SampleCode.cs" />
-     <None Include="Assets\Plugins\Android\KidozSdk\proguard-project.txt" />
-     <None Include="Assets\Plugins\Android\AndroidManifest.xml" />
      <None Include="Assets\Plugins\Android\KidozSdk\AndroidManifest.xml" />
+     <None Include="Assets\Plugins\Android\AndroidManifest.xml" />
+     <None Include="Assets\Plugins\Android\KidozSdk\proguard-project.txt" />
  <Reference Include="UnityEngine.UI">
  <HintPath>/Applications/Unity4.6.1/Unity4.6.1.app/Contents/UnityExtensions/Unity/GUISystem/4.7.2/Standalone/UnityEngine.UI.dll</HintPath>
  </Reference>
