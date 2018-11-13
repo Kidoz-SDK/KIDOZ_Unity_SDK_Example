@@ -28,6 +28,7 @@ public class SampleCode : MonoBehaviour {
 		Kidoz.interstitialReady += interstitialReady;
 		Kidoz.interstitialOnLoadFail += interstitialOnLoadFail;
 		Kidoz.interstitialOnNoOffers += interstitialOnNoOffers;
+		
 		Kidoz.onRewardedDone += onRewardedDone;
 		Kidoz.onRewardedVideoStarted += onRewardedVideoStarted;
 		Kidoz.rewardedOpen += rewardedOpen;
@@ -35,6 +36,11 @@ public class SampleCode : MonoBehaviour {
 		Kidoz.rewardedReady += rewardedReady;
 		Kidoz.rewardedOnLoadFail += rewardedOnLoadFail;
 		Kidoz.rewardedOnNoOffers += rewardedOnNoOffers;
+		
+		Kidoz.bannerReady += bannerReady;
+		Kidoz.bannerClose += bannerClose;
+		Kidoz.bannerError += bannerError;
+		Kidoz.bannerNoOffers +=bannerNoOffers;
 		
 		#if !UNITY_IOS
 		
@@ -44,9 +50,7 @@ public class SampleCode : MonoBehaviour {
 		Kidoz.playerOpen += playerOpen;
 		Kidoz.playerClose += playerClose;
 		
-		Kidoz.bannerReady += bannerReady;
-		Kidoz.bannerClose += bannerClose;
-		Kidoz.bannerError += bannerError;
+		
 		
 		//Show sample Ads on Start()
 		Kidoz.addPanelToView (Kidoz.PANEL_TYPE.BOTTOM, Kidoz.HANDLE_POSITION.START);
@@ -107,7 +111,7 @@ public class SampleCode : MonoBehaviour {
 		}
 		
 		
-		#if !UNITY_IOS
+		
 		
 		btnHeight += height;
 		
@@ -137,11 +141,9 @@ public class SampleCode : MonoBehaviour {
 		{
 			Kidoz.hideBanner ();
 		}
-		btnHeight += height;
 		
 		
 		
-		#endif
 		
 		btnHeight += height;
 		
@@ -284,4 +286,11 @@ public class SampleCode : MonoBehaviour {
 		print ("SampleCode | bannerError: " + value);
 		Kidoz.printToastMessage ("SampleCode | bannerError: " + value);
 	}
+	
+	private void bannerNoOffers(string value)
+	{
+		print ("SampleCode | bannerNoOffers");
+		Kidoz.printToastMessage ("SampleCode | bannerNoOffers");
+	}
+	
 }

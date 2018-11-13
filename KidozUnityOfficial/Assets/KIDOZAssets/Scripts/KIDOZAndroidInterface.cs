@@ -47,10 +47,10 @@ namespace KIDOZAndroidInterface {
 										
 				kidozBridgeObject.Call("setRewardedVideoEventListener", kidoz_name,"onRewardedCallBack","onRewardedVideoStartedCallBack","rewardedOpenCallBack","rewardedCloseCallBack","rewardedReadyCallBack","rewardedOnLoadFailCallBack", "rewardedOnNoOffersCallBack");
 
-				kidozBridgeObject.Call("setBannerEventListener", kidoz_name, "bannerReadyCallBack", "bannerCloseCallBack", "bannerHideCallBack");
+				kidozBridgeObject.Call("setBannerEventListener", kidoz_name, "bannerReadyCallBack", "bannerCloseCallBack", "bannerErrorCallBack","bannerNoOffersCallBack");
 
-				Debug.Log ("init android interface: end of listeners" );
-			}
+
+				}
 		}
 
 		public bool isInitialised(){

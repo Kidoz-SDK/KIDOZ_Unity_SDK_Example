@@ -4,12 +4,16 @@ using KIDOZNativeInterface;
 using System.Runtime.InteropServices;
 
 namespace KIDOZiOSInterface {
+	
 	public class KIDOZiOSInterface : KIDOZNativeInterface.KIDOZNativeInterface
 	{
 		
-		enum KidozSDKEvents {SDK_INIT_SUCCESS, SDK_INIT_ERROR,
+		enum KidozSDKEvents {
+			SDK_INIT_SUCCESS, SDK_INIT_ERROR,
 			INTERSTITIAL_READY,INTERSTITIAL_OPENED,INTERSTITIAL_CLOSED,INTERSTITIAL_NO_OFFERS,INTERSTITIAL_LOAD_FAILED,
-			REWARDED_READY,REWARDED_OPENED,REWARDED_CLOSED,REWARDED_NO_OFFERS,REWARDED_LOAD_FAILED,REWARDED_VIDEO_STARTED,REWARDED_DONE };
+			REWARDED_READY,REWARDED_OPENED,REWARDED_CLOSED,REWARDED_NO_OFFERS,REWARDED_LOAD_FAILED,REWARDED_VIDEO_STARTED,REWARDED_DONE,
+			BANNER_READY,BANNER_CLOSED,BANNER_ERROR,BANNER_NO_OFFERS
+		};
 		
 		[DllImport("__Internal")]
 		private static extern void KidozInit(string developerID ,string securityToken ,DelegateMessage callback);
@@ -37,6 +41,19 @@ namespace KIDOZiOSInterface {
 		
 		[DllImport("__Internal")]
 		private static extern bool KidozGetRewardedLoaded();
+		
+		[DllImport("__Internal")]
+		private static extern void KidozLoadBannerAd(bool autoShow,int position);
+		
+		[DllImport("__Internal")]
+		private static extern void KidozSetBannerPosition(int position);
+		
+		[DllImport("__Internal")]
+		private static extern void KidozShowBanner();
+		
+		[DllImport("__Internal")]
+		private static extern void KidozHideBanner();
+		
 		
 		private delegate void DelegateMessage(int number);
 		
@@ -100,6 +117,23 @@ namespace KIDOZiOSInterface {
 			case KidozSDKEvents.REWARDED_DONE:
 				KidozSDK.Kidoz.Instance.onRewardedCallBack("");
 				break;
+				
+			case KidozSDKEvents.BANNER_READY:
+				KidozSDK.Kidoz.Instance.bannerReadyCallBack("");
+				break;
+				
+			case KidozSDKEvents.BANNER_CLOSED:
+				KidozSDK.Kidoz.Instance.bannerCloseCallBack("");
+				break;
+				
+			case KidozSDKEvents.BANNER_ERROR:
+				KidozSDK.Kidoz.Instance.bannerErrorCallBack("");
+				break;
+				
+			case KidozSDKEvents.BANNER_NO_OFFERS:
+				KidozSDK.Kidoz.Instance.bannerNoOffersCallBack("");
+				break;
+				
 			}
 			
 		}
@@ -170,6 +204,31 @@ namespace KIDOZiOSInterface {
 		
 		//***********************************//
 		
+		//************ BANNER ***************//
+		
+		public void setBannerPosition (int position)
+		{		
+			KidozSetBannerPosition(position);
+		}
+		
+		public void loadBanner(bool autoShow, int position)
+		{	
+			KidozLoadBannerAd(autoShow,position);
+			
+		}
+		
+		public void showBanner()
+		{
+			KidozShowBanner();
+		}
+		
+		public void hideBanner()
+		{
+			KidozHideBanner();
+		}
+		
+		//***********************************//
+		
 		public void logMessage(string message)
 		{
 			KidozLog (message);
@@ -232,21 +291,7 @@ namespace KIDOZiOSInterface {
 		{
 		}
 		
-		public void setBannerPosition (int position)
-		{			
-		}
 		
-		public void loadBanner(bool autoShow, int position)
-		{			
-		}
-		
-		public void showBanner()
-		{
-		}
-		
-		public void hideBanner()
-		{
-		}
 		
 		public void addFlexiView(bool autoShow, int position)
 		{
@@ -280,5 +325,6 @@ namespace KIDOZiOSInterface {
 	}
 	
 	
-
+	
+	
 }

@@ -1,16 +1,18 @@
 
 
 
+
 [<img src="https://kidoz-cdn.s3.amazonaws.com/wordpress/kidoz_small.gif" width="533px" height="300px">](https://www.youtube.com/watch?v=-ljFjRn7jeM)
 
 # KIDOZ Unity SDK Sample App
 
-KIDOZ Android SDK Version: 0.8.5.5
-KIDOZ iOS SDK Version: 1.2.5  
+KIDOZ Android SDK Version: 0.8.6.0
+KIDOZ iOS SDK Version: 1.3.0  
 
 **Here you can get the Kidoz Unity plugin and a sample app for Unity. See integration instructions and additional information bellow.**
 
-Note: Since version 0.8.0.3 it's possible to use both Interstitial and Rewarded Video in your app.
+Note: Since version 0.8.0.3 on Android it's possible to use both Interstitial and Rewarded Video in your app.
+Note: Since version 1.3.0 on iOS  Banner was added .
 
 Note: Unity 5.6 & Unity 5.6.1 contain changes to their drawing design blocking some view methods from working effectively. At the moment, on these versions please only use our Interstitial & Rewarded ad units. Starting from Unity 5.6.2 all of our widgets work as expected.
 
@@ -26,7 +28,7 @@ _Recommended units_:
 * KIDOZ Panel view `Panel View` (Android only)
 * KIDOZ Interstitial view `Rewarded View` (Android and iOS)
 * KIDOZ Interstitial view `Interstitial View` (Android and iOS)
-* KIDOZ Banner `Banner` (Android only)
+* KIDOZ Banner `Banner` (Android and iOS)
 
 *Note that you need to select either Interstital OR Rewarded during application lifetime.
 
@@ -74,7 +76,7 @@ The following general events are important if you wish to follow the SDK's initi
 		Kidoz.initSuccess += onKidozInitSuccess;
 		Kidoz.initError += onKidozInitError;
 
-# KIDOZ Banner (Android)
+# KIDOZ Banner (Android And iOS)
 To load a banner ad:
 ```java
 Kidoz.loadBanner (<AUTO_SHOW>, <BANNER_POSITION>);
@@ -103,6 +105,7 @@ Delegate callbacks:
 Kidoz.bannerReady += <bannerReady Callback>;
 Kidoz.bannerClose += <bannerClose Callback>;
 Kidoz.bannerError += <bannerError Callback>;
+Kidoz.bannerNoOffers +=<bannerNoOffers Callback> ;
 ```
 
 # KIDOZ Panel (Android)

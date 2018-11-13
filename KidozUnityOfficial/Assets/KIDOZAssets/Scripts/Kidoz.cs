@@ -105,6 +105,8 @@ namespace KidozSDK
 		
 		public static event Action<string> bannerError;
 		
+		public static event Action<string> bannerNoOffers;
+		
 		
 		public string PublisherID;
 		public string SecurityToken;
@@ -494,7 +496,7 @@ namespace KidozSDK
 			}
 		}
 		
-		private void bannerReadyCallBack (string message)
+		public void bannerReadyCallBack (string message)
 		{
 			if (bannerReady != null)
 			{
@@ -502,7 +504,7 @@ namespace KidozSDK
 			}
 		}
 		
-		private void bannerCloseCallBack (string message)
+		public void bannerCloseCallBack (string message)
 		{
 			if (bannerClose != null)
 			{
@@ -510,13 +512,23 @@ namespace KidozSDK
 			}
 		}
 		
-		private void bannerErrorCallBack (string message)
+		public void bannerErrorCallBack (string message)
 		{
 			if (bannerError != null)
 			{
 				bannerError ( message );
 			}
 		}
+		
+		public void bannerNoOffersCallBack (string message)
+		{
+			if (bannerNoOffers != null)
+			{
+				bannerNoOffers (message);
+			}
+		}
+		
+		
 		
 		
 		private void playerOpenCallBack (string message)
