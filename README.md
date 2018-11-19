@@ -7,7 +7,7 @@
 
 # KIDOZ Unity SDK Sample App
 
-KIDOZ Android SDK Version: 0.8.6.0
+KIDOZ Android SDK Version: 0.8.6.1
 KIDOZ iOS SDK Version: 1.3.1  
 
 **Here you can get the Kidoz Unity plugin and a sample app for Unity. See integration instructions and additional information bellow.**
@@ -219,7 +219,7 @@ Kidoz.rewardedClose += rewardedClose;
 
 Trouble Shooting
 ================
-**KIDOZ SDK and this sample app are compatible with Android 4.0 (API level 14) and above, iOS 8.0 and above and Unity versions greater than 5**
+**KIDOZ SDK and this sample app are compatible with Android 4.2 (API level 17) and above, iOS 8.0 and above and Unity versions greater than 5**
 
 **Kidoz plugin does not currently support Unity editor runtime. Please make sure you switch to a relevant platform (iOS/Android) before working or ignore any error in the Editor runtime.
 
