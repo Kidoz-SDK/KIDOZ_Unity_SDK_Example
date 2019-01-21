@@ -112,6 +112,7 @@ namespace KidozSDK
 		public string SecurityToken;
 		
 		static private bool initFlag = false;
+		static private bool mPause = false;
 		
 		#if UNITY_IOS
 		private static KIDOZiOSInterface.KIDOZiOSInterface kidozin = new KIDOZiOSInterface.KIDOZiOSInterface();
@@ -176,6 +177,11 @@ namespace KidozSDK
 		}
 		
 		#endregion
+		
+		
+		public static void SetiOSAppPauseOnBackground(Boolean pause){
+			mPause = pause;
+		}
 		
 		public static void init (string developerID, string securityToken)
 		{
@@ -554,6 +560,14 @@ namespace KidozSDK
 		
 		public void interstitialOpenCallBack (string message)
 		{
+			
+			#if UNITY_IOS
+			if(mPause){
+				Time.timeScale = 0;
+				AudioListener.pause = true;
+			}
+			#endif
+			
 			if (interstitialOpen != null)
 			{
 				interstitialOpen ( message );
@@ -562,6 +576,13 @@ namespace KidozSDK
 		
 		public void interstitialCloseCallBack (string message)
 		{
+			#if UNITY_IOS
+			if(mPause){
+				Time.timeScale = 1;
+				AudioListener.pause = false;
+			}
+			#endif
+			
 			if (interstitialClose != null)
 			{
 				interstitialClose ( message );
@@ -610,6 +631,14 @@ namespace KidozSDK
 		
 		public void rewardedOpenCallBack (string message)
 		{
+			
+			#if UNITY_IOS
+			if(mPause){
+				Time.timeScale = 0;
+				AudioListener.pause = true;
+			}
+			#endif
+			
 			if (rewardedOpen != null)
 			{
 				rewardedOpen ( message );
@@ -618,6 +647,14 @@ namespace KidozSDK
 		
 		public void rewardedCloseCallBack (string message)
 		{
+			
+			#if UNITY_IOS
+			if(mPause){
+				Time.timeScale = 1;
+				AudioListener.pause = false;
+			}
+			#endif
+			
 			if (rewardedClose != null)
 			{
 				rewardedClose ( message );

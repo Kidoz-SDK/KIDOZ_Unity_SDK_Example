@@ -1,3 +1,6 @@
+# Welcome to StackEdit!
+
+Hi! I'm your first Markdown file in **StackEdit**. If you want to learn about StackEdit, you can read me. If you want to play with Markdown, you can edit me. Once you have finished with me, you can create new files by opening the **file explorer** on the left corner of the navigation bar.
 
 
 
@@ -9,13 +12,13 @@
 # KIDOZ Unity SDK Sample App
 
 KIDOZ Android SDK Version: 0.8.8.0
-KIDOZ iOS SDK Version: 1.3.1  
+KIDOZ iOS SDK Version: 1.3.2
 
 **Here you can get the Kidoz Unity plugin and a sample app for Unity. See integration instructions and additional information bellow.**
 
 Note: Since version 0.8.0.3 on Android it's possible to use both Interstitial and Rewarded Video in your app.
 Note: Since version 1.3.0 on iOS  Banner was added .
-
+Note: Kidoz.SetiOSAppPauseOnBackground(Boolean) method was added to pause iOS apps and music when displaying Interstitial and Rewarded ads.
 
 For Android this SDK version supports secured https protocol only and will resolve Google Play Security alert of Webview that is vulnerable to JavaScript interface injection.
 Note that only secured external and internal events are supported from this version.
@@ -200,6 +203,10 @@ private void interstitialClose(string  value)
 // unmute/resume background sounds
 // resume your game 
 }
+
+OR
+
+Setting the Kidoz.SetiOSAppPauseOnBackground(true); 
 ```
 
 **Kidoz iOS Rewarded best practices**
@@ -220,6 +227,10 @@ Kidoz.rewardedClose += rewardedClose;
 //unmute/resume background sounds
 //resume your game 
 }
+
+OR
+
+Setting the Kidoz.SetiOSAppPauseOnBackground(true); 
 ```
 
 Trouble Shooting
@@ -260,5 +271,3 @@ License
     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
     See the License for the specific language governing permissions and
     limitations under the License.
-
-

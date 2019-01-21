@@ -19,6 +19,9 @@ public class SampleCode : MonoBehaviour {
 	
 	// Use this for initialization
 	void Start () {
+
+		Kidoz.SetiOSAppPauseOnBackground (true);
+
 		//Delegates
 		Kidoz.initSuccess += onKidozInitSuccess;
 		Kidoz.initError += onKidozInitError;
