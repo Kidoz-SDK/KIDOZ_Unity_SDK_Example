@@ -34,7 +34,7 @@ This Unity application project provides an example of the [KIDOZ](http://www.kid
 The example application contains the following creative tools:
 
 _Recommended units_:
-* KIDOZ Panel view `Panel View` (Android only)
+* KIDOZ Panel view `Panel View` (Android only and will be deprecated by Dec 2019))
 * KIDOZ Interstitial view `Rewarded View` (Android and iOS)
 * KIDOZ Interstitial view `Interstitial View` (Android and iOS)
 * KIDOZ Banner `Banner` (Android and iOS)
@@ -117,7 +117,7 @@ Kidoz.bannerError += <bannerError Callback>;
 Kidoz.bannerNoOffers +=<bannerNoOffers Callback> ;
 ```
 
-# KIDOZ Panel (Android)
+# KIDOZ Panel (Android only and will be deprecated by Dec 2019)
 <a href="url"><img src="http://kidoz-cdn.s3.amazonaws.com/media/Panel%20Github.jpeg" align="right" height="121" width="200" ></a>
 
 `PanelView` is a customized special view that can slide in/out of the screen (both in horizontal and vertical layout) with minimal interference to user experience.
