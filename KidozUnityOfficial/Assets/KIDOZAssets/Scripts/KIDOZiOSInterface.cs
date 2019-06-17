@@ -4,7 +4,7 @@ using KIDOZNativeInterface;
 using System.Runtime.InteropServices;
 
 namespace KIDOZiOSInterface {
-	
+	#if UNITY_IOS
 	public class KIDOZiOSInterface : KIDOZNativeInterface.KIDOZNativeInterface
 	{
 		
@@ -207,7 +207,7 @@ namespace KIDOZiOSInterface {
 		//************ BANNER ***************//
 		
 		public void setBannerPosition (int position)
-		{		
+		{	
 			KidozSetBannerPosition(position);
 		}
 		
@@ -324,7 +324,5 @@ namespace KIDOZiOSInterface {
 		
 	}
 	
-	
-	
-	
+	#endif
 }
