@@ -11,7 +11,7 @@ Hi! I'm your first Markdown file in **StackEdit**. If you want to learn about St
 
 # KIDOZ Unity SDK Sample App
 
-KIDOZ Android SDK Version: 0.8.8.0
+KIDOZ Android SDK Version: 0.8.8.3
 KIDOZ iOS SDK Version: 1.3.2
 
 **Here you can get the Kidoz Unity plugin and a sample app for Unity. See integration instructions and additional information bellow.**
