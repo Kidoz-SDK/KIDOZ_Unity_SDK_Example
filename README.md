@@ -1,17 +1,8 @@
-# Welcome to StackEdit!
-
-Hi! I'm your first Markdown file in **StackEdit**. If you want to learn about StackEdit, you can read me. If you want to play with Markdown, you can edit me. Once you have finished with me, you can create new files by opening the **file explorer** on the left corner of the navigation bar.
-
-
-
-
-
-
 [<img src="https://kidoz-cdn.s3.amazonaws.com/wordpress/kidoz_small.gif" width="533px" height="300px">](https://www.youtube.com/watch?v=-ljFjRn7jeM)
 
 # KIDOZ Unity SDK Sample App
 
-KIDOZ Android SDK Version: 0.8.8.3
+KIDOZ Android SDK Version: 0.8.8.4
 KIDOZ iOS SDK Version: 1.3.2
 
 **Here you can get the Kidoz Unity plugin and a sample app for Unity. See integration instructions and additional information bellow.**
