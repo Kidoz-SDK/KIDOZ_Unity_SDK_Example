@@ -1,0 +1,93 @@
+{
+    "logs": [
+        {
+            "outputFile": "/Users/orikam/dev/SDK_GIT/KIDOZ_Unity_SDK_Example/KidozUnityOfficial/Temp/gradleOut/build/intermediates/res/merged/release/values-v21_values-v21.arsc.flat",
+            "map": [
+                {
+                    "source": "/Users/orikam/dev/SDK_GIT/KIDOZ_Unity_SDK_Example/KidozUnityOfficial/Temp/gradleOut/src/main/res/values-v21/styles.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "0",
+                        "startOffsets": "53",
+                        "endLines": "3",
+                        "endColumns": "8",
+                        "endOffsets": "153"
+                    },
+                    "to": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endLines": "3",
+                        "endColumns": "8",
+                        "endOffsets": "154"
+                    }
+                }
+            ]
+        },
+        {
+            "outputFile": "/Users/orikam/dev/SDK_GIT/KIDOZ_Unity_SDK_Example/KidozUnityOfficial/Temp/gradleOut/build/intermediates/res/merged/release/values_values.arsc.flat",
+            "map": [
+                {
+                    "source": "/Users/orikam/dev/SDK_GIT/KIDOZ_Unity_SDK_Example/KidozUnityOfficial/Temp/gradleOut/src/main/res/values/strings.xml",
+                    "from": {
+                        "startLines": "2,3",
+                        "startColumns": "2,2",
+                        "startOffsets": "53,107",
+                        "endColumns": "53,65",
+                        "endOffsets": "104,170"
+                    },
+                    "to": {
+                        "startLines": "2,3",
+                        "startColumns": "4,4",
+                        "startOffsets": "55,111",
+                        "endColumns": "55,67",
+                        "endOffsets": "106,174"
+                    }
+                },
+                {
+                    "source": "/Users/orikam/dev/SDK_GIT/KIDOZ_Unity_SDK_Example/KidozUnityOfficial/Temp/gradleOut/src/main/res/values/styles.xml",
+                    "from": {
+                        "startLines": "5,2,7",
+                        "startColumns": "0,0,0",
+                        "startOffsets": "190,53,282",
+                        "endLines": "6,4,10",
+                        "endColumns": "8,8,8",
+                        "endOffsets": "280,188,507"
+                    },
+                    "to": {
+                        "startLines": "4,6,9",
+                        "startColumns": "4,4,4",
+                        "startOffsets": "179,273,411",
+                        "endLines": "5,8,12",
+                        "endColumns": "8,8,8",
+                        "endOffsets": "268,406,633"
+                    }
+                }
+            ]
+        },
+        {
+            "outputFile": "/Users/orikam/dev/SDK_GIT/KIDOZ_Unity_SDK_Example/KidozUnityOfficial/Temp/gradleOut/build/intermediates/res/merged/release/values-v14_values-v14.arsc.flat",
+            "map": [
+                {
+                    "source": "/Users/orikam/dev/SDK_GIT/KIDOZ_Unity_SDK_Example/KidozUnityOfficial/Temp/gradleOut/src/main/res/values-v14/styles.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "0",
+                        "startOffsets": "53",
+                        "endLines": "3",
+                        "endColumns": "8",
+                        "endOffsets": "149"
+                    },
+                    "to": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endLines": "3",
+                        "endColumns": "8",
+                        "endOffsets": "150"
+                    }
+                }
+            ]
+        }
+    ]
+}

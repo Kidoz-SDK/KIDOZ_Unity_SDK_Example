@@ -1,0 +1,1 @@
+com.kidoz.sdk.api.app

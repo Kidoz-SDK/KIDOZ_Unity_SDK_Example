@@ -1,0 +1,180 @@
+-- Merging decision tree log ---
+manifest
+ADDED from /Users/orikam/dev/SDK_GIT/KIDOZ_Unity_SDK_Example/KidozUnityOfficial/Temp/gradleOut/src/main/AndroidManifest.xml:2:1-24:12
+INJECTED from /Users/orikam/dev/SDK_GIT/KIDOZ_Unity_SDK_Example/KidozUnityOfficial/Temp/gradleOut/src/main/AndroidManifest.xml:2:1-24:12
+INJECTED from /Users/orikam/dev/SDK_GIT/KIDOZ_Unity_SDK_Example/KidozUnityOfficial/Temp/gradleOut/src/main/AndroidManifest.xml:2:1-24:12
+INJECTED from /Users/orikam/dev/SDK_GIT/KIDOZ_Unity_SDK_Example/KidozUnityOfficial/Temp/gradleOut/src/main/AndroidManifest.xml:2:1-24:12
+MERGED from [:KidozSdk] /Users/orikam/dev/SDK_GIT/KIDOZ_Unity_SDK_Example/KidozUnityOfficial/Temp/gradleOut/KidozSdk/build/intermediates/library_manifest/release/AndroidManifest.xml:2:1-30:12
+INJECTED from /Users/orikam/dev/SDK_GIT/KIDOZ_Unity_SDK_Example/KidozUnityOfficial/Temp/gradleOut/src/main/AndroidManifest.xml:2:1-24:12
+INJECTED from /Users/orikam/dev/SDK_GIT/KIDOZ_Unity_SDK_Example/KidozUnityOfficial/Temp/gradleOut/src/main/AndroidManifest.xml:2:1-24:12
+INJECTED from /Users/orikam/dev/SDK_GIT/KIDOZ_Unity_SDK_Example/KidozUnityOfficial/Temp/gradleOut/src/main/AndroidManifest.xml:2:1-24:12
+	package
+		ADDED from /Users/orikam/dev/SDK_GIT/KIDOZ_Unity_SDK_Example/KidozUnityOfficial/Temp/gradleOut/src/main/AndroidManifest.xml:2:70-99
+		INJECTED from /Users/orikam/dev/SDK_GIT/KIDOZ_Unity_SDK_Example/KidozUnityOfficial/Temp/gradleOut/src/main/AndroidManifest.xml
+		INJECTED from /Users/orikam/dev/SDK_GIT/KIDOZ_Unity_SDK_Example/KidozUnityOfficial/Temp/gradleOut/src/main/AndroidManifest.xml
+	android:versionName
+		ADDED from /Users/orikam/dev/SDK_GIT/KIDOZ_Unity_SDK_Example/KidozUnityOfficial/Temp/gradleOut/src/main/AndroidManifest.xml:2:172-197
+		INJECTED from /Users/orikam/dev/SDK_GIT/KIDOZ_Unity_SDK_Example/KidozUnityOfficial/Temp/gradleOut/src/main/AndroidManifest.xml
+		INJECTED from /Users/orikam/dev/SDK_GIT/KIDOZ_Unity_SDK_Example/KidozUnityOfficial/Temp/gradleOut/src/main/AndroidManifest.xml
+	xmlns:android
+		ADDED from /Users/orikam/dev/SDK_GIT/KIDOZ_Unity_SDK_Example/KidozUnityOfficial/Temp/gradleOut/src/main/AndroidManifest.xml:2:11-69
+	android:versionCode
+		ADDED from /Users/orikam/dev/SDK_GIT/KIDOZ_Unity_SDK_Example/KidozUnityOfficial/Temp/gradleOut/src/main/AndroidManifest.xml:2:148-171
+		INJECTED from /Users/orikam/dev/SDK_GIT/KIDOZ_Unity_SDK_Example/KidozUnityOfficial/Temp/gradleOut/src/main/AndroidManifest.xml
+		INJECTED from /Users/orikam/dev/SDK_GIT/KIDOZ_Unity_SDK_Example/KidozUnityOfficial/Temp/gradleOut/src/main/AndroidManifest.xml
+	android:installLocation
+		ADDED from /Users/orikam/dev/SDK_GIT/KIDOZ_Unity_SDK_Example/KidozUnityOfficial/Temp/gradleOut/src/main/AndroidManifest.xml:2:198-238
+	android:theme
+		ADDED from /Users/orikam/dev/SDK_GIT/KIDOZ_Unity_SDK_Example/KidozUnityOfficial/Temp/gradleOut/src/main/AndroidManifest.xml:2:100-147
+supports-screens
+ADDED from /Users/orikam/dev/SDK_GIT/KIDOZ_Unity_SDK_Example/KidozUnityOfficial/Temp/gradleOut/src/main/AndroidManifest.xml:3:3-163
+	android:largeScreens
+		ADDED from /Users/orikam/dev/SDK_GIT/KIDOZ_Unity_SDK_Example/KidozUnityOfficial/Temp/gradleOut/src/main/AndroidManifest.xml:3:78-105
+	android:smallScreens
+		ADDED from /Users/orikam/dev/SDK_GIT/KIDOZ_Unity_SDK_Example/KidozUnityOfficial/Temp/gradleOut/src/main/AndroidManifest.xml:3:21-48
+	android:normalScreens
+		ADDED from /Users/orikam/dev/SDK_GIT/KIDOZ_Unity_SDK_Example/KidozUnityOfficial/Temp/gradleOut/src/main/AndroidManifest.xml:3:49-77
+	android:xlargeScreens
+		ADDED from /Users/orikam/dev/SDK_GIT/KIDOZ_Unity_SDK_Example/KidozUnityOfficial/Temp/gradleOut/src/main/AndroidManifest.xml:3:106-134
+	android:anyDensity
+		ADDED from /Users/orikam/dev/SDK_GIT/KIDOZ_Unity_SDK_Example/KidozUnityOfficial/Temp/gradleOut/src/main/AndroidManifest.xml:3:135-160
+uses-sdk
+ADDED from /Users/orikam/dev/SDK_GIT/KIDOZ_Unity_SDK_Example/KidozUnityOfficial/Temp/gradleOut/src/main/AndroidManifest.xml:4:3-42
+INJECTED from /Users/orikam/dev/SDK_GIT/KIDOZ_Unity_SDK_Example/KidozUnityOfficial/Temp/gradleOut/src/main/AndroidManifest.xml:4:3-42
+INJECTED from /Users/orikam/dev/SDK_GIT/KIDOZ_Unity_SDK_Example/KidozUnityOfficial/Temp/gradleOut/src/main/AndroidManifest.xml:4:3-42
+MERGED from [:KidozSdk] /Users/orikam/dev/SDK_GIT/KIDOZ_Unity_SDK_Example/KidozUnityOfficial/Temp/gradleOut/KidozSdk/build/intermediates/library_manifest/release/AndroidManifest.xml:7:5-9:41
+MERGED from [:KidozSdk] /Users/orikam/dev/SDK_GIT/KIDOZ_Unity_SDK_Example/KidozUnityOfficial/Temp/gradleOut/KidozSdk/build/intermediates/library_manifest/release/AndroidManifest.xml:7:5-9:41
+INJECTED from /Users/orikam/dev/SDK_GIT/KIDOZ_Unity_SDK_Example/KidozUnityOfficial/Temp/gradleOut/src/main/AndroidManifest.xml:4:3-42
+INJECTED from /Users/orikam/dev/SDK_GIT/KIDOZ_Unity_SDK_Example/KidozUnityOfficial/Temp/gradleOut/src/main/AndroidManifest.xml:4:3-42
+	android:targetSdkVersion
+		INJECTED from /Users/orikam/dev/SDK_GIT/KIDOZ_Unity_SDK_Example/KidozUnityOfficial/Temp/gradleOut/src/main/AndroidManifest.xml
+		ADDED from /Users/orikam/dev/SDK_GIT/KIDOZ_Unity_SDK_Example/KidozUnityOfficial/Temp/gradleOut/src/main/AndroidManifest.xml:4:3-42
+		INJECTED from /Users/orikam/dev/SDK_GIT/KIDOZ_Unity_SDK_Example/KidozUnityOfficial/Temp/gradleOut/src/main/AndroidManifest.xml
+	android:minSdkVersion
+		ADDED from /Users/orikam/dev/SDK_GIT/KIDOZ_Unity_SDK_Example/KidozUnityOfficial/Temp/gradleOut/src/main/AndroidManifest.xml:4:13-39
+		INJECTED from /Users/orikam/dev/SDK_GIT/KIDOZ_Unity_SDK_Example/KidozUnityOfficial/Temp/gradleOut/src/main/AndroidManifest.xml
+		INJECTED from /Users/orikam/dev/SDK_GIT/KIDOZ_Unity_SDK_Example/KidozUnityOfficial/Temp/gradleOut/src/main/AndroidManifest.xml
+application
+ADDED from /Users/orikam/dev/SDK_GIT/KIDOZ_Unity_SDK_Example/KidozUnityOfficial/Temp/gradleOut/src/main/AndroidManifest.xml:5:3-19:17
+MERGED from [:KidozSdk] /Users/orikam/dev/SDK_GIT/KIDOZ_Unity_SDK_Example/KidozUnityOfficial/Temp/gradleOut/KidozSdk/build/intermediates/library_manifest/release/AndroidManifest.xml:13:5-28:19
+MERGED from [:KidozSdk] /Users/orikam/dev/SDK_GIT/KIDOZ_Unity_SDK_Example/KidozUnityOfficial/Temp/gradleOut/KidozSdk/build/intermediates/library_manifest/release/AndroidManifest.xml:13:5-28:19
+	android:label
+		ADDED from /Users/orikam/dev/SDK_GIT/KIDOZ_Unity_SDK_Example/KidozUnityOfficial/Temp/gradleOut/src/main/AndroidManifest.xml:5:50-82
+	android:hardwareAccelerated
+		ADDED from [:KidozSdk] /Users/orikam/dev/SDK_GIT/KIDOZ_Unity_SDK_Example/KidozUnityOfficial/Temp/gradleOut/KidozSdk/build/intermediates/library_manifest/release/AndroidManifest.xml:13:18-52
+	android:icon
+		ADDED from /Users/orikam/dev/SDK_GIT/KIDOZ_Unity_SDK_Example/KidozUnityOfficial/Temp/gradleOut/src/main/AndroidManifest.xml:5:16-49
+	android:banner
+		ADDED from /Users/orikam/dev/SDK_GIT/KIDOZ_Unity_SDK_Example/KidozUnityOfficial/Temp/gradleOut/src/main/AndroidManifest.xml:5:105-142
+	android:isGame
+		ADDED from /Users/orikam/dev/SDK_GIT/KIDOZ_Unity_SDK_Example/KidozUnityOfficial/Temp/gradleOut/src/main/AndroidManifest.xml:5:83-104
+activity#com.unity3d.player.UnityPlayerActivity
+ADDED from /Users/orikam/dev/SDK_GIT/KIDOZ_Unity_SDK_Example/KidozUnityOfficial/Temp/gradleOut/src/main/AndroidManifest.xml:6:5-14:16
+	android:screenOrientation
+		ADDED from /Users/orikam/dev/SDK_GIT/KIDOZ_Unity_SDK_Example/KidozUnityOfficial/Temp/gradleOut/src/main/AndroidManifest.xml:6:102-140
+	android:label
+		ADDED from /Users/orikam/dev/SDK_GIT/KIDOZ_Unity_SDK_Example/KidozUnityOfficial/Temp/gradleOut/src/main/AndroidManifest.xml:6:69-101
+	android:launchMode
+		ADDED from /Users/orikam/dev/SDK_GIT/KIDOZ_Unity_SDK_Example/KidozUnityOfficial/Temp/gradleOut/src/main/AndroidManifest.xml:6:141-172
+	android:hardwareAccelerated
+		ADDED from /Users/orikam/dev/SDK_GIT/KIDOZ_Unity_SDK_Example/KidozUnityOfficial/Temp/gradleOut/src/main/AndroidManifest.xml:6:347-382
+	android:configChanges
+		ADDED from /Users/orikam/dev/SDK_GIT/KIDOZ_Unity_SDK_Example/KidozUnityOfficial/Temp/gradleOut/src/main/AndroidManifest.xml:6:173-346
+	android:name
+		ADDED from /Users/orikam/dev/SDK_GIT/KIDOZ_Unity_SDK_Example/KidozUnityOfficial/Temp/gradleOut/src/main/AndroidManifest.xml:6:15-68
+intent-filter#action:name:android.intent.action.MAIN+category:name:android.intent.category.LAUNCHER+category:name:android.intent.category.LEANBACK_LAUNCHER
+ADDED from /Users/orikam/dev/SDK_GIT/KIDOZ_Unity_SDK_Example/KidozUnityOfficial/Temp/gradleOut/src/main/AndroidManifest.xml:7:7-11:23
+action#android.intent.action.MAIN
+ADDED from /Users/orikam/dev/SDK_GIT/KIDOZ_Unity_SDK_Example/KidozUnityOfficial/Temp/gradleOut/src/main/AndroidManifest.xml:8:9-61
+	android:name
+		ADDED from /Users/orikam/dev/SDK_GIT/KIDOZ_Unity_SDK_Example/KidozUnityOfficial/Temp/gradleOut/src/main/AndroidManifest.xml:8:17-58
+category#android.intent.category.LAUNCHER
+ADDED from /Users/orikam/dev/SDK_GIT/KIDOZ_Unity_SDK_Example/KidozUnityOfficial/Temp/gradleOut/src/main/AndroidManifest.xml:9:9-69
+	android:name
+		ADDED from /Users/orikam/dev/SDK_GIT/KIDOZ_Unity_SDK_Example/KidozUnityOfficial/Temp/gradleOut/src/main/AndroidManifest.xml:9:19-66
+category#android.intent.category.LEANBACK_LAUNCHER
+ADDED from /Users/orikam/dev/SDK_GIT/KIDOZ_Unity_SDK_Example/KidozUnityOfficial/Temp/gradleOut/src/main/AndroidManifest.xml:10:9-78
+	android:name
+		ADDED from /Users/orikam/dev/SDK_GIT/KIDOZ_Unity_SDK_Example/KidozUnityOfficial/Temp/gradleOut/src/main/AndroidManifest.xml:10:19-75
+meta-data#unityplayer.ForwardNativeEventsToDalvik
+ADDED from /Users/orikam/dev/SDK_GIT/KIDOZ_Unity_SDK_Example/KidozUnityOfficial/Temp/gradleOut/src/main/AndroidManifest.xml:12:7-96
+	android:value
+		ADDED from /Users/orikam/dev/SDK_GIT/KIDOZ_Unity_SDK_Example/KidozUnityOfficial/Temp/gradleOut/src/main/AndroidManifest.xml:12:73-93
+	android:name
+		ADDED from /Users/orikam/dev/SDK_GIT/KIDOZ_Unity_SDK_Example/KidozUnityOfficial/Temp/gradleOut/src/main/AndroidManifest.xml:12:18-72
+meta-data#unityplayer.UnityActivity
+ADDED from /Users/orikam/dev/SDK_GIT/KIDOZ_Unity_SDK_Example/KidozUnityOfficial/Temp/gradleOut/src/main/AndroidManifest.xml:13:7-82
+	android:value
+		ADDED from /Users/orikam/dev/SDK_GIT/KIDOZ_Unity_SDK_Example/KidozUnityOfficial/Temp/gradleOut/src/main/AndroidManifest.xml:13:59-79
+	android:name
+		ADDED from /Users/orikam/dev/SDK_GIT/KIDOZ_Unity_SDK_Example/KidozUnityOfficial/Temp/gradleOut/src/main/AndroidManifest.xml:13:18-58
+meta-data#unity.build-id
+ADDED from /Users/orikam/dev/SDK_GIT/KIDOZ_Unity_SDK_Example/KidozUnityOfficial/Temp/gradleOut/src/main/AndroidManifest.xml:15:5-101
+	android:value
+		ADDED from /Users/orikam/dev/SDK_GIT/KIDOZ_Unity_SDK_Example/KidozUnityOfficial/Temp/gradleOut/src/main/AndroidManifest.xml:15:46-98
+	android:name
+		ADDED from /Users/orikam/dev/SDK_GIT/KIDOZ_Unity_SDK_Example/KidozUnityOfficial/Temp/gradleOut/src/main/AndroidManifest.xml:15:16-45
+meta-data#unity.splash-mode
+ADDED from /Users/orikam/dev/SDK_GIT/KIDOZ_Unity_SDK_Example/KidozUnityOfficial/Temp/gradleOut/src/main/AndroidManifest.xml:16:5-69
+	android:value
+		ADDED from /Users/orikam/dev/SDK_GIT/KIDOZ_Unity_SDK_Example/KidozUnityOfficial/Temp/gradleOut/src/main/AndroidManifest.xml:16:49-66
+	android:name
+		ADDED from /Users/orikam/dev/SDK_GIT/KIDOZ_Unity_SDK_Example/KidozUnityOfficial/Temp/gradleOut/src/main/AndroidManifest.xml:16:16-48
+meta-data#unity.splash-enable
+ADDED from /Users/orikam/dev/SDK_GIT/KIDOZ_Unity_SDK_Example/KidozUnityOfficial/Temp/gradleOut/src/main/AndroidManifest.xml:17:5-74
+	android:value
+		ADDED from /Users/orikam/dev/SDK_GIT/KIDOZ_Unity_SDK_Example/KidozUnityOfficial/Temp/gradleOut/src/main/AndroidManifest.xml:17:51-71
+	android:name
+		ADDED from /Users/orikam/dev/SDK_GIT/KIDOZ_Unity_SDK_Example/KidozUnityOfficial/Temp/gradleOut/src/main/AndroidManifest.xml:17:16-50
+meta-data#android.max_aspect
+ADDED from /Users/orikam/dev/SDK_GIT/KIDOZ_Unity_SDK_Example/KidozUnityOfficial/Temp/gradleOut/src/main/AndroidManifest.xml:18:5-72
+	android:value
+		ADDED from /Users/orikam/dev/SDK_GIT/KIDOZ_Unity_SDK_Example/KidozUnityOfficial/Temp/gradleOut/src/main/AndroidManifest.xml:18:50-69
+	android:name
+		ADDED from /Users/orikam/dev/SDK_GIT/KIDOZ_Unity_SDK_Example/KidozUnityOfficial/Temp/gradleOut/src/main/AndroidManifest.xml:18:16-49
+uses-feature#0x00020000
+ADDED from /Users/orikam/dev/SDK_GIT/KIDOZ_Unity_SDK_Example/KidozUnityOfficial/Temp/gradleOut/src/main/AndroidManifest.xml:20:3-52
+	android:glEsVersion
+		ADDED from /Users/orikam/dev/SDK_GIT/KIDOZ_Unity_SDK_Example/KidozUnityOfficial/Temp/gradleOut/src/main/AndroidManifest.xml:20:17-49
+uses-feature#android.hardware.touchscreen
+ADDED from /Users/orikam/dev/SDK_GIT/KIDOZ_Unity_SDK_Example/KidozUnityOfficial/Temp/gradleOut/src/main/AndroidManifest.xml:21:3-88
+	android:required
+		ADDED from /Users/orikam/dev/SDK_GIT/KIDOZ_Unity_SDK_Example/KidozUnityOfficial/Temp/gradleOut/src/main/AndroidManifest.xml:21:61-85
+	android:name
+		ADDED from /Users/orikam/dev/SDK_GIT/KIDOZ_Unity_SDK_Example/KidozUnityOfficial/Temp/gradleOut/src/main/AndroidManifest.xml:21:17-60
+uses-feature#android.hardware.touchscreen.multitouch
+ADDED from /Users/orikam/dev/SDK_GIT/KIDOZ_Unity_SDK_Example/KidozUnityOfficial/Temp/gradleOut/src/main/AndroidManifest.xml:22:3-99
+	android:required
+		ADDED from /Users/orikam/dev/SDK_GIT/KIDOZ_Unity_SDK_Example/KidozUnityOfficial/Temp/gradleOut/src/main/AndroidManifest.xml:22:72-96
+	android:name
+		ADDED from /Users/orikam/dev/SDK_GIT/KIDOZ_Unity_SDK_Example/KidozUnityOfficial/Temp/gradleOut/src/main/AndroidManifest.xml:22:17-71
+uses-feature#android.hardware.touchscreen.multitouch.distinct
+ADDED from /Users/orikam/dev/SDK_GIT/KIDOZ_Unity_SDK_Example/KidozUnityOfficial/Temp/gradleOut/src/main/AndroidManifest.xml:23:3-108
+	android:required
+		ADDED from /Users/orikam/dev/SDK_GIT/KIDOZ_Unity_SDK_Example/KidozUnityOfficial/Temp/gradleOut/src/main/AndroidManifest.xml:23:81-105
+	android:name
+		ADDED from /Users/orikam/dev/SDK_GIT/KIDOZ_Unity_SDK_Example/KidozUnityOfficial/Temp/gradleOut/src/main/AndroidManifest.xml:23:17-80
+uses-permission#android.permission.INTERNET
+ADDED from [:KidozSdk] /Users/orikam/dev/SDK_GIT/KIDOZ_Unity_SDK_Example/KidozUnityOfficial/Temp/gradleOut/KidozSdk/build/intermediates/library_manifest/release/AndroidManifest.xml:11:5-67
+	android:name
+		ADDED from [:KidozSdk] /Users/orikam/dev/SDK_GIT/KIDOZ_Unity_SDK_Example/KidozUnityOfficial/Temp/gradleOut/KidozSdk/build/intermediates/library_manifest/release/AndroidManifest.xml:11:22-64
+activity#com.kidoz.sdk.api.ui_views.interstitial.KidozAdActivity
+ADDED from [:KidozSdk] /Users/orikam/dev/SDK_GIT/KIDOZ_Unity_SDK_Example/KidozUnityOfficial/Temp/gradleOut/KidozSdk/build/intermediates/library_manifest/release/AndroidManifest.xml:14:9-16:125
+	android:configChanges
+		ADDED from [:KidozSdk] /Users/orikam/dev/SDK_GIT/KIDOZ_Unity_SDK_Example/KidozUnityOfficial/Temp/gradleOut/KidozSdk/build/intermediates/library_manifest/release/AndroidManifest.xml:16:13-122
+	android:name
+		ADDED from [:KidozSdk] /Users/orikam/dev/SDK_GIT/KIDOZ_Unity_SDK_Example/KidozUnityOfficial/Temp/gradleOut/KidozSdk/build/intermediates/library_manifest/release/AndroidManifest.xml:15:13-83
+receiver#com.kidoz.sdk.api.receivers.SdkReceiver
+ADDED from [:KidozSdk] /Users/orikam/dev/SDK_GIT/KIDOZ_Unity_SDK_Example/KidozUnityOfficial/Temp/gradleOut/KidozSdk/build/intermediates/library_manifest/release/AndroidManifest.xml:19:9-25:20
+	android:name
+		ADDED from [:KidozSdk] /Users/orikam/dev/SDK_GIT/KIDOZ_Unity_SDK_Example/KidozUnityOfficial/Temp/gradleOut/KidozSdk/build/intermediates/library_manifest/release/AndroidManifest.xml:19:19-73
+intent-filter#action:name:android.intent.action.PACKAGE_ADDED+data:scheme:package
+ADDED from [:KidozSdk] /Users/orikam/dev/SDK_GIT/KIDOZ_Unity_SDK_Example/KidozUnityOfficial/Temp/gradleOut/KidozSdk/build/intermediates/library_manifest/release/AndroidManifest.xml:20:13-24:29
+action#android.intent.action.PACKAGE_ADDED
+ADDED from [:KidozSdk] /Users/orikam/dev/SDK_GIT/KIDOZ_Unity_SDK_Example/KidozUnityOfficial/Temp/gradleOut/KidozSdk/build/intermediates/library_manifest/release/AndroidManifest.xml:21:17-78
+	android:name
+		ADDED from [:KidozSdk] /Users/orikam/dev/SDK_GIT/KIDOZ_Unity_SDK_Example/KidozUnityOfficial/Temp/gradleOut/KidozSdk/build/intermediates/library_manifest/release/AndroidManifest.xml:21:25-75
+data
+ADDED from [:KidozSdk] /Users/orikam/dev/SDK_GIT/KIDOZ_Unity_SDK_Example/KidozUnityOfficial/Temp/gradleOut/KidozSdk/build/intermediates/library_manifest/release/AndroidManifest.xml:23:17-50
+	android:scheme
+		ADDED from [:KidozSdk] /Users/orikam/dev/SDK_GIT/KIDOZ_Unity_SDK_Example/KidozUnityOfficial/Temp/gradleOut/KidozSdk/build/intermediates/library_manifest/release/AndroidManifest.xml:23:23-47

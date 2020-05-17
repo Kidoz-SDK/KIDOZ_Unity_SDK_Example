@@ -1,0 +1,38 @@
+buildscript {
+	repositories {
+		google()
+		jcenter()
+	}
+	dependencies {
+            classpath 'com.android.tools.build:gradle:3.4.0'
+	}
+}
+
+apply plugin: 'android-library'
+
+dependencies {
+	implementation fileTree(dir: 'bin', include: ['*.jar'])
+	implementation fileTree(dir: 'libs', include: ['*.jar'])
+}
+
+android {
+	sourceSets {
+		main {
+			manifest.srcFile 'AndroidManifest.xml'
+			//java.srcDirs = ['src']
+			res.srcDirs = ['res']
+			assets.srcDirs = ['assets']
+			jniLibs.srcDirs = ['libs']
+		}
+	}
+
+	compileSdkVersion 29
+	buildToolsVersion '29.0.1'
+	defaultConfig {
+		targetSdkVersion 23
+	}
+
+	lintOptions {
+		abortOnError false
+	}
+}

@@ -1,11 +1,14 @@
+
 [<img src="https://kidoz-cdn.s3.amazonaws.com/wordpress/kidoz_small.gif" width="533px" height="300px">](https://www.youtube.com/watch?v=-ljFjRn7jeM)
 
 # KIDOZ Unity SDK Sample App
 
 KIDOZ Android SDK Version: 0.8.8.7
-KIDOZ iOS SDK Version: 1.3.2
+KIDOZ iOS SDK Version: 1.3.5
 
 **Here you can get the Kidoz Unity plugin and a sample app for Unity. See integration instructions and additional information bellow.**
+
+***This SDK version was verified not to contain the Advertiser Identifier (IDFA) as required by Apple App Store regulation for apps of Kids category.***
 
 Note: Since version 0.8.0.3 on Android it's possible to use both Interstitial and Rewarded Video in your app.
 Note: Since version 1.3.0 on iOS  Banner was added .
@@ -13,6 +16,8 @@ Note: Kidoz.SetiOSAppPauseOnBackground(Boolean) method was added to pause iOS ap
 
 For Android this SDK version supports secured https protocol only and will resolve Google Play Security alert of Webview that is vulnerable to JavaScript interface injection.
 Note that only secured external and internal events are supported from this version.
+
+Note: Build with Unity 2017.4.39f1 Version
 
 Note: Unity 5.6 & Unity 5.6.1 contain changes to their drawing design blocking some view methods from working effectively. At the moment, on these versions please only use our Interstitial & Rewarded ad units. Starting from Unity 5.6.2 all of our widgets work as expected.
 
