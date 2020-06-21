@@ -207,7 +207,7 @@ public class SampleCode : MonoBehaviour {
 	
 	private void interstitialOpen(string value)
 	{
-		
+		Kidoz.loadInterstitialAd (false);
 		Kidoz.printToastMessage ("SampleCode | interstitialOpen");
 	}
 	

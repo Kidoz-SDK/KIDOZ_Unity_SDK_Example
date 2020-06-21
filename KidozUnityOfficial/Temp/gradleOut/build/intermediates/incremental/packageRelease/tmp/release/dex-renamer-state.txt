@@ -1,4 +1,0 @@
-#Sun May 17 11:03:58 IDT 2020
-base.0=/Users/orikam/dev/SDK_GIT/KIDOZ_Unity_SDK_Example/KidozUnityOfficial/Temp/gradleOut/build/intermediates/dex/release/mergeDexRelease/out
-path.0=classes.dex
-renamed.0=classes.dex
