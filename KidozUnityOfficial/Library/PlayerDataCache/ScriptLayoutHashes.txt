@@ -1,6 +1,6 @@
-iOS
+Android
 PlayerPath?
-/Users/orikam/dev/ios_unity_test
+/Users/orikam/dev/SDK_GIT/KIDOZ_Unity_SDK_Example/KidozUnityOfficial/KidozDemo.apk
 SceneListBegin?
 Assets/SampleScene.unity
 SceneListEnd?
