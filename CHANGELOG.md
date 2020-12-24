@@ -1,6 +1,7 @@
 CHANGELOG
 =========
-8.9.0 Adnroid And iOS
+8.9.0
+- Wraps Android 8.9.0 SDK and iOS 8.9.0 SDK
 - IAB OMID SDK added
 - Enhanced Kidoz proprietary player
 - Improved Preloading Support
