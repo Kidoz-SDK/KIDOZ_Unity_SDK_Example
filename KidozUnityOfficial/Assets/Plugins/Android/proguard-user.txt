@@ -1,0 +1,5 @@
+-keepclasseswithmembers class com.kidoz.sdk.** {*;}
+-keep @interface org.greenrobot.eventbus.Subscribe
+-keepclassmembers class * {
+    @org.greenrobot.eventbus.Subscribe <methods>;
+}

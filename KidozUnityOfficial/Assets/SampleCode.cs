@@ -146,8 +146,6 @@ public class SampleCode : MonoBehaviour {
 		}
 		
 		
-		
-		
 		btnHeight += height;
 		
 		if (GUI.Button (new Rect (width, btnHeight, width, height), "Check Init", myStyle)) 

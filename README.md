@@ -1,9 +1,10 @@
 
+
 [<img src="https://kidoz-cdn.s3.amazonaws.com/wordpress/kidoz_small.gif" width="533px" height="300px">](https://www.youtube.com/watch?v=-ljFjRn7jeM)
 
 # KIDOZ Unity SDK Sample App
 
-KIDOZ Android SDK Version: 8.9.0
+KIDOZ Android SDK Version: 8.9.1
 KIDOZ iOS SDK Version: 8.9.0
 
 **Here you can get the Kidoz Unity plugin and a sample app for Unity. See integration instructions and additional information bellow.**
@@ -227,6 +228,17 @@ Kidoz.rewardedClose += rewardedClose;
 OR
 
 Setting the Kidoz.SetiOSAppPauseOnBackground(true); 
+```
+
+**Note for Android:**
+```
+If you are using the Minify option in the Player settings please add this to proguard-user.txt file:  
+  
+-keepclasseswithmembers class com.kidoz.sdk.** {*;}  
+-keep @interface org.greenrobot.eventbus.Subscribe  
+-keepclassmembers class * {  
+@org.greenrobot.eventbus.Subscribe <methods>;  
+}
 ```
 
 Trouble Shooting

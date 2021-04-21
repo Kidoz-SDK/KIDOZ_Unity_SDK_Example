@@ -1,12 +1,12 @@
 ﻿<Properties StartupConfiguration="{6C56433E-9354-9F46-C5B1-0BA9AA2F8B70}|">
   <MonoDevelop.Ide.Workbench ActiveDocument="Assets/SampleCode.cs">
     <Files>
-      <File FileName="Assets/SampleCode.cs" Line="105" Column="26" />
+      <File FileName="../../../../Downloads/KidozAdvertisement.cs" Line="27" Column="62" />
+      <File FileName="Assets/SampleCode.cs" Line="147" Column="3" />
       <File FileName="Assets/Plugins/Android/AndroidManifest.xml" />
       <File FileName="Assets/KIDOZAssets/Scripts/Kidoz.cs" />
       <File FileName="Assets/KIDOZAssets/Scripts/KIDOZiOSInterface.cs" />
       <File FileName="Assets/KIDOZAssets/Scripts/KIDOZAndroidInterface.cs" />
-      <File FileName="Assets/Plugins/Android/KidozSdk/AndroidManifest.xml" Line="9" Column="1" />
       <File FileName="Assets/KIDOZAssets/Scripts/KIDOZDummyInterface.cs" />
     </Files>
     <Pads>
@@ -14,10 +14,11 @@
         <State name="__root__">
           <Node name="KidozUnityOfficial" expanded="True">
             <Node name="Assets" expanded="True">
+              <Node name="KIDOZAssets" expanded="True">
+                <Node name="Scripts" expanded="True" />
+              </Node>
               <Node name="Plugins" expanded="True">
-                <Node name="Android" expanded="True">
-                  <Node name="KidozSdk" expanded="True" />
-                </Node>
+                <Node name="Android" expanded="True" />
               </Node>
               <Node name="SampleCode.cs" selected="True" />
             </Node>
@@ -26,7 +27,7 @@
       </Pad>
     </Pads>
   </MonoDevelop.Ide.Workbench>
-  <MonoDevelop.Ide.ItemProperties.KidozUnityOfficial PreferredExecutionTarget="b096f336-408a-48cf-8e58-316bcde50bb5" />
+  <MonoDevelop.Ide.ItemProperties.KidozUnityOfficial PreferredExecutionTarget="58a73114-8ff9-4409-ae83-36e0a40d5c42" />
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
