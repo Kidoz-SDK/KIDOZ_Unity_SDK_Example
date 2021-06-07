@@ -2,12 +2,13 @@
   <MonoDevelop.Ide.Workbench ActiveDocument="Assets/SampleCode.cs">
     <Files>
       <File FileName="../../../../Downloads/KidozAdvertisement.cs" Line="27" Column="62" />
-      <File FileName="Assets/SampleCode.cs" Line="147" Column="3" />
+      <File FileName="Assets/SampleCode.cs" Line="99" Column="3" />
       <File FileName="Assets/Plugins/Android/AndroidManifest.xml" />
-      <File FileName="Assets/KIDOZAssets/Scripts/Kidoz.cs" />
-      <File FileName="Assets/KIDOZAssets/Scripts/KIDOZiOSInterface.cs" />
-      <File FileName="Assets/KIDOZAssets/Scripts/KIDOZAndroidInterface.cs" />
+      <File FileName="Assets/KIDOZAssets/Scripts/Kidoz.cs" Line="290" Column="54" />
+      <File FileName="Assets/KIDOZAssets/Scripts/KIDOZiOSInterface.cs" Line="1" Column="1" />
+      <File FileName="Assets/KIDOZAssets/Scripts/KIDOZAndroidInterface.cs" Line="53" Column="1" />
       <File FileName="Assets/KIDOZAssets/Scripts/KIDOZDummyInterface.cs" />
+      <File FileName="Assets/KIDOZAssets/Scripts/KIDOZNativeInterface.cs" Line="18" Column="22" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
@@ -25,9 +26,12 @@
           </Node>
         </State>
       </Pad>
+      <Pad Id="MonoDevelop.Debugger.WatchPad">
+        <State />
+      </Pad>
     </Pads>
   </MonoDevelop.Ide.Workbench>
-  <MonoDevelop.Ide.ItemProperties.KidozUnityOfficial PreferredExecutionTarget="58a73114-8ff9-4409-ae83-36e0a40d5c42" />
+  <MonoDevelop.Ide.ItemProperties.KidozUnityOfficial PreferredExecutionTarget="e2cc7d73-c727-43dd-81ff-93b8c4fdd3c0" />
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

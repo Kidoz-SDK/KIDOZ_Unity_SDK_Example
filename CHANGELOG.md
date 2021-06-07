@@ -1,6 +1,9 @@
 
 # Changelog
 
+## 8.9.2
+- Kidoz SDK stability improved for Android SDK
+- Crash fix for Android SDK
 ## 8.9.1
 -  ANR fix for Android
 ## 8.9.0

@@ -4,7 +4,7 @@ using KIDOZNativeInterface;
 using System.Runtime.InteropServices;
 
 namespace KIDOZiOSInterface {
-	#if UNITY_IOS
+#if UNITY_IOS
 	public class KIDOZiOSInterface : KIDOZNativeInterface.KIDOZNativeInterface
 	{
 		
@@ -238,91 +238,11 @@ namespace KIDOZiOSInterface {
 		{
 		}
 		
-		public void addFeedButton(int x, int y)
-		{
-		}
-		
-		public void addFeedBUtton(int x, int y, int size)
-		{
-		}
-		
-		public void changeFeedButtonVisibility(bool visible)
-		{
-		}
-		
-		public void addPanelToView(int panelType, int handle_position)
-		{
-		}
-		
-		public void addPanelToView(int panel_type, int handle_position, float startDelay, float duration)
-		{
-		}
-		
-		public void changePanelVisibility(bool visible)
-		{
-		}
-		
-		public void expandPanelView()
-		{
-		}
-		
-		public void collapsePanelView()
-		{
-		}
-		
-		public bool getIsPanelExpended()
-		{
-			return false;
-		}
-		public void setPanelViewColor(string color)
-		{
-		}
-		
-		public int getFeedButtonSize()
-		{
-			return 0;
-		}
-		
-		public void showFeedView()
-		{
-		}
-		
-		public void dismissFeedView()
-		{
-		}
-		
-		
-		
-		public void addFlexiView(bool autoShow, int position)
-		{
-		}
-		
-		public void hideFlexiView()
-		{
-		}
-		
-		public void showFlexiView()
-		{
-		}
-		
-		public bool getIsFlexiViewVisible()
-		{
-			return false;
-		}
-		
-		public void setFlexiViewDraggable(bool dragable)
-		{
-		}
-		
-		public void setFlexiViewClosable(bool closable)
-		{
-		}
-		
-		public void showVideoUnit()
+	    public void setupCallbacks ()
 		{
 		}
 		
 	}
 	
-	#endif
+#endif
 }

@@ -16,11 +16,11 @@ using KIDOZDummyInterface;
 namespace KidozSDK
 {
 	
-	
-	
 	public class Kidoz :MonoBehaviour
 	{
+
 		
+
 		public enum PANEL_TYPE
 		{
 			BOTTOM = 0, TOP = 1, LEFT = 2, RIGHT = 3
@@ -51,27 +51,66 @@ namespace KidozSDK
 			NORMAL = 0,
 			REWARDED = 1
 		}
-		
+
+		interface IAdLoader{
+			void LoadAd ();
+		}
+
+		class BannerAdLoader : IAdLoader{
+
+			public bool isAutoShow = false;
+			public BANNER_POSITION position = BANNER_POSITION.TOP_CENTER;
+
+			public BannerAdLoader (bool isAutoShow, BANNER_POSITION position) {
+				this.isAutoShow = isAutoShow;
+				this.position = position;
+			}
+
+			public void LoadAd (){
+				kidozin.loadBanner (isAutoShow, (int)position);
+			}
+		}
+
+
+		class InterstitialAdLoader : IAdLoader{
+
+			public bool isAutoShow = false;
+
+			public InterstitialAdLoader (bool isAutoShow) {
+				this.isAutoShow = isAutoShow;
+			}
+
+			public void LoadAd (){
+				kidozin.loadInterstitialAd (isAutoShow);
+			}
+		}
+
+		class RewardedAdLoader : IAdLoader{
+
+			public bool isAutoShow = false;
+
+			public RewardedAdLoader (bool isAutoShow){
+				this.isAutoShow = isAutoShow;
+			}
+
+			public void LoadAd (){
+				kidozin.loadRewardedAd (isAutoShow);
+			}
+		}
+
+
+		public static ArrayList adLoaderArray = new ArrayList ();
+
 		public const int NO_GAME_OBJECT = -1;
 		public const int PLATFORM_NOT_SUPPORTED = -2;
-		
+
 		public static event Action<string> initSuccess;
 		
 		public static event Action<string> initError;
 		
-		public static event Action<string> panelExpand;
-		
-		public static event Action<string> panelCollapse;
-		
-		public static event Action<string> panelReady;
-		
 		public static event Action<string> bannerContentLoaded;
 		
 		public static event Action<string> bannerContentLoadFailed;
-		
-		public static event Action<string> playerOpen;
-		
-		public static event Action<string> playerClose;
 		
 		public static event Action<string> interstitialOpen;
 		
@@ -113,10 +152,14 @@ namespace KidozSDK
 		
 		static private bool initFlag = false;
 		static private bool mPause = false;
-		
-		#if UNITY_IOS
+
+		static private string staticPublisherID ;
+		static private string staticSecurityToken;
+
+
+#if UNITY_IOS
 		private static KIDOZiOSInterface.KIDOZiOSInterface kidozin = new KIDOZiOSInterface.KIDOZiOSInterface();
-		#elif UNITY_ANDROID
+#elif UNITY_ANDROID
 		private static KIDOZAndroidInterface.KIDOZAndroidInterface kidozin = new KIDOZAndroidInterface.KIDOZAndroidInterface();
 		#else
 		private static KIDOZDummyInterface.KIDOZDummyInterface kidozin = new KIDOZDummyInterface.KIDOZDummyInterface ( );
@@ -129,7 +172,18 @@ namespace KidozSDK
 		#region Singelton
 		
 		static private Kidoz instance = null;
-		
+
+		private void SetStaticVars () {
+			staticPublisherID = PublisherID;
+			staticSecurityToken = SecurityToken;
+		}
+
+		private static void InitWithStaticVars () {
+			if (!string.IsNullOrEmpty (staticPublisherID) && !string.IsNullOrEmpty (staticSecurityToken)) {
+				init (staticPublisherID, staticSecurityToken);
+			}
+		}
+
 		public static Kidoz Instance
 		{
 			get
@@ -154,6 +208,8 @@ namespace KidozSDK
 			if (instance == null)
 			{
 				SetInstance ( this );
+				//SetupCallbacks ();
+				//SetStaticVars ();
 				if (!string.IsNullOrEmpty ( PublisherID ) && !string.IsNullOrEmpty ( SecurityToken ))
 				{
 					init ( PublisherID, SecurityToken );
@@ -182,7 +238,15 @@ namespace KidozSDK
 		public static void SetiOSAppPauseOnBackground(Boolean pause){
 			mPause = pause;
 		}
-		
+
+		private static void SetupCallbacks ()
+		{
+			if (instance == null) 
+				SetInstance (Create ());
+
+			kidozin.setupCallbacks ();
+		}
+
 		public static void init (string developerID, string securityToken)
 		{
 			if (initFlag == true)
@@ -225,97 +289,7 @@ namespace KidozSDK
 		//Since Kidoz SDK should be activated only once use this function to create 
 		//a game object. If Kidoz game object was added to the scene there is no need to call this function
 		
-		
-		
-		
-		// Description: Add panel to view 
-		// Parameters: 
-		// 		PANEL_TYPE panel_type - The panel type (where the panel will be located)
-		//		HANDLE_POSITION handle_position - the place where to place the handle for the panel
-		// return:
-		//		0 	- the function worked correctly
-		//		NO_GAME_OBJECT	- there is no Kidoz gameobject 
-		public static int addPanelToView (PANEL_TYPE panel_type, HANDLE_POSITION handle_position)
-		{
-			kidozin.addPanelToView ( (int) panel_type, (int) handle_position );
-			
-			return 0;
-		}
-		
-		// Description: Add panel to view which will be opened automatically for the requested duration 
-		// Parameters: 
-		// 		PANEL_TYPE panel_type - The panel type (where the panel will be located)
-		//		HANDLE_POSITION handle_position - the place where to place the handle for the panel
-		//		float startDelay				- the selected time in seconds before the panel will be opened. -1 will disable this feature
-		//		float duration					- the selected time in seconds for the panel to stay open. -1 the panel will not be closed.
-		// return:
-		//		0 	- the function worked correctly
-		//		NO_GAME_OBJECT	- there is no Kidoz gameobject 
-		public static int addPanelToView (PANEL_TYPE panel_type, HANDLE_POSITION handle_position, float startDelay, float duration)
-		{
-			
-			//TODO: implement function
-			return 0;
-		}
-		
-		// Description: Change the panel button visibility 
-		// Parameters: 
-		// 		bool visible - true the panel will appear. false the button will be hidden
-		// return:
-		//		0 	- the function worked correctly
-		//		NO_GAME_OBJECT	- there is no Kidoz gameobject 
-		public static int changePanelVisibility (bool visible)
-		{
-			kidozin.changePanelVisibility ( visible );
-			return 0;
-		}
-		
-		// Description: Expand the panel view 
-		// Parameters: 
-		// 		N/A
-		// return:
-		//		0 	- the function worked correctly
-		//		NO_GAME_OBJECT	- there is no Kidoz gameobject 
-		public static int expandPanelView ()
-		{
-			kidozin.expandPanelView ( );
-			return 0;
-		}
-		
-		// Description: Collapse the panel view 
-		// Parameters: 
-		// 		N/A
-		// return:
-		//		0 	- the function worked correctly
-		//		NO_GAME_OBJECT	- there is no Kidoz gameobject 
-		public static int collapsePanelView ()
-		{
-			kidozin.collapsePanelView ( );
-			return 0;
-		}
-		
-		// Description: set panel color
-		// Parameters: 
-		// 		string panelColor - the panel color as hex string with # sign
-		// return:
-		//		0 	- the function worked correctly
-		//		NO_GAME_OBJECT	- there is no Kidoz gameobject 
-		public static int setPanelColor (String panelColor)
-		{
-			kidozin.setPanelViewColor ( panelColor );
-			return 0;
-		}
-		
-		
-		public static bool getIsPanelExpanded ()
-		{
-			//			return kidozin.getIsPanelExpended (); //TODO: WHY?
-			return false;
-		}
-		
-		
-		
-		
+	
 		
 		//***********************************//
 		//***** INTERSTITIAL & REWARDED *****//
@@ -326,16 +300,34 @@ namespace KidozSDK
 		// return:
 		//		0 	- the function worked correctly
 		//		NO_GAME_OBJECT	- there is no Kidoz gameobject 
-		public static int loadInterstitialAd (bool isAutoShow)
-		{
-			kidozin.loadInterstitialAd ( isAutoShow );
+		public static int loadInterstitialAd (bool isAutoShow){
+
+			kidozin.loadInterstitialAd (isAutoShow);
 			return 0;
+
+		    /*if (!isInitialised()) {
+				IAdLoader adLoader = new InterstitialAdLoader (isAutoShow);
+				adLoaderArray.Add (adLoader);
+				InitWithStaticVars ();
+
+			} else
+			kidozin.loadInterstitialAd ( isAutoShow );
+			return 0;*/
 		}
 		
-		public static int loadRewardedAd (bool isAutoShow)
-		{
-			kidozin.loadRewardedAd ( isAutoShow );
+		public static int loadRewardedAd (bool isAutoShow){
+
+			kidozin.loadRewardedAd (isAutoShow);
 			return 0;
+
+			/*if (!isInitialised ()) {
+				IAdLoader adLoader = new RewardedAdLoader (isAutoShow);
+				adLoaderArray.Add (adLoader);
+				InitWithStaticVars ();
+
+			} else
+				kidozin.loadRewardedAd ( isAutoShow );
+			return 0;*/
 		}
 		
 		// Description: generate the interstitial object
@@ -344,16 +336,35 @@ namespace KidozSDK
 		// return:
 		//		0 	- the function worked correctly
 		//		NO_GAME_OBJECT	- there is no Kidoz gameobject 
-		public static int generateInterstitial ()
-		{
-			kidozin.generateInterstitial ( );
+		public static int generateInterstitial (){
+
+			kidozin.generateInterstitial ();
 			return 0;
+
+		 /*if (!isInitialised ()) {
+				IAdLoader adLoader = new InterstitialAdLoader (false);
+				adLoaderArray.Add (adLoader);
+				InitWithStaticVars ();
+
+			} else
+				kidozin.generateInterstitial ( );
+			return 0;*/
 		}
 		
-		public static int generateRewarded ()
-		{
-			kidozin.generateRewarded ( );
+		public static int generateRewarded (){
+
+			kidozin.generateRewarded ();
 			return 0;
+
+			/*if (!isInitialised ()) {
+				IAdLoader adLoader = new RewardedAdLoader (false);
+				adLoaderArray.Add (adLoader);
+				InitWithStaticVars ();
+
+			} else
+
+				kidozin.generateRewarded ( );
+			return 0;*/
 		}
 		
 		// Description: show the interstitial add that was loaded
@@ -408,10 +419,19 @@ namespace KidozSDK
 		// return:
 		//		0 	- the function worked correctly
 		//		NO_GAME_OBJECT	- there is no Kidoz gameobject 
-		public static int loadBanner (bool isAutoShow, BANNER_POSITION position)
-		{
-			kidozin.loadBanner ( isAutoShow, (int) position );
+		public static int loadBanner (bool isAutoShow, BANNER_POSITION position){
+
+			kidozin.loadBanner (isAutoShow, (int)position);
 			return 0;
+
+
+			/*if (!isInitialised()) {
+				IAdLoader adLoader = new BannerAdLoader (isAutoShow, position);
+				adLoaderArray.Add (adLoader);
+				InitWithStaticVars ();
+			} else
+				kidozin.loadBanner ( isAutoShow, (int) position );
+			return 0;*/
 		}
 		
 		// Description: set Banner Position 
@@ -463,6 +483,14 @@ namespace KidozSDK
 		////////////////////////////////////
 		public void initSuccessCallback (string message)
 		{
+			if (adLoaderArray.Count > 0) {
+
+				for (int i = adLoaderArray.Count - 1; i >= 0; i--) {
+					((IAdLoader)adLoaderArray [i]).LoadAd ();
+					adLoaderArray.RemoveAt (i);
+				}
+			}
+
 			if (initSuccess != null)
 			{
 				initSuccess ( message );
@@ -477,31 +505,7 @@ namespace KidozSDK
 			}
 		}
 		
-		
-		private void panelExpandCallBack (string message)
-		{
-			if (panelExpand != null)
-			{
-				panelExpand ( message );
-			}
-		}
-		
-		private void panelCollapseCallBack (string message)
-		{
-			if (panelCollapse != null)
-			{
-				panelCollapse ( message );
-			}
-		}
-		
-		private void panelReadyCallBack (string message)
-		{
-			if (panelReady != null)
-			{
-				panelReady ( message );
-			}
-		}
-		
+
 		public void bannerReadyCallBack (string message)
 		{
 			if (bannerReady != null)
@@ -535,23 +539,7 @@ namespace KidozSDK
 		}
 		
 		
-		
-		
-		private void playerOpenCallBack (string message)
-		{
-			if (playerOpen != null)
-			{
-				playerOpen ( message );
-			}
-		}
-		private void playerCloseCallBack (string message)
-		{
-			if (playerClose != null)
-			{
-				playerClose ( message );
-			}
-		}
-		
+	
 		
 		
 		//***********************************//

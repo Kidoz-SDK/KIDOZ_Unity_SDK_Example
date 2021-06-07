@@ -4,7 +4,7 @@
 
 # KIDOZ Unity SDK Sample App
 
-KIDOZ Android SDK Version: 8.9.1
+KIDOZ Android SDK Version: 8.9.2
 KIDOZ iOS SDK Version: 8.9.0
 
 **Here you can get the Kidoz Unity plugin and a sample app for Unity. See integration instructions and additional information bellow.**

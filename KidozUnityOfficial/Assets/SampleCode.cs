@@ -44,21 +44,8 @@ public class SampleCode : MonoBehaviour {
 		Kidoz.bannerClose += bannerClose;
 		Kidoz.bannerError += bannerError;
 		Kidoz.bannerNoOffers +=bannerNoOffers;
-		
-		#if !UNITY_IOS
-		
-		Kidoz.panelExpand += panelExpand;
-		Kidoz.panelCollapse += panelCollapse;
-		Kidoz.panelReady += panelReady;
-		Kidoz.playerOpen += playerOpen;
-		Kidoz.playerClose += playerClose;
-		
-		
-		
-		//Show sample Ads on Start()
-		Kidoz.addPanelToView (Kidoz.PANEL_TYPE.BOTTOM, Kidoz.HANDLE_POSITION.START);
-		
-		#endif
+			
+			
 		
 	}
 	
@@ -66,6 +53,9 @@ public class SampleCode : MonoBehaviour {
 	}
 	
 	void OnGUI() {
+
+		
+
 		double factor = Screen.width / 335.0;
 		GUIStyle myStyle = new GUIStyle (GUI.skin.GetStyle("label"));
 		
@@ -151,8 +141,8 @@ public class SampleCode : MonoBehaviour {
 		if (GUI.Button (new Rect (width, btnHeight, width, height), "Check Init", myStyle)) 
 		{
 			bool isKidozInit = Kidoz.isInitialised();
-			Kidoz.printToastMessage ("KidozInitialized = " + isKidozInit);
 			print ("SampleCode | KidozInitialized = " + isKidozInit);
+			Kidoz.printToastMessage ("KidozInitialized = " + isKidozInit);
 		}
 		
 		
@@ -163,9 +153,9 @@ public class SampleCode : MonoBehaviour {
 	{
 		print ("SampleCode | KidozInitSuccess");
 		Kidoz.printToastMessage ("KidozInitSuccess");
-		
+
 	}
-	
+
 	private void onKidozInitError(string value)
 	{
 		string errMsg = "KidozInitError: " + value;
@@ -174,34 +164,6 @@ public class SampleCode : MonoBehaviour {
 	}
 	
 	
-	
-	private void panelExpand(string value)
-	{
-		print ("SampleCode | panel view opened");
-	}
-	
-	private void panelCollapse(string value)
-	{
-		print ("SampleCode | panel view closed");
-	}
-	private void panelReady(string value)
-	{
-		print ("SampleCode | panel ready");
-		
-		//Kidoz.changePanelVisibility(false);	
-	}
-	
-	
-	private void playerOpen(string value)
-	{
-		print ("SampleCode | playerOpen");
-		
-	}
-	private void playerClose(string value)
-	{
-		print ("SampleCode | playerClose");
-		
-	}
 	
 	private void interstitialOpen(string value)
 	{
